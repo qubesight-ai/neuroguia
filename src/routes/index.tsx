@@ -180,7 +180,7 @@ function Inicio() {
                   <Link
                     to={a.to}
                     className={cn(
-                      "elevar-suave flex h-full flex-col rounded-2xl border border-border p-5 no-underline hover:border-foreground/15",
+                      "elevar-suave flex h-full flex-col rounded-none border border-border p-5 no-underline hover:border-foreground/15",
                       c.fondo,
                     )}
                     data-card
@@ -282,7 +282,7 @@ function Inicio() {
           </h2>
           <ul className="mt-8 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-4">
             <li
-              className="elevar-suave rounded-2xl border border-border bg-card p-5 hover:border-foreground/15"
+              className="elevar-suave rounded-none border border-border bg-card p-5 hover:border-foreground/15"
               data-card
             >
               <h3 className="font-semibold">{guiones.length} guiones sociales</h3>
@@ -294,7 +294,7 @@ function Inicio() {
               </Link>
             </li>
             <li
-              className="elevar-suave rounded-2xl border border-border bg-card p-5 hover:border-foreground/15"
+              className="elevar-suave rounded-none border border-border bg-card p-5 hover:border-foreground/15"
               data-card
             >
               <h3 className="font-semibold">{ejercicios.length} ejercicios interactivos</h3>
@@ -306,7 +306,7 @@ function Inicio() {
               </Link>
             </li>
             <li
-              className="elevar-suave rounded-2xl border border-border bg-card p-5 hover:border-foreground/15"
+              className="elevar-suave rounded-none border border-border bg-card p-5 hover:border-foreground/15"
               data-card
             >
               <h3 className="font-semibold">Límites y seguridad</h3>
@@ -321,7 +321,7 @@ function Inicio() {
               </Link>
             </li>
             <li
-              className="elevar-suave rounded-2xl border border-border bg-card p-5 hover:border-foreground/15"
+              className="elevar-suave rounded-none border border-border bg-card p-5 hover:border-foreground/15"
               data-card
             >
               <h3 className="font-semibold">Mi plan de regulación</h3>

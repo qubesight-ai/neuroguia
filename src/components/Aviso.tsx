@@ -41,7 +41,7 @@ export function Aviso({
   const { icono: Icono, clase, prefijo } = config[tipo];
   return (
     <aside
-      className={cn("rounded-3xl border-2 p-5 shadow-soft", clase, className)}
+      className={cn("rounded-none border-2 p-5 shadow-soft", clase, className)}
       aria-label={`${prefijo}: ${titulo}`}
     >
       <div className="flex items-start gap-3">

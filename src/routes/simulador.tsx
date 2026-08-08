@@ -67,7 +67,7 @@ function Simulador() {
         descripcion="Escenarios breves con varias respuestas posibles. No hay respuestas correctas ni incorrectas: hay efectos distintos."
       />
 
-      <div className="borde-degradado mt-8 rounded-3xl bg-card p-6 shadow-soft" data-card>
+      <div className="borde-degradado mt-8 rounded-none bg-card p-6 shadow-soft" data-card>
         <BarraProgreso
           actual={indice + 1}
           total={ejercicios.length}
@@ -80,7 +80,7 @@ function Simulador() {
             <BotonFavorito tipo="simulador" id={ejercicio.id} nombre={ejercicio.titulo} />
           </div>
           <h2 className="mt-3 text-2xl font-bold">{ejercicio.titulo}</h2>
-          <p className="mt-3 rounded-2xl border border-border bg-muted p-5 text-lg">
+          <p className="mt-3 rounded-none border border-border bg-muted p-5 text-lg">
             {ejercicio.escenario}
           </p>
 
@@ -97,7 +97,7 @@ function Simulador() {
                       aria-pressed={activa}
                       onClick={() => setElegida(o.id)}
                       className={cn(
-                        "flex w-full items-start gap-3 rounded-2xl border-2 border-l-8 bg-card p-4 text-left text-base font-semibold transition-colors duration-200",
+                        "flex w-full items-start gap-3 rounded-none border-2 border-l-8 bg-card p-4 text-left text-base font-semibold transition-colors duration-200",
                         c.borde,
                         c.bordeSuperior.replace("border-t-", "border-l-"),
                         activa ? cn(c.fondo, "ring-2 ring-offset-2 ring-offset-card", c.anillo) : "hover:bg-muted",
@@ -117,7 +117,7 @@ function Simulador() {
 
           <div aria-live="polite">
             {opcion && (
-              <div className="mt-6 rounded-3xl border-2 border-nd-morado/40 bg-nd-morado-soft p-5 shadow-soft">
+              <div className="mt-6 rounded-none border-2 border-nd-morado/40 bg-nd-morado-soft p-5 shadow-soft">
                 <Insignia tono={tonoValoracion[opcion.valoracion]}>
                   {etiquetasValoracion[opcion.valoracion]}
                 </Insignia>
