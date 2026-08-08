@@ -21,6 +21,8 @@
 
 @theme inline {
   --font-sans: "Atkinson Hyperlegible", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --font-editorial: "Playfair Display", Georgia, serif;
   --color-nd-azul: var(--nd-azul);
   --color-nd-azul-soft: var(--nd-azul-soft);
   --color-nd-azul-ink: var(--nd-azul-ink);
@@ -104,7 +106,7 @@
 }
 
 :root {
-  --radius: 0.75rem;
+  --radius: 0.1875rem;
   --font-scale: 1;
   --nd-c: 1; /* multiplicador de saturación: intensidad visual */
 
@@ -173,9 +175,9 @@
     var(--nd-morado) 100%
   );
 
-  --background: oklch(0.988 0.003 250);
-  --foreground: oklch(0.29 0.041 262);
-  --card: oklch(1 0 0);
+  --background: oklch(0.981 0.006 85);
+  --foreground: oklch(0.22 0.015 262);
+  --card: oklch(0.995 0.003 85);
   --card-foreground: oklch(0.29 0.041 262);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.29 0.041 262);
@@ -188,8 +190,8 @@
   --lavender: oklch(0.665 0.108 293);
   --lavender-foreground: oklch(0.99 0.003 293);
   --lavender-soft: oklch(0.955 0.028 293);
-  --muted: oklch(0.955 0.008 250);
-  --muted-foreground: oklch(0.553 0.028 258);
+  --muted: oklch(0.955 0.008 85);
+  --muted-foreground: oklch(0.5 0.014 258);
   --accent: oklch(0.955 0.03 165);
   --accent-foreground: oklch(0.29 0.041 262);
   --warning: oklch(0.86 0.098 87);
@@ -198,8 +200,8 @@
   --destructive: oklch(0.628 0.131 30);
   --destructive-foreground: oklch(0.99 0.003 30);
   --destructive-soft: oklch(0.955 0.03 30);
-  --border: oklch(0.912 0.012 252);
-  --input: oklch(0.905 0.012 252);
+  --border: oklch(0.855 0.012 252);
+  --input: oklch(0.83 0.012 252);
   --ring: oklch(0.552 0.126 267.5);
 
   --shadow-soft: 0 1px 1px oklch(0.29 0.041 262 / 3%);
@@ -312,6 +314,26 @@
     max-width: 72ch;
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  blockquote {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    font-weight: 800;
+    line-height: 1.04;
+  }
+
+  h2,
+  h3 {
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
   :focus-visible {
     outline: 3px solid var(--ring);
     outline-offset: 3px;
@@ -388,8 +410,84 @@
   background-color: var(--card);
   color: var(--card-foreground);
   border: 1px solid var(--border);
-  border-radius: var(--radius-2xl);
-  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius-sm);
+  box-shadow: none;
+}
+
+/* ============================================================
+   Sistema editorial tipo revista / periódico moderno
+   ============================================================ */
+
+/* Antetítulo en versalitas, como en prensa. */
+@utility antetitulo {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--muted-foreground);
+}
+
+/* Regla doble clásica de cabecera. */
+@utility regla-doble {
+  border-top: 3px solid var(--foreground);
+  border-bottom: 1px solid var(--foreground);
+  height: 5px;
+}
+
+/* Filete fino de separación. */
+@utility filete {
+  border-top: 1px solid var(--border);
+}
+
+/* Letra capitular del primer párrafo. */
+@utility capitular {
+  &::first-letter {
+    float: left;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 3.4em;
+    line-height: 0.82;
+    margin-inline-end: 0.08em;
+    margin-block-start: 0.06em;
+    color: var(--foreground);
+  }
+}
+
+/* Texto a columnas con filete entre ellas. */
+@utility columnas-editorial {
+  column-gap: 2.25rem;
+  column-rule: 1px solid var(--border);
+  @media (min-width: 768px) {
+    column-count: 2;
+  }
+}
+
+/* Titular de portada. */
+@utility titular {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+/* Entradilla / lead. */
+@utility entradilla {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--muted-foreground);
+}
+
+/* Tarjeta editorial: sin sombra, filete superior marcado. */
+@utility tarjeta-editorial {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--foreground);
+  border-radius: 0;
 }
 
 @utility skip-link {
@@ -492,12 +590,11 @@
 
 @utility elevar-suave {
   transition:
-    transform 400ms cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 300ms cubic-bezier(0.16, 1, 0.3, 1),
     border-color 400ms cubic-bezier(0.16, 1, 0.3, 1);
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-soft-lg);
+    background-color: var(--muted);
+    border-color: var(--foreground);
   }
 }
 

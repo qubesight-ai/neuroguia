@@ -153,7 +153,7 @@ function DetalleSituacion() {
             </p>
             <ol className="mt-4 list-none space-y-4 p-0">
               {situacion.opciones.map((o, i) => (
-                <li key={o.texto} className="rounded-2xl border border-border bg-muted p-5">
+                <li key={o.texto} className="rounded-none border border-border bg-muted p-5">
                   <p className="m-0 font-bold">
                     <span className="text-primary">Opción {i + 1}. </span>
                     {o.texto}

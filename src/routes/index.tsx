@@ -80,23 +80,23 @@ function Inicio() {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-border">
+      <section className="relative overflow-hidden border-b-[3px] border-foreground">
         <ManchasFondo />
-        <Contenedor className="grid items-center gap-12 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:py-28">
-          <div>
-            <p className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-[0.7rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
-              Guía social para personas neurodivergentes
-            </p>
-            <h1 className="mt-6 text-[clamp(2rem,6vw,3.5rem)] font-bold leading-[1.08] tracking-[-0.03em]">
-              Comprender las <span className="texto-degradado">normas sociales</span> sin dejar de
-              ser tú
-            </h1>
-            <p className="mt-5 max-w-xl text-base text-muted-foreground sm:text-lg">
-              {t.lemaSecundario}
-            </p>
+        <Contenedor className="py-10 sm:py-14">
+          <p className="antetitulo flex items-center gap-2 border-b border-border pb-3">
+            <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
+            Portada · Guía social para personas neurodivergentes
+          </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 grid gap-10 lg:grid-cols-[1.35fr_0.65fr]">
+            <div className="lg:border-r lg:border-border lg:pr-10">
+              <h1 className="titular text-[clamp(2.4rem,7vw,4.5rem)]">
+                Comprender las <em className="font-normal italic">normas sociales</em> sin dejar de
+                ser tú
+              </h1>
+              <p className="entradilla mt-6 max-w-2xl">{t.lemaSecundario}</p>
+
+              <div className="filete mt-8 flex flex-wrap gap-3 pt-8">
               <Link to="/situaciones" className="no-underline">
                 <Boton tamano="lg">
                   {t.acciones.explorar}
@@ -108,14 +108,17 @@ function Inicio() {
                   {t.acciones.comoFunciona}
                 </Boton>
               </Link>
+              </div>
+
+              <p className="mt-6 text-sm text-muted-foreground">
+                Sin registro. Todo lo que guardes se queda en tu dispositivo.
+              </p>
             </div>
 
-            <p className="mt-6 text-sm text-muted-foreground">
-              Sin registro. Todo lo que guardes se queda en tu dispositivo.
-            </p>
+            <aside className="flex flex-col gap-6">
+              <IlustracionInfinito />
+            </aside>
           </div>
-
-          <IlustracionInfinito />
         </Contenedor>
       </section>
 
@@ -177,7 +180,7 @@ function Inicio() {
                   <Link
                     to={a.to}
                     className={cn(
-                      "elevar-suave flex h-full flex-col rounded-2xl border border-border p-5 no-underline hover:border-foreground/15",
+                      "elevar-suave flex h-full flex-col rounded-none border border-border p-5 no-underline hover:border-foreground/15",
                       c.fondo,
                     )}
                     data-card
@@ -200,7 +203,8 @@ function Inicio() {
 
       <section aria-labelledby="categorias-titulo" className="pb-16 sm:pb-20">
         <Contenedor>
-          <h2 id="categorias-titulo" className="text-2xl font-bold tracking-[-0.02em] sm:text-3xl">
+          <p className="antetitulo border-b-2 border-foreground pb-2">Secciones</p>
+          <h2 id="categorias-titulo" className="mt-4 text-3xl sm:text-4xl">
             Categorías principales
           </h2>
           <p className="mt-2 text-muted-foreground">
@@ -219,10 +223,11 @@ function Inicio() {
       <section aria-labelledby="identidad-titulo" className="border-y border-border bg-card py-16 sm:py-20">
         <Contenedor className="grid gap-10 lg:grid-cols-[1.2fr_1fr]">
           <div>
-            <h2 id="identidad-titulo" className="text-2xl font-bold tracking-[-0.02em] sm:text-3xl">
+            <p className="antetitulo border-b-2 border-foreground pb-2">Editorial</p>
+            <h2 id="identidad-titulo" className="mt-4 text-3xl sm:text-4xl">
               No tienes que cambiar quién eres
             </h2>
-            <p className="mt-3 text-muted-foreground">
+            <p className="capitular mt-4 text-muted-foreground">
               NeuroGuía no enseña a parecer neurotípico ni a ocultar rasgos autistas. Explica
               información social que muchas veces se transmite de forma implícita, para que puedas
               decidir con más datos.
@@ -247,10 +252,16 @@ function Inicio() {
       <section aria-labelledby="previa-titulo" className="py-16 sm:py-20">
         <Contenedor>
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-4">
-            <h2 id="previa-titulo" className="text-2xl font-bold tracking-[-0.02em] sm:text-3xl">
-              Situaciones para empezar
-            </h2>
-            <Link to="/situaciones" className="shrink-0 text-sm font-semibold text-foreground">
+            <div>
+              <p className="antetitulo">Lo último</p>
+              <h2 id="previa-titulo" className="mt-2 text-3xl sm:text-4xl">
+                Situaciones para empezar
+              </h2>
+            </div>
+            <Link
+              to="/situaciones"
+              className="shrink-0 border-b-2 border-foreground pb-0.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-foreground no-underline"
+            >
               Ver todas
             </Link>
           </div>
@@ -266,12 +277,13 @@ function Inicio() {
 
       <section aria-labelledby="recursos-titulo" className="pb-20 sm:pb-24">
         <Contenedor>
-          <h2 id="recursos-titulo" className="text-2xl font-bold tracking-[-0.02em] sm:text-3xl">
+          <p className="antetitulo border-b-2 border-foreground pb-2">Recursos</p>
+          <h2 id="recursos-titulo" className="mt-4 text-3xl sm:text-4xl">
             Recursos destacados
           </h2>
           <ul className="mt-8 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-4">
             <li
-              className="elevar-suave rounded-2xl border border-border bg-card p-5 hover:border-foreground/15"
+              className="tarjeta-editorial elevar-suave p-5"
               data-card
             >
               <h3 className="font-semibold">{guiones.length} guiones sociales</h3>
@@ -283,7 +295,7 @@ function Inicio() {
               </Link>
             </li>
             <li
-              className="elevar-suave rounded-2xl border border-border bg-card p-5 hover:border-foreground/15"
+              className="tarjeta-editorial elevar-suave p-5"
               data-card
             >
               <h3 className="font-semibold">{ejercicios.length} ejercicios interactivos</h3>
@@ -295,7 +307,7 @@ function Inicio() {
               </Link>
             </li>
             <li
-              className="elevar-suave rounded-2xl border border-border bg-card p-5 hover:border-foreground/15"
+              className="tarjeta-editorial elevar-suave p-5"
               data-card
             >
               <h3 className="font-semibold">Límites y seguridad</h3>
@@ -310,7 +322,7 @@ function Inicio() {
               </Link>
             </li>
             <li
-              className="elevar-suave rounded-2xl border border-border bg-card p-5 hover:border-foreground/15"
+              className="tarjeta-editorial elevar-suave p-5"
               data-card
             >
               <h3 className="font-semibold">Mi plan de regulación</h3>

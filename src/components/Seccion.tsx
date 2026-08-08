@@ -23,8 +23,8 @@ export function EncabezadoPagina({
 }) {
   return (
     <div className="max-w-3xl">
-      <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{titulo}</h1>
-      <p className="mt-3 text-lg text-muted-foreground">{descripcion}</p>
+      <h1 className="titular text-[clamp(2rem,5vw,3.25rem)]">{titulo}</h1>
+      <p className="entradilla mt-4">{descripcion}</p>
       {children}
     </div>
   );

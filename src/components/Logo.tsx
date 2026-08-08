@@ -60,15 +60,15 @@ export function Logo({
 }) {
   return (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
-      <SimboloInfinito className="h-7 w-14 shrink-0" idGradiente={idGradiente} />
+      <SimboloInfinito className="h-6 w-12 shrink-0" idGradiente={idGradiente} />
       {!soloSimbolo && (
         <span
           className={cn(
-            "text-xl font-extrabold tracking-tight sm:text-[1.4rem]",
+            "font-display text-2xl font-black tracking-[-0.035em] sm:text-[1.7rem]",
             claro ? "text-white" : "text-foreground",
           )}
         >
-          Neuro<span className={claro ? "text-white" : "texto-degradado"}>Guía</span>
+          Neuro<span className={claro ? "text-white" : "italic"}>Guía</span>
         </span>
       )}
       {soloSimbolo && <span className="sr-only">NeuroGuía</span>}
