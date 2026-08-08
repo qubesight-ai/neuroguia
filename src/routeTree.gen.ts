@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SituacionesIndexRouteImport } from './routes/situaciones.index'
+import { Route as SituacionesIdRouteImport } from './routes/situaciones.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SituacionesIndexRoute = SituacionesIndexRouteImport.update({
+  id: '/situaciones/',
+  path: '/situaciones/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SituacionesIdRoute = SituacionesIdRouteImport.update({
+  id: '/situaciones/$id',
+  path: '/situaciones/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/situaciones/$id': typeof SituacionesIdRoute
+  '/situaciones/': typeof SituacionesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/situaciones/$id': typeof SituacionesIdRoute
+  '/situaciones': typeof SituacionesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/situaciones/$id': typeof SituacionesIdRoute
+  '/situaciones/': typeof SituacionesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/situaciones/$id' | '/situaciones/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/situaciones/$id' | '/situaciones'
+  id: '__root__' | '/' | '/situaciones/$id' | '/situaciones/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  SituacionesIdRoute: typeof SituacionesIdRoute
+  SituacionesIndexRoute: typeof SituacionesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,12 +68,38 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/situaciones/': {
+      id: '/situaciones/'
+      path: '/situaciones'
+      fullPath: '/situaciones/'
+      preLoaderRoute: typeof SituacionesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/situaciones/$id': {
+      id: '/situaciones/$id'
+      path: '/situaciones/$id'
+      fullPath: '/situaciones/$id'
+      preLoaderRoute: typeof SituacionesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  SituacionesIdRoute: SituacionesIdRoute,
+  SituacionesIndexRoute: SituacionesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

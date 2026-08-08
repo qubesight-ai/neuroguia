@@ -17,12 +17,16 @@ interface Filtros {
 }
 
 export const Route = createFileRoute("/situaciones/")({
-  validateSearch: (search: Record<string, unknown>): Filtros => ({
-    q: typeof search.q === "string" ? search.q : "",
-    categoria: typeof search.categoria === "string" ? search.categoria : "todas",
-    ambiguedad: typeof search.ambiguedad === "string" ? search.ambiguedad : "todas",
-    contexto: typeof search.contexto === "string" ? search.contexto : "todos",
-  }),
+  validateSearch: (search: Record<string, unknown>): Filtros => {
+    const texto = (clave: string, porDefecto: string) =>
+      typeof search[clave] === "string" ? (search[clave] as string) : porDefecto;
+    return {
+      q: texto("q", ""),
+      categoria: texto("categoria", "todas"),
+      ambiguedad: texto("ambiguedad", "todas"),
+      contexto: texto("contexto", "todos"),
+    };
+  },
   head: () => ({
     meta: [
       { title: "Biblioteca de situaciones sociales — NeuroGuía" },
@@ -49,7 +53,7 @@ function Situaciones() {
   const navigate = Route.useNavigate();
 
   const actualizar = (parcial: Partial<Filtros>) => {
-    navigate({ search: (prev) => ({ ...prev, ...parcial }) });
+    navigate({ search: (prev: Filtros) => ({ ...prev, ...parcial }) });
   };
 
   const lista = useMemo(() => {
