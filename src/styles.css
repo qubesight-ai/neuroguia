@@ -48,6 +48,8 @@
   --color-nd-morado: var(--nd-morado);
   --color-nd-morado-soft: var(--nd-morado-soft);
   --color-nd-morado-ink: var(--nd-morado-ink);
+  --color-nd-pie: var(--nd-pie);
+  --color-nd-enlace-pie: var(--nd-enlace-pie);
   --color-primary-soft: var(--primary-soft);
   --color-secondary-soft: var(--secondary-soft);
   --color-lavender: var(--lavender);
@@ -134,6 +136,8 @@
   --nd-morado: oklch(0.561 calc(0.166 * var(--nd-c)) 298.5);
   --nd-morado-soft: oklch(0.965 calc(0.03 * var(--nd-c)) 298.5);
   --nd-morado-ink: oklch(0.47 calc(0.16 * var(--nd-c)) 298.5);
+  --nd-pie: oklch(0.256 0.045 264);
+  --nd-enlace-pie: oklch(0.84 calc(0.09 * var(--nd-c)) 241.1);
 
   /* Degradados orgánicos */
   --grad-principal: linear-gradient(
