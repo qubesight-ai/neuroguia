@@ -97,7 +97,11 @@ function Inicio() {
               <p className="entradilla mt-6 max-w-2xl">{t.lemaSecundario}</p>
 
               <div className="filete mt-8 flex flex-wrap gap-3 pt-8">
-              <Link to="/situaciones" className="no-underline">
+              <Link
+                to="/situaciones"
+                search={{ q: "", categoria: "todas", ambiguedad: "todas", contexto: "todos" }}
+                className="no-underline"
+              >
                 <Boton tamano="lg">
                   {t.acciones.explorar}
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -154,12 +158,13 @@ function Inicio() {
             {consulta && resultados.length === 0 && (
               <div className="mt-4">
                 <EstadoVacio titulo="Sin coincidencias exactas" descripcion={t.busqueda.sinResultados}>
-                  <Link
-                    to="/situaciones"
-                    className="inline-flex min-h-11 items-center rounded-xl bg-primary px-4 py-2 font-semibold text-primary-foreground no-underline"
-                  >
-                    Ver todas las situaciones
-                  </Link>
+              <Link
+                to="/situaciones"
+                search={{ q: "", categoria: "todas", ambiguedad: "todas", contexto: "todos" }}
+                className="inline-flex min-h-11 items-center rounded-xl bg-primary px-4 py-2 font-semibold text-primary-foreground no-underline"
+              >
+                Ver todas las situaciones
+              </Link>
                   <Link
                     to="/contacto"
                     className="inline-flex min-h-11 items-center rounded-xl border border-input px-4 py-2 font-semibold text-foreground no-underline"
@@ -260,6 +265,7 @@ function Inicio() {
             </div>
             <Link
               to="/situaciones"
+              search={{ q: "", categoria: "todas", ambiguedad: "todas", contexto: "todos" }}
               className="shrink-0 border-b-2 border-foreground pb-0.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-foreground no-underline"
             >
               Ver todas
