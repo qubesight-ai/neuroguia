@@ -182,6 +182,41 @@ export const categorias: Categoria[] = [
     icono: HeartHandshake,
     color: "verde",
   },
+  {
+    id: "tdah-atencion",
+    nombre: "Atención y distracción",
+    descripcion: "Cuando el foco cambia, se pierde el hilo o el entorno compite por tu atención.",
+    icono: Target,
+    color: "cielo",
+  },
+  {
+    id: "tdah-hiperfoco",
+    nombre: "Hiperfoco y transiciones",
+    descripcion: "Entrar en un tema con intensidad y salir de él cuando la situación lo pide.",
+    icono: Zap,
+    color: "amarillo",
+  },
+  {
+    id: "tdah-impulsos",
+    nombre: "Impulsos e interrupciones",
+    descripcion: "Responder rápido, interrumpir o decir algo antes de pensar las consecuencias.",
+    icono: Rocket,
+    color: "naranja",
+  },
+  {
+    id: "tdah-organizacion",
+    nombre: "Organización y planificación",
+    descripcion: "Recordar compromisos, seguir instrucciones y gestionar el tiempo.",
+    icono: CalendarClock,
+    color: "morado",
+  },
+  {
+    id: "tdah-regulacion",
+    nombre: "Regulación emocional y TDAH",
+    descripcion: "Rechazo a la frustración, emociones intensas y recuperación después de un revés.",
+    icono: BatteryCharging,
+    color: "coral",
+  },
 ];
 
 export const categoriaPorId = (id: string) => categorias.find((c) => c.id === id);
