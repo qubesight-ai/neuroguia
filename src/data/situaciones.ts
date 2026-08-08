@@ -1,5 +1,5 @@
 import type { CategoriaId } from "./categorias";
-import { iniciarConversacionExtra } from "./situaciones-extra/iniciar-conversacion";
+import { situacionesExtra } from "./situaciones-extra";
 
 export type Ambiguedad = "bajo" | "medio" | "alto";
 
@@ -1290,7 +1290,7 @@ const situacionesBase: Situacion[] = [
 
 export const situaciones: Situacion[] = [
   ...situacionesBase,
-  ...iniciarConversacionExtra,
+  ...situacionesExtra,
 ];
 
 export const situacionPorId = (id: string) => situaciones.find((s) => s.id === id);
