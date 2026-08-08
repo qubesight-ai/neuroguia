@@ -11,7 +11,12 @@ export type GuionCategoriaId =
   | "rechazar"
   | "consentimiento"
   | "incomodidad"
-  | "ayuda";
+  | "ayuda"
+  | "tdah-atencion"
+  | "tdah-hiperfoco"
+  | "tdah-impulsos"
+  | "tdah-organizacion"
+  | "tdah-regulacion";
 
 export interface GuionCategoria {
   id: GuionCategoriaId;
