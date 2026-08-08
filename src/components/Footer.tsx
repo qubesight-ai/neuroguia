@@ -4,7 +4,7 @@ import { Logo } from "./Logo";
 export function Footer() {
   return (
     <footer className="mt-16" data-reading-hide="true">
-      <div className="linea-infinito h-1.5 w-full" data-decorative="true" />
+      <div className="regla-doble w-full" data-decorative="true" />
       <div className="bg-nd-pie text-white">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-3">
           <div>
@@ -18,7 +18,9 @@ export function Footer() {
           </div>
 
           <nav aria-label="Enlaces del pie de página">
-            <h2 className="text-base font-bold text-white">Secciones</h2>
+            <h2 className="border-b border-white/25 pb-2 text-base font-bold uppercase tracking-[0.14em] text-white">
+              Secciones
+            </h2>
             <ul className="mt-3 list-none space-y-2 p-0 text-sm">
               <li>
                 <Link to="/limites-y-seguridad" className="text-nd-enlace-pie underline">
@@ -44,7 +46,9 @@ export function Footer() {
           </nav>
 
           <div>
-            <h2 className="text-base font-bold text-white">Aviso importante</h2>
+            <h2 className="border-b border-white/25 pb-2 text-base font-bold uppercase tracking-[0.14em] text-white">
+              Aviso importante
+            </h2>
             <p className="mt-3 text-sm text-white/80">
               Este sitio ofrece información educativa. No sustituye atención psicológica, médica ni
               legal. Si estás en peligro inmediato, comunícate con los servicios de emergencia de tu

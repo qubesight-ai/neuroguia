@@ -34,10 +34,16 @@ export function Header() {
     exact ? rutaActual === to : rutaActual === to || rutaActual.startsWith(`${to}/`);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b-[3px] border-foreground bg-background/90 backdrop-blur-xl">
       <a href="#contenido" className="skip-link">
         Saltar al contenido principal
       </a>
+      <div className="hidden border-b border-border lg:block">
+        <div className="antetitulo mx-auto flex max-w-7xl items-center justify-between px-4 py-1.5 sm:px-6">
+          <span>Edición digital · Sin registro · Datos en tu dispositivo</span>
+          <span>Guía social para personas neurodivergentes</span>
+        </div>
+      </div>
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:px-6">
         <Link to="/" aria-label="NeuroGuía, ir al inicio" className="min-w-0 no-underline">
           <Logo />
@@ -123,21 +129,21 @@ export function Header() {
       <nav
         id="menu-principal"
         aria-label="Navegación principal"
-        className="hidden border-t border-border lg:block lg:border-t-0"
+        className="hidden border-t border-foreground/80 lg:block"
       >
-        <ul className="mx-auto flex max-w-7xl list-none flex-row flex-wrap gap-1 px-4 py-2 sm:px-6">
+        <ul className="mx-auto flex max-w-7xl list-none flex-row flex-wrap items-center gap-x-1 px-4 py-1.5 sm:px-6">
           {enlaces.map((e) => (
             <li key={e.to}>
               <Link
                 to={e.to}
                 activeOptions={{ exact: Boolean("exact" in e && e.exact) }}
                 aria-current={esActiva(e.to, Boolean("exact" in e && e.exact)) ? "page" : undefined}
-                className="group relative block min-h-11 rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground no-underline transition-colors duration-300 hover:text-foreground data-[status=active]:font-semibold data-[status=active]:text-foreground"
+                className="group relative block min-h-11 rounded-none px-3 py-2 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-muted-foreground no-underline transition-colors duration-300 hover:text-foreground data-[status=active]:text-foreground"
               >
                 {e.texto}
                 <span
                   aria-hidden="true"
-                  className="absolute inset-x-3 bottom-0.5 h-px rounded-full bg-foreground/70 opacity-0 transition-opacity duration-300 group-data-[status=active]:opacity-100"
+                  className="absolute inset-x-3 bottom-1 h-0.5 bg-foreground opacity-0 transition-opacity duration-300 group-data-[status=active]:opacity-100"
                 />
               </Link>
             </li>
