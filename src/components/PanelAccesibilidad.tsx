@@ -5,8 +5,10 @@ import {
   ESCALA_MAX,
   ESCALA_MIN,
   ESCALA_PASO,
+  INTENSIDADES,
   usePreferencias,
 } from "@/lib/preferencias";
+import { cn } from "@/lib/utils";
 
 function Interruptor({
   id,
