@@ -11,12 +11,16 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ComoFuncionaRouteImport } from './routes/como-funciona'
+import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as GlosarioRouteImport } from './routes/glosario'
 import { Route as GuionesRouteImport } from './routes/guiones'
 import { Route as LimitesYSeguridadRouteImport } from './routes/limites-y-seguridad'
+import { Route as MiEspacioRouteImport } from './routes/mi-espacio'
+import { Route as PrivacidadRouteImport } from './routes/privacidad'
 import { Route as RegulacionRouteImport } from './routes/regulacion'
 import { Route as RelacionesRouteImport } from './routes/relaciones'
 import { Route as SimuladorRouteImport } from './routes/simulador'
+import { Route as SobreElProyectoRouteImport } from './routes/sobre-el-proyecto'
 import { Route as SituacionesIndexRouteImport } from './routes/situaciones.index'
 import { Route as SituacionesIdRouteImport } from './routes/situaciones.$id'
 
@@ -28,6 +32,11 @@ const IndexRoute = IndexRouteImport.update({
 const ComoFuncionaRoute = ComoFuncionaRouteImport.update({
   id: '/como-funciona',
   path: '/como-funciona',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GlosarioRoute = GlosarioRouteImport.update({
@@ -45,6 +54,16 @@ const LimitesYSeguridadRoute = LimitesYSeguridadRouteImport.update({
   path: '/limites-y-seguridad',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MiEspacioRoute = MiEspacioRouteImport.update({
+  id: '/mi-espacio',
+  path: '/mi-espacio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacidadRoute = PrivacidadRouteImport.update({
+  id: '/privacidad',
+  path: '/privacidad',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RegulacionRoute = RegulacionRouteImport.update({
   id: '/regulacion',
   path: '/regulacion',
@@ -58,6 +77,11 @@ const RelacionesRoute = RelacionesRouteImport.update({
 const SimuladorRoute = SimuladorRouteImport.update({
   id: '/simulador',
   path: '/simulador',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreElProyectoRoute = SobreElProyectoRouteImport.update({
+  id: '/sobre-el-proyecto',
+  path: '/sobre-el-proyecto',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SituacionesIndexRoute = SituacionesIndexRouteImport.update({
@@ -74,24 +98,32 @@ const SituacionesIdRoute = SituacionesIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/como-funciona': typeof ComoFuncionaRoute
+  '/contacto': typeof ContactoRoute
   '/glosario': typeof GlosarioRoute
   '/guiones': typeof GuionesRoute
   '/limites-y-seguridad': typeof LimitesYSeguridadRoute
+  '/mi-espacio': typeof MiEspacioRoute
+  '/privacidad': typeof PrivacidadRoute
   '/regulacion': typeof RegulacionRoute
   '/relaciones': typeof RelacionesRoute
   '/simulador': typeof SimuladorRoute
+  '/sobre-el-proyecto': typeof SobreElProyectoRoute
   '/situaciones/$id': typeof SituacionesIdRoute
   '/situaciones/': typeof SituacionesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/como-funciona': typeof ComoFuncionaRoute
+  '/contacto': typeof ContactoRoute
   '/glosario': typeof GlosarioRoute
   '/guiones': typeof GuionesRoute
   '/limites-y-seguridad': typeof LimitesYSeguridadRoute
+  '/mi-espacio': typeof MiEspacioRoute
+  '/privacidad': typeof PrivacidadRoute
   '/regulacion': typeof RegulacionRoute
   '/relaciones': typeof RelacionesRoute
   '/simulador': typeof SimuladorRoute
+  '/sobre-el-proyecto': typeof SobreElProyectoRoute
   '/situaciones/$id': typeof SituacionesIdRoute
   '/situaciones': typeof SituacionesIndexRoute
 }
@@ -99,12 +131,16 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/como-funciona': typeof ComoFuncionaRoute
+  '/contacto': typeof ContactoRoute
   '/glosario': typeof GlosarioRoute
   '/guiones': typeof GuionesRoute
   '/limites-y-seguridad': typeof LimitesYSeguridadRoute
+  '/mi-espacio': typeof MiEspacioRoute
+  '/privacidad': typeof PrivacidadRoute
   '/regulacion': typeof RegulacionRoute
   '/relaciones': typeof RelacionesRoute
   '/simulador': typeof SimuladorRoute
+  '/sobre-el-proyecto': typeof SobreElProyectoRoute
   '/situaciones/$id': typeof SituacionesIdRoute
   '/situaciones/': typeof SituacionesIndexRoute
 }
@@ -113,36 +149,48 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/como-funciona'
+    | '/contacto'
     | '/glosario'
     | '/guiones'
     | '/limites-y-seguridad'
+    | '/mi-espacio'
+    | '/privacidad'
     | '/regulacion'
     | '/relaciones'
     | '/simulador'
+    | '/sobre-el-proyecto'
     | '/situaciones/$id'
     | '/situaciones/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/como-funciona'
+    | '/contacto'
     | '/glosario'
     | '/guiones'
     | '/limites-y-seguridad'
+    | '/mi-espacio'
+    | '/privacidad'
     | '/regulacion'
     | '/relaciones'
     | '/simulador'
+    | '/sobre-el-proyecto'
     | '/situaciones/$id'
     | '/situaciones'
   id:
     | '__root__'
     | '/'
     | '/como-funciona'
+    | '/contacto'
     | '/glosario'
     | '/guiones'
     | '/limites-y-seguridad'
+    | '/mi-espacio'
+    | '/privacidad'
     | '/regulacion'
     | '/relaciones'
     | '/simulador'
+    | '/sobre-el-proyecto'
     | '/situaciones/$id'
     | '/situaciones/'
   fileRoutesById: FileRoutesById
@@ -150,12 +198,16 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ComoFuncionaRoute: typeof ComoFuncionaRoute
+  ContactoRoute: typeof ContactoRoute
   GlosarioRoute: typeof GlosarioRoute
   GuionesRoute: typeof GuionesRoute
   LimitesYSeguridadRoute: typeof LimitesYSeguridadRoute
+  MiEspacioRoute: typeof MiEspacioRoute
+  PrivacidadRoute: typeof PrivacidadRoute
   RegulacionRoute: typeof RegulacionRoute
   RelacionesRoute: typeof RelacionesRoute
   SimuladorRoute: typeof SimuladorRoute
+  SobreElProyectoRoute: typeof SobreElProyectoRoute
   SituacionesIdRoute: typeof SituacionesIdRoute
   SituacionesIndexRoute: typeof SituacionesIndexRoute
 }
@@ -174,6 +226,13 @@ declare module '@tanstack/react-router' {
       path: '/como-funciona'
       fullPath: '/como-funciona'
       preLoaderRoute: typeof ComoFuncionaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/glosario': {
@@ -197,6 +256,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LimitesYSeguridadRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mi-espacio': {
+      id: '/mi-espacio'
+      path: '/mi-espacio'
+      fullPath: '/mi-espacio'
+      preLoaderRoute: typeof MiEspacioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacidad': {
+      id: '/privacidad'
+      path: '/privacidad'
+      fullPath: '/privacidad'
+      preLoaderRoute: typeof PrivacidadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/regulacion': {
       id: '/regulacion'
       path: '/regulacion'
@@ -216,6 +289,13 @@ declare module '@tanstack/react-router' {
       path: '/simulador'
       fullPath: '/simulador'
       preLoaderRoute: typeof SimuladorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre-el-proyecto': {
+      id: '/sobre-el-proyecto'
+      path: '/sobre-el-proyecto'
+      fullPath: '/sobre-el-proyecto'
+      preLoaderRoute: typeof SobreElProyectoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/situaciones/': {
@@ -238,12 +318,16 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ComoFuncionaRoute: ComoFuncionaRoute,
+  ContactoRoute: ContactoRoute,
   GlosarioRoute: GlosarioRoute,
   GuionesRoute: GuionesRoute,
   LimitesYSeguridadRoute: LimitesYSeguridadRoute,
+  MiEspacioRoute: MiEspacioRoute,
+  PrivacidadRoute: PrivacidadRoute,
   RegulacionRoute: RegulacionRoute,
   RelacionesRoute: RelacionesRoute,
   SimuladorRoute: SimuladorRoute,
+  SobreElProyectoRoute: SobreElProyectoRoute,
   SituacionesIdRoute: SituacionesIdRoute,
   SituacionesIndexRoute: SituacionesIndexRoute,
 }
