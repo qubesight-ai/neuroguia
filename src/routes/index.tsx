@@ -203,7 +203,8 @@ function Inicio() {
 
       <section aria-labelledby="categorias-titulo" className="pb-16 sm:pb-20">
         <Contenedor>
-          <h2 id="categorias-titulo" className="text-2xl font-bold tracking-[-0.02em] sm:text-3xl">
+          <p className="antetitulo border-b-2 border-foreground pb-2">Secciones</p>
+          <h2 id="categorias-titulo" className="mt-4 text-3xl sm:text-4xl">
             Categorías principales
           </h2>
           <p className="mt-2 text-muted-foreground">
@@ -222,10 +223,11 @@ function Inicio() {
       <section aria-labelledby="identidad-titulo" className="border-y border-border bg-card py-16 sm:py-20">
         <Contenedor className="grid gap-10 lg:grid-cols-[1.2fr_1fr]">
           <div>
-            <h2 id="identidad-titulo" className="text-2xl font-bold tracking-[-0.02em] sm:text-3xl">
+            <p className="antetitulo border-b-2 border-foreground pb-2">Editorial</p>
+            <h2 id="identidad-titulo" className="mt-4 text-3xl sm:text-4xl">
               No tienes que cambiar quién eres
             </h2>
-            <p className="mt-3 text-muted-foreground">
+            <p className="capitular mt-4 text-muted-foreground">
               NeuroGuía no enseña a parecer neurotípico ni a ocultar rasgos autistas. Explica
               información social que muchas veces se transmite de forma implícita, para que puedas
               decidir con más datos.
@@ -250,10 +252,16 @@ function Inicio() {
       <section aria-labelledby="previa-titulo" className="py-16 sm:py-20">
         <Contenedor>
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-4">
-            <h2 id="previa-titulo" className="text-2xl font-bold tracking-[-0.02em] sm:text-3xl">
-              Situaciones para empezar
-            </h2>
-            <Link to="/situaciones" className="shrink-0 text-sm font-semibold text-foreground">
+            <div>
+              <p className="antetitulo">Lo último</p>
+              <h2 id="previa-titulo" className="mt-2 text-3xl sm:text-4xl">
+                Situaciones para empezar
+              </h2>
+            </div>
+            <Link
+              to="/situaciones"
+              className="shrink-0 border-b-2 border-foreground pb-0.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-foreground no-underline"
+            >
               Ver todas
             </Link>
           </div>
