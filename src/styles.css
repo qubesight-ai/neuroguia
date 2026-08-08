@@ -104,6 +104,70 @@
 :root {
   --radius: 1rem;
   --font-scale: 1;
+  --nd-c: 1; /* multiplicador de saturación: intensidad visual */
+
+  /* Paleta del infinito de la neurodiversidad */
+  --nd-azul: oklch(0.532 calc(0.168 * var(--nd-c)) 262.3);
+  --nd-azul-soft: oklch(0.965 calc(0.028 * var(--nd-c)) 262.3);
+  --nd-azul-ink: oklch(0.44 calc(0.15 * var(--nd-c)) 262.3);
+  --nd-cielo: oklch(0.698 calc(0.132 * var(--nd-c)) 241.1);
+  --nd-cielo-soft: oklch(0.968 calc(0.028 * var(--nd-c)) 241.1);
+  --nd-cielo-ink: oklch(0.47 calc(0.13 * var(--nd-c)) 241.1);
+  --nd-turquesa: oklch(0.717 calc(0.118 * var(--nd-c)) 185);
+  --nd-turquesa-soft: oklch(0.968 calc(0.028 * var(--nd-c)) 185);
+  --nd-turquesa-ink: oklch(0.46 calc(0.095 * var(--nd-c)) 185);
+  --nd-verde: oklch(0.714 calc(0.135 * var(--nd-c)) 146.3);
+  --nd-verde-soft: oklch(0.968 calc(0.03 * var(--nd-c)) 146.3);
+  --nd-verde-ink: oklch(0.45 calc(0.11 * var(--nd-c)) 146.3);
+  --nd-amarillo: oklch(0.843 calc(0.151 * var(--nd-c)) 88.3);
+  --nd-amarillo-soft: oklch(0.972 calc(0.04 * var(--nd-c)) 88.3);
+  --nd-amarillo-ink: oklch(0.44 calc(0.1 * var(--nd-c)) 75);
+  --nd-naranja: oklch(0.736 calc(0.156 * var(--nd-c)) 55.9);
+  --nd-naranja-soft: oklch(0.968 calc(0.035 * var(--nd-c)) 55.9);
+  --nd-naranja-ink: oklch(0.46 calc(0.13 * var(--nd-c)) 45);
+  --nd-coral: oklch(0.673 calc(0.162 * var(--nd-c)) 27.2);
+  --nd-coral-soft: oklch(0.965 calc(0.03 * var(--nd-c)) 27.2);
+  --nd-coral-ink: oklch(0.47 calc(0.15 * var(--nd-c)) 27.2);
+  --nd-magenta: oklch(0.647 calc(0.183 * var(--nd-c)) 345.7);
+  --nd-magenta-soft: oklch(0.965 calc(0.03 * var(--nd-c)) 345.7);
+  --nd-magenta-ink: oklch(0.47 calc(0.16 * var(--nd-c)) 345.7);
+  --nd-morado: oklch(0.561 calc(0.166 * var(--nd-c)) 298.5);
+  --nd-morado-soft: oklch(0.965 calc(0.03 * var(--nd-c)) 298.5);
+  --nd-morado-ink: oklch(0.47 calc(0.16 * var(--nd-c)) 298.5);
+
+  /* Degradados orgánicos */
+  --grad-principal: linear-gradient(
+    120deg,
+    var(--nd-azul) 0%,
+    var(--nd-morado) 52%,
+    var(--nd-magenta) 100%
+  );
+  --grad-calma: linear-gradient(120deg, var(--nd-turquesa) 0%, var(--nd-verde) 100%);
+  --grad-aviso: linear-gradient(120deg, var(--nd-amarillo) 0%, var(--nd-naranja) 100%);
+  --grad-frio: linear-gradient(
+    120deg,
+    var(--nd-azul) 0%,
+    var(--nd-turquesa) 55%,
+    var(--nd-verde) 100%
+  );
+  --grad-calido: linear-gradient(
+    120deg,
+    var(--nd-amarillo) 0%,
+    var(--nd-naranja) 50%,
+    var(--nd-coral) 100%
+  );
+  --grad-infinito: linear-gradient(
+    100deg,
+    var(--nd-azul) 0%,
+    var(--nd-cielo) 14%,
+    var(--nd-turquesa) 28%,
+    var(--nd-verde) 42%,
+    var(--nd-amarillo) 56%,
+    var(--nd-naranja) 68%,
+    var(--nd-coral) 79%,
+    var(--nd-magenta) 90%,
+    var(--nd-morado) 100%
+  );
 
   --background: oklch(0.982 0.006 250);
   --foreground: oklch(0.29 0.041 262);
