@@ -590,12 +590,11 @@
 
 @utility elevar-suave {
   transition:
-    transform 400ms cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 300ms cubic-bezier(0.16, 1, 0.3, 1),
     border-color 400ms cubic-bezier(0.16, 1, 0.3, 1);
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-soft-lg);
+    background-color: var(--muted);
+    border-color: var(--foreground);
   }
 }
 
