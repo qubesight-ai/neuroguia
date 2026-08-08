@@ -5,8 +5,10 @@ import {
   ESCALA_MAX,
   ESCALA_MIN,
   ESCALA_PASO,
+  INTENSIDADES,
   usePreferencias,
 } from "@/lib/preferencias";
+import { cn } from "@/lib/utils";
 
 function Interruptor({
   id,
@@ -106,6 +108,51 @@ export function PanelAccesibilidad({ onCerrar }: { onCerrar: () => void }) {
 
       <fieldset className="mt-2">
         <legend className="sr-only">Preferencias de visualización</legend>
+        <div className="border-b border-border py-3">
+          <p className="font-semibold">Intensidad visual</p>
+          <p className="text-sm text-muted-foreground">
+            Ajusta cuánto color y cuántos degradados se muestran.
+          </p>
+          <div
+            role="radiogroup"
+            aria-label="Intensidad visual"
+            className="mt-2 flex flex-wrap gap-2"
+          >
+            {INTENSIDADES.map((op) => {
+              const activa = prefs.intensidad === op.id;
+              return (
+                <button
+                  key={op.id}
+                  type="button"
+                  role="radio"
+                  aria-checked={activa}
+                  title={op.descripcion}
+                  onClick={() => actualizar({ intensidad: op.id })}
+                  className={cn(
+                    "inline-flex min-h-11 items-center gap-2 rounded-full border-2 px-3 py-2 text-sm font-semibold transition-colors duration-200",
+                    activa
+                      ? "borde-degradado text-foreground"
+                      : "border-input bg-card text-muted-foreground hover:bg-muted",
+                  )}
+                >
+                  <span
+                    aria-hidden="true"
+                    className={cn(
+                      "h-3 w-3 rounded-full",
+                      op.id === "calma" && "bg-nd-turquesa-soft",
+                      op.id === "equilibrada" && "bg-nd-azul",
+                      op.id === "vibrante" && "superficie-degradado",
+                    )}
+                  />
+                  {op.nombre}
+                </button>
+              );
+            })}
+          </div>
+          <p className="mt-2 text-sm text-muted-foreground">
+            {INTENSIDADES.find((op) => op.id === prefs.intensidad)?.descripcion}
+          </p>
+        </div>
         <Interruptor
           id="pref-contraste"
           etiqueta="Alto contraste"

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, Settings2, X } from "lucide-react";
+import { ArrowRight, Menu, Settings2, X } from "lucide-react";
 import { Boton } from "./ui/Boton";
+import { Logo } from "./Logo";
 import { PanelAccesibilidad } from "./PanelAccesibilidad";
 import { t } from "@/i18n";
 
@@ -22,22 +23,27 @@ export function Header() {
   const [panelAbierto, setPanelAbierto] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-border bg-card/85 backdrop-blur-md supports-[backdrop-filter]:bg-card/70">
+      <div className="linea-infinito h-1 w-full" data-decorative="true" />
       <a href="#contenido" className="skip-link">
         Saltar al contenido principal
       </a>
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:px-6">
-        <Link
-          to="/"
-          className="min-w-0 text-xl font-extrabold tracking-tight text-foreground no-underline sm:text-2xl"
-        >
-          Neuro<span className="text-primary">Guía</span>
+        <Link to="/" aria-label="NeuroGuía, ir al inicio" className="min-w-0 no-underline">
+          <Logo />
         </Link>
 
         <div className="flex shrink-0 items-center gap-2">
+          <Link to="/situaciones" className="hidden no-underline md:inline-flex">
+            <Boton tamano="sm">
+              {t.acciones.explorar}
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Boton>
+          </Link>
+
           <div className="relative">
             <Boton
-              variante="contorno"
+              variante="contorno-multicolor"
               tamano="sm"
               onClick={() => setPanelAbierto((v) => !v)}
               aria-expanded={panelAbierto}
@@ -80,12 +86,24 @@ export function Header() {
                 to={e.to}
                 onClick={() => setMenuAbierto(false)}
                 activeOptions={{ exact: Boolean("exact" in e && e.exact) }}
-                className="block min-h-11 rounded-lg px-3 py-2.5 text-base font-medium text-muted-foreground no-underline hover:bg-muted hover:text-foreground data-[status=active]:bg-primary-soft data-[status=active]:font-bold data-[status=active]:text-foreground data-[status=active]:underline data-[status=active]:decoration-2 data-[status=active]:underline-offset-4"
+                className="group relative block min-h-11 rounded-lg px-3 py-2.5 text-base font-semibold text-nd-azul-ink/85 no-underline transition-colors duration-200 hover:bg-nd-azul-soft hover:text-nd-azul-ink data-[status=active]:text-foreground"
               >
                 {e.texto}
+                <span
+                  aria-hidden="true"
+                  className="linea-infinito absolute inset-x-3 bottom-1 h-[3px] rounded-full opacity-0 transition-opacity duration-200 group-data-[status=active]:opacity-100"
+                />
               </Link>
             </li>
           ))}
+          <li className="mt-2 md:hidden">
+            <Link to="/situaciones" className="no-underline" onClick={() => setMenuAbierto(false)}>
+              <Boton tamano="sm" className="w-full">
+                {t.acciones.explorar}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Boton>
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>

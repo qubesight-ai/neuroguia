@@ -16,7 +16,12 @@ export function BotonCopiar({ texto, etiqueta = "Copiar" }: { texto: string; eti
   }
 
   return (
-    <Boton variante="contorno" tamano="sm" onClick={copiar} aria-live="polite">
+    <Boton
+      variante={copiado ? "regulacion" : "contorno"}
+      tamano="sm"
+      onClick={copiar}
+      aria-live="polite"
+    >
       {copiado ? (
         <Check className="h-4 w-4" aria-hidden="true" />
       ) : (

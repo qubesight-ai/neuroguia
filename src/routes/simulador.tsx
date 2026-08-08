@@ -5,6 +5,8 @@ import { Contenedor, EncabezadoPagina } from "@/components/Seccion";
 import { Migas } from "@/components/Migas";
 import { BarraProgreso } from "@/components/BarraProgreso";
 import { Boton } from "@/components/ui/Boton";
+import { estiloFamilia, familiaPorIndice } from "@/lib/paleta";
+import { cn } from "@/lib/utils";
 import { Insignia } from "@/components/ui/Insignia";
 import { Aviso } from "@/components/Aviso";
 import { BotonFavorito } from "@/components/BotonFavorito";
@@ -65,7 +67,7 @@ function Simulador() {
         descripcion="Escenarios breves con varias respuestas posibles. No hay respuestas correctas ni incorrectas: hay efectos distintos."
       />
 
-      <div className="card-soft mt-8 p-6" data-card>
+      <div className="borde-degradado mt-8 rounded-3xl bg-card p-6 shadow-soft" data-card>
         <BarraProgreso
           actual={indice + 1}
           total={ejercicios.length}
@@ -74,7 +76,7 @@ function Simulador() {
 
         <article className="mt-6">
           <div className="flex flex-wrap items-center gap-2">
-            <Insignia tono="primario">{ejercicio.contexto}</Insignia>
+            <Insignia tono="cielo">{ejercicio.contexto}</Insignia>
             <BotonFavorito tipo="simulador" id={ejercicio.id} nombre={ejercicio.titulo} />
           </div>
           <h2 className="mt-3 text-2xl font-bold">{ejercicio.titulo}</h2>
@@ -85,24 +87,37 @@ function Simulador() {
           <fieldset className="mt-6">
             <legend className="text-lg font-semibold">{ejercicio.pregunta}</legend>
             <ul className="mt-3 list-none space-y-2 p-0">
-              {ejercicio.opciones.map((o) => (
-                <li key={o.id}>
-                  <Boton
-                    variante={elegida === o.id ? "primario" : "contorno"}
-                    aria-pressed={elegida === o.id}
-                    className="w-full justify-start text-left"
-                    onClick={() => setElegida(o.id)}
-                  >
-                    {o.texto}
-                  </Boton>
-                </li>
-              ))}
+              {ejercicio.opciones.map((o, i) => {
+                const c = estiloFamilia(familiaPorIndice(i));
+                const activa = elegida === o.id;
+                return (
+                  <li key={o.id}>
+                    <button
+                      type="button"
+                      aria-pressed={activa}
+                      onClick={() => setElegida(o.id)}
+                      className={cn(
+                        "flex w-full items-start gap-3 rounded-2xl border-2 border-l-8 bg-card p-4 text-left text-base font-semibold transition-colors duration-200",
+                        c.borde,
+                        c.bordeSuperior.replace("border-t-", "border-l-"),
+                        activa ? cn(c.fondo, "ring-2 ring-offset-2 ring-offset-card", c.anillo) : "hover:bg-muted",
+                      )}
+                    >
+                      <span
+                        aria-hidden="true"
+                        className={cn("mt-1.5 h-3 w-3 shrink-0 rounded-full", c.punto)}
+                      />
+                      <span>{o.texto}</span>
+                    </button>
+                  </li>
+                );
+              })}
             </ul>
           </fieldset>
 
           <div aria-live="polite">
             {opcion && (
-              <div className="mt-6 rounded-2xl border-2 border-primary/40 bg-primary-soft p-5">
+              <div className="mt-6 rounded-3xl border-2 border-nd-morado/40 bg-nd-morado-soft p-5 shadow-soft">
                 <Insignia tono={tonoValoracion[opcion.valoracion]}>
                   {etiquetasValoracion[opcion.valoracion]}
                 </Insignia>
@@ -136,7 +151,7 @@ function Simulador() {
                   </div>
                 </div>
 
-                <p className="mt-4 border-t border-primary/30 pt-4">
+                <p className="mt-4 border-t border-nd-morado/30 pt-4">
                   <span className="font-bold">Por qué puede haber varias respuestas válidas: </span>
                   {ejercicio.porQueVariasValidas}
                 </p>

@@ -21,6 +21,35 @@
 
 @theme inline {
   --font-sans: "Atkinson Hyperlegible", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-nd-azul: var(--nd-azul);
+  --color-nd-azul-soft: var(--nd-azul-soft);
+  --color-nd-azul-ink: var(--nd-azul-ink);
+  --color-nd-cielo: var(--nd-cielo);
+  --color-nd-cielo-soft: var(--nd-cielo-soft);
+  --color-nd-cielo-ink: var(--nd-cielo-ink);
+  --color-nd-turquesa: var(--nd-turquesa);
+  --color-nd-turquesa-soft: var(--nd-turquesa-soft);
+  --color-nd-turquesa-ink: var(--nd-turquesa-ink);
+  --color-nd-verde: var(--nd-verde);
+  --color-nd-verde-soft: var(--nd-verde-soft);
+  --color-nd-verde-ink: var(--nd-verde-ink);
+  --color-nd-amarillo: var(--nd-amarillo);
+  --color-nd-amarillo-soft: var(--nd-amarillo-soft);
+  --color-nd-amarillo-ink: var(--nd-amarillo-ink);
+  --color-nd-naranja: var(--nd-naranja);
+  --color-nd-naranja-soft: var(--nd-naranja-soft);
+  --color-nd-naranja-ink: var(--nd-naranja-ink);
+  --color-nd-coral: var(--nd-coral);
+  --color-nd-coral-soft: var(--nd-coral-soft);
+  --color-nd-coral-ink: var(--nd-coral-ink);
+  --color-nd-magenta: var(--nd-magenta);
+  --color-nd-magenta-soft: var(--nd-magenta-soft);
+  --color-nd-magenta-ink: var(--nd-magenta-ink);
+  --color-nd-morado: var(--nd-morado);
+  --color-nd-morado-soft: var(--nd-morado-soft);
+  --color-nd-morado-ink: var(--nd-morado-ink);
+  --color-nd-pie: var(--nd-pie);
+  --color-nd-enlace-pie: var(--nd-enlace-pie);
   --color-primary-soft: var(--primary-soft);
   --color-secondary-soft: var(--secondary-soft);
   --color-lavender: var(--lavender);
@@ -77,6 +106,72 @@
 :root {
   --radius: 1rem;
   --font-scale: 1;
+  --nd-c: 1; /* multiplicador de saturación: intensidad visual */
+
+  /* Paleta del infinito de la neurodiversidad */
+  --nd-azul: oklch(0.532 calc(0.168 * var(--nd-c)) 262.3);
+  --nd-azul-soft: oklch(0.965 calc(0.028 * var(--nd-c)) 262.3);
+  --nd-azul-ink: oklch(0.44 calc(0.15 * var(--nd-c)) 262.3);
+  --nd-cielo: oklch(0.698 calc(0.132 * var(--nd-c)) 241.1);
+  --nd-cielo-soft: oklch(0.968 calc(0.028 * var(--nd-c)) 241.1);
+  --nd-cielo-ink: oklch(0.47 calc(0.13 * var(--nd-c)) 241.1);
+  --nd-turquesa: oklch(0.717 calc(0.118 * var(--nd-c)) 185);
+  --nd-turquesa-soft: oklch(0.968 calc(0.028 * var(--nd-c)) 185);
+  --nd-turquesa-ink: oklch(0.46 calc(0.095 * var(--nd-c)) 185);
+  --nd-verde: oklch(0.714 calc(0.135 * var(--nd-c)) 146.3);
+  --nd-verde-soft: oklch(0.968 calc(0.03 * var(--nd-c)) 146.3);
+  --nd-verde-ink: oklch(0.45 calc(0.11 * var(--nd-c)) 146.3);
+  --nd-amarillo: oklch(0.843 calc(0.151 * var(--nd-c)) 88.3);
+  --nd-amarillo-soft: oklch(0.972 calc(0.04 * var(--nd-c)) 88.3);
+  --nd-amarillo-ink: oklch(0.44 calc(0.1 * var(--nd-c)) 75);
+  --nd-naranja: oklch(0.736 calc(0.156 * var(--nd-c)) 55.9);
+  --nd-naranja-soft: oklch(0.968 calc(0.035 * var(--nd-c)) 55.9);
+  --nd-naranja-ink: oklch(0.46 calc(0.13 * var(--nd-c)) 45);
+  --nd-coral: oklch(0.673 calc(0.162 * var(--nd-c)) 27.2);
+  --nd-coral-soft: oklch(0.965 calc(0.03 * var(--nd-c)) 27.2);
+  --nd-coral-ink: oklch(0.47 calc(0.15 * var(--nd-c)) 27.2);
+  --nd-magenta: oklch(0.647 calc(0.183 * var(--nd-c)) 345.7);
+  --nd-magenta-soft: oklch(0.965 calc(0.03 * var(--nd-c)) 345.7);
+  --nd-magenta-ink: oklch(0.47 calc(0.16 * var(--nd-c)) 345.7);
+  --nd-morado: oklch(0.561 calc(0.166 * var(--nd-c)) 298.5);
+  --nd-morado-soft: oklch(0.965 calc(0.03 * var(--nd-c)) 298.5);
+  --nd-morado-ink: oklch(0.47 calc(0.16 * var(--nd-c)) 298.5);
+  --nd-pie: oklch(0.256 0.045 264);
+  --nd-enlace-pie: oklch(0.84 calc(0.09 * var(--nd-c)) 241.1);
+
+  /* Degradados orgánicos */
+  --grad-principal: linear-gradient(
+    120deg,
+    var(--nd-azul) 0%,
+    var(--nd-morado) 52%,
+    var(--nd-magenta) 100%
+  );
+  --grad-calma: linear-gradient(120deg, var(--nd-turquesa) 0%, var(--nd-verde) 100%);
+  --grad-aviso: linear-gradient(120deg, var(--nd-amarillo) 0%, var(--nd-naranja) 100%);
+  --grad-frio: linear-gradient(
+    120deg,
+    var(--nd-azul) 0%,
+    var(--nd-turquesa) 55%,
+    var(--nd-verde) 100%
+  );
+  --grad-calido: linear-gradient(
+    120deg,
+    var(--nd-amarillo) 0%,
+    var(--nd-naranja) 50%,
+    var(--nd-coral) 100%
+  );
+  --grad-infinito: linear-gradient(
+    100deg,
+    var(--nd-azul) 0%,
+    var(--nd-cielo) 14%,
+    var(--nd-turquesa) 28%,
+    var(--nd-verde) 42%,
+    var(--nd-amarillo) 56%,
+    var(--nd-naranja) 68%,
+    var(--nd-coral) 79%,
+    var(--nd-magenta) 90%,
+    var(--nd-morado) 100%
+  );
 
   --background: oklch(0.982 0.006 250);
   --foreground: oklch(0.29 0.041 262);
@@ -125,11 +220,40 @@
 }
 
 .dark {
-  --background: oklch(0.208 0.03 261);
-  --foreground: oklch(0.955 0.008 250);
-  --card: oklch(0.258 0.032 261);
+  --background: oklch(0.21 0.032 264.7);
+  --foreground: oklch(0.984 0.003 247.9);
+  --card: oklch(0.312 0.044 260.6);
+
+  /* Multicolor con luminosidad algo más baja para reducir fatiga visual */
+  --nd-azul: oklch(0.6 calc(0.14 * var(--nd-c)) 262.3);
+  --nd-azul-soft: oklch(0.34 calc(0.055 * var(--nd-c)) 262.3);
+  --nd-azul-ink: oklch(0.86 calc(0.075 * var(--nd-c)) 262.3);
+  --nd-cielo: oklch(0.66 calc(0.115 * var(--nd-c)) 241.1);
+  --nd-cielo-soft: oklch(0.34 calc(0.05 * var(--nd-c)) 241.1);
+  --nd-cielo-ink: oklch(0.87 calc(0.07 * var(--nd-c)) 241.1);
+  --nd-turquesa: oklch(0.68 calc(0.1 * var(--nd-c)) 185);
+  --nd-turquesa-soft: oklch(0.34 calc(0.045 * var(--nd-c)) 185);
+  --nd-turquesa-ink: oklch(0.87 calc(0.065 * var(--nd-c)) 185);
+  --nd-verde: oklch(0.67 calc(0.115 * var(--nd-c)) 146.3);
+  --nd-verde-soft: oklch(0.34 calc(0.05 * var(--nd-c)) 146.3);
+  --nd-verde-ink: oklch(0.88 calc(0.07 * var(--nd-c)) 146.3);
+  --nd-amarillo: oklch(0.79 calc(0.125 * var(--nd-c)) 88.3);
+  --nd-amarillo-soft: oklch(0.35 calc(0.05 * var(--nd-c)) 88.3);
+  --nd-amarillo-ink: oklch(0.9 calc(0.08 * var(--nd-c)) 88.3);
+  --nd-naranja: oklch(0.7 calc(0.135 * var(--nd-c)) 55.9);
+  --nd-naranja-soft: oklch(0.35 calc(0.055 * var(--nd-c)) 55.9);
+  --nd-naranja-ink: oklch(0.88 calc(0.08 * var(--nd-c)) 55.9);
+  --nd-coral: oklch(0.66 calc(0.14 * var(--nd-c)) 27.2);
+  --nd-coral-soft: oklch(0.35 calc(0.055 * var(--nd-c)) 27.2);
+  --nd-coral-ink: oklch(0.88 calc(0.08 * var(--nd-c)) 27.2);
+  --nd-magenta: oklch(0.65 calc(0.15 * var(--nd-c)) 345.7);
+  --nd-magenta-soft: oklch(0.35 calc(0.06 * var(--nd-c)) 345.7);
+  --nd-magenta-ink: oklch(0.87 calc(0.085 * var(--nd-c)) 345.7);
+  --nd-morado: oklch(0.62 calc(0.15 * var(--nd-c)) 298.5);
+  --nd-morado-soft: oklch(0.35 calc(0.06 * var(--nd-c)) 298.5);
+  --nd-morado-ink: oklch(0.87 calc(0.085 * var(--nd-c)) 298.5);
   --card-foreground: oklch(0.955 0.008 250);
-  --popover: oklch(0.258 0.032 261);
+  --popover: oklch(0.312 0.044 260.6);
   --popover-foreground: oklch(0.955 0.008 250);
   --primary: oklch(0.72 0.1 267.5);
   --primary-foreground: oklch(0.19 0.03 261);
@@ -280,4 +404,138 @@
   &:focus {
     top: 0.75rem;
   }
+}
+
+/* ============================================================
+   Intensidad visual: calma / equilibrada / vibrante
+   ============================================================ */
+
+.intensidad-calma {
+  --nd-c: 0.5;
+}
+
+/* En modo calma no hay degradados: se usan colores pastel planos. */
+.intensidad-calma {
+  --grad-principal: linear-gradient(120deg, var(--nd-azul), var(--nd-azul));
+  --grad-calma: linear-gradient(120deg, var(--nd-turquesa), var(--nd-turquesa));
+  --grad-aviso: linear-gradient(120deg, var(--nd-naranja), var(--nd-naranja));
+  --grad-frio: linear-gradient(120deg, var(--nd-azul), var(--nd-azul));
+  --grad-calido: linear-gradient(120deg, var(--nd-naranja), var(--nd-naranja));
+  --grad-infinito: linear-gradient(120deg, var(--nd-azul), var(--nd-morado));
+}
+
+.intensidad-vibrante {
+  --nd-c: 1.28;
+}
+
+/* Alto contraste: el color nunca es el único indicador. */
+.hc {
+  --nd-c: 1.1;
+}
+
+@utility texto-degradado {
+  background-image: var(--grad-principal);
+  background-size: 220% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  padding-inline-end: 0.06em;
+  animation: nd-desplazar 22s ease-in-out infinite alternate;
+}
+
+@utility texto-degradado-calido {
+  background-image: var(--grad-calido);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  padding-inline-end: 0.06em;
+}
+
+@utility texto-degradado-frio {
+  background-image: var(--grad-frio);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  padding-inline-end: 0.06em;
+}
+
+/* El texto con degradado vuelve a color plano en alto contraste o lectura simple. */
+.hc .texto-degradado,
+.hc .texto-degradado-calido,
+.hc .texto-degradado-frio,
+.reading-view .texto-degradado,
+.reading-view .texto-degradado-calido,
+.reading-view .texto-degradado-frio {
+  background-image: none;
+  color: var(--foreground);
+  animation: none;
+}
+
+@utility linea-infinito {
+  background-image: var(--grad-infinito);
+}
+
+@utility superficie-degradado {
+  background-image: var(--grad-infinito);
+  background-size: 240% 100%;
+  animation: nd-desplazar 26s ease-in-out infinite alternate;
+}
+
+/* Borde con degradado sin sobrescribir componentes. */
+@utility borde-degradado {
+  position: relative;
+  border-color: transparent;
+  background-image: linear-gradient(var(--card), var(--card)), var(--grad-infinito);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-width: 2px;
+  border-style: solid;
+}
+
+@utility elevar-suave {
+  transition:
+    transform 250ms ease,
+    box-shadow 250ms ease,
+    border-color 250ms ease;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft-lg);
+  }
+}
+
+@utility aparecer {
+  animation: nd-aparecer 320ms ease-out both;
+}
+
+@keyframes nd-aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes nd-desplazar {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes nd-flotar {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -12px, 0);
+  }
+}
+
+@utility flotar-lento {
+  animation: nd-flotar 18s ease-in-out infinite alternate;
 }

@@ -4,20 +4,30 @@ import { Insignia } from "./ui/Insignia";
 import { BotonFavorito } from "./BotonFavorito";
 import { categoriaPorId } from "@/data/categorias";
 import { etiquetaAmbiguedad, type Situacion } from "@/data/situaciones";
+import { estiloFamilia } from "@/lib/paleta";
+import { cn } from "@/lib/utils";
 
 const tonoAmbiguedad = {
-  bajo: "menta",
-  medio: "aviso",
-  alto: "lavanda",
+  bajo: "turquesa",
+  medio: "amarillo",
+  alto: "morado",
 } as const;
 
 export function TarjetaSituacion({ situacion }: { situacion: Situacion }) {
   const categoria = categoriaPorId(situacion.categoria);
+  const c = estiloFamilia(categoria?.color ?? "azul");
 
   return (
-    <article className="card-soft flex flex-col p-5" data-card>
+    <article
+      className={cn(
+        "elevar-suave flex flex-col rounded-3xl border border-border bg-card p-5 shadow-soft",
+        "border-l-4",
+        c.bordeSuperior.replace("border-t-", "border-l-"),
+      )}
+      data-card
+    >
       <div className="flex flex-wrap items-center gap-2">
-        {categoria && <Insignia tono="primario">{categoria.nombre}</Insignia>}
+        {categoria && <Insignia tono={categoria.color}>{categoria.nombre}</Insignia>}
         <Insignia tono={tonoAmbiguedad[situacion.ambiguedad]}>
           <Gauge className="h-4 w-4" aria-hidden="true" />
           {etiquetaAmbiguedad[situacion.ambiguedad]}
@@ -49,12 +59,10 @@ export function TarjetaSituacion({ situacion }: { situacion: Situacion }) {
       </dl>
 
       <div className="mt-4 flex flex-wrap items-center gap-2">
-        <Link
-          to="/situaciones/$id"
-          params={{ id: situacion.id }}
-          className="inline-flex min-h-11 items-center rounded-xl bg-primary px-4 py-2 font-semibold text-primary-foreground no-underline hover:bg-primary/90"
-        >
-          Ver explicación
+        <Link to="/situaciones/$id" params={{ id: situacion.id }} className="no-underline">
+          <span className="inline-flex min-h-11 items-center rounded-full border border-transparent bg-[image:var(--grad-principal)] bg-[length:180%_100%] bg-left px-4 py-2 font-semibold text-white shadow-soft transition-[background-position] duration-250 hover:bg-right">
+            Ver explicación
+          </span>
         </Link>
         <BotonFavorito tipo="situacion" id={situacion.id} nombre={situacion.titulo} />
       </div>

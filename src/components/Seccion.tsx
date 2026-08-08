@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { estiloFamilia, familiaPorIndice } from "@/lib/paleta";
 
 export function Contenedor({
   children,
@@ -32,11 +33,14 @@ export function EncabezadoPagina({
 export function ListaClara({ items }: { items: string[] }) {
   return (
     <ul className="mt-3 list-none space-y-2 p-0">
-      {items.map((item) => (
+      {items.map((item, i) => (
         <li key={item} className="flex gap-3">
           <span
             aria-hidden="true"
-            className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-secondary"
+            className={cn(
+              "mt-2.5 h-2.5 w-2.5 shrink-0 rounded-full",
+              estiloFamilia(familiaPorIndice(i)).punto,
+            )}
           />
           <span className="min-w-0">{item}</span>
         </li>
