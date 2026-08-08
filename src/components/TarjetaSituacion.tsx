@@ -18,8 +18,7 @@ export function TarjetaSituacion({ situacion }: { situacion: Situacion }) {
   return (
     <article
       className={cn(
-        "elevar-suave flex flex-col rounded-2xl border border-border bg-card p-5",
-        "hover:border-foreground/15",
+        "tarjeta-editorial elevar-suave flex flex-col p-5",
       )}
       data-card
     >
@@ -31,7 +30,7 @@ export function TarjetaSituacion({ situacion }: { situacion: Situacion }) {
         </Insignia>
       </div>
 
-      <h3 className="mt-3 text-lg font-semibold">
+      <h3 className="mt-3 text-[1.3rem] leading-tight">
         <Link
           to="/situaciones/$id"
           params={{ id: situacion.id }}
@@ -55,9 +54,9 @@ export function TarjetaSituacion({ situacion }: { situacion: Situacion }) {
         </div>
       </dl>
 
-      <div className="mt-4 flex flex-wrap items-center gap-2">
+      <div className="filete mt-4 flex flex-wrap items-center gap-2 pt-4">
         <Link to="/situaciones/$id" params={{ id: situacion.id }} className="no-underline">
-          <span className="inline-flex min-h-11 items-center rounded-full border border-transparent bg-[image:var(--grad-principal)] bg-[length:180%_100%] bg-left px-4 py-2 font-semibold text-white shadow-soft transition-[background-position] duration-250 hover:bg-right">
+          <span className="inline-flex min-h-11 items-center border-b-2 border-foreground px-1 py-2 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-foreground transition-colors hover:bg-foreground hover:text-background">
             Ver explicación
           </span>
         </Link>

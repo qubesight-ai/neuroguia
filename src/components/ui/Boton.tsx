@@ -37,9 +37,9 @@ const variantes: Record<Variante, string> = {
 };
 
 const tamanos: Record<Tamano, string> = {
-  sm: "min-h-11 px-3.5 py-2 text-sm gap-2",
-  md: "min-h-11 px-5 py-2.5 text-[0.95rem] gap-2",
-  lg: "min-h-12 px-6 py-3 text-base gap-2.5",
+  sm: "min-h-11 px-3.5 py-2 text-[0.72rem] gap-2",
+  md: "min-h-11 px-5 py-2.5 text-[0.78rem] gap-2",
+  lg: "min-h-12 px-6 py-3 text-[0.85rem] gap-2.5",
 };
 
 export interface BotonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -53,7 +53,7 @@ export const Boton = forwardRef<HTMLButtonElement, BotonProps>(
       ref={ref}
       type={type}
       className={cn(
-        "inline-flex items-center justify-center rounded-xl font-semibold",
+        "inline-flex items-center justify-center rounded-none font-bold uppercase tracking-[0.1em]",
         "transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
         "disabled:pointer-events-none disabled:opacity-55 disabled:shadow-none disabled:saturate-50",
         variantes[variante],
