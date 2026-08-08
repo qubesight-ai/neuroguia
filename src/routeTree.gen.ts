@@ -10,12 +10,36 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ComoFuncionaRouteImport } from './routes/como-funciona'
+import { Route as GlosarioRouteImport } from './routes/glosario'
+import { Route as GuionesRouteImport } from './routes/guiones'
+import { Route as SimuladorRouteImport } from './routes/simulador'
 import { Route as SituacionesIndexRouteImport } from './routes/situaciones.index'
 import { Route as SituacionesIdRouteImport } from './routes/situaciones.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComoFuncionaRoute = ComoFuncionaRouteImport.update({
+  id: '/como-funciona',
+  path: '/como-funciona',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GlosarioRoute = GlosarioRouteImport.update({
+  id: '/glosario',
+  path: '/glosario',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuionesRoute = GuionesRouteImport.update({
+  id: '/guiones',
+  path: '/guiones',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SimuladorRoute = SimuladorRouteImport.update({
+  id: '/simulador',
+  path: '/simulador',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SituacionesIndexRoute = SituacionesIndexRouteImport.update({
@@ -31,30 +55,68 @@ const SituacionesIdRoute = SituacionesIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/como-funciona': typeof ComoFuncionaRoute
+  '/glosario': typeof GlosarioRoute
+  '/guiones': typeof GuionesRoute
+  '/simulador': typeof SimuladorRoute
   '/situaciones/$id': typeof SituacionesIdRoute
   '/situaciones/': typeof SituacionesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/como-funciona': typeof ComoFuncionaRoute
+  '/glosario': typeof GlosarioRoute
+  '/guiones': typeof GuionesRoute
+  '/simulador': typeof SimuladorRoute
   '/situaciones/$id': typeof SituacionesIdRoute
   '/situaciones': typeof SituacionesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/como-funciona': typeof ComoFuncionaRoute
+  '/glosario': typeof GlosarioRoute
+  '/guiones': typeof GuionesRoute
+  '/simulador': typeof SimuladorRoute
   '/situaciones/$id': typeof SituacionesIdRoute
   '/situaciones/': typeof SituacionesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/situaciones/$id' | '/situaciones/'
+  fullPaths:
+    | '/'
+    | '/como-funciona'
+    | '/glosario'
+    | '/guiones'
+    | '/simulador'
+    | '/situaciones/$id'
+    | '/situaciones/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/situaciones/$id' | '/situaciones'
-  id: '__root__' | '/' | '/situaciones/$id' | '/situaciones/'
+  to:
+    | '/'
+    | '/como-funciona'
+    | '/glosario'
+    | '/guiones'
+    | '/simulador'
+    | '/situaciones/$id'
+    | '/situaciones'
+  id:
+    | '__root__'
+    | '/'
+    | '/como-funciona'
+    | '/glosario'
+    | '/guiones'
+    | '/simulador'
+    | '/situaciones/$id'
+    | '/situaciones/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ComoFuncionaRoute: typeof ComoFuncionaRoute
+  GlosarioRoute: typeof GlosarioRoute
+  GuionesRoute: typeof GuionesRoute
+  SimuladorRoute: typeof SimuladorRoute
   SituacionesIdRoute: typeof SituacionesIdRoute
   SituacionesIndexRoute: typeof SituacionesIndexRoute
 }
@@ -66,6 +128,34 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/como-funciona': {
+      id: '/como-funciona'
+      path: '/como-funciona'
+      fullPath: '/como-funciona'
+      preLoaderRoute: typeof ComoFuncionaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/glosario': {
+      id: '/glosario'
+      path: '/glosario'
+      fullPath: '/glosario'
+      preLoaderRoute: typeof GlosarioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guiones': {
+      id: '/guiones'
+      path: '/guiones'
+      fullPath: '/guiones'
+      preLoaderRoute: typeof GuionesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/simulador': {
+      id: '/simulador'
+      path: '/simulador'
+      fullPath: '/simulador'
+      preLoaderRoute: typeof SimuladorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/situaciones/': {
@@ -87,6 +177,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ComoFuncionaRoute: ComoFuncionaRoute,
+  GlosarioRoute: GlosarioRoute,
+  GuionesRoute: GuionesRoute,
+  SimuladorRoute: SimuladorRoute,
   SituacionesIdRoute: SituacionesIdRoute,
   SituacionesIndexRoute: SituacionesIndexRoute,
 }
