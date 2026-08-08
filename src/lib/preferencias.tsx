@@ -10,6 +10,7 @@ import {
 import { escribir, leer } from "./local-storage";
 
 export type Tema = "claro" | "oscuro";
+export type Intensidad = "calma" | "equilibrada" | "vibrante";
 
 export interface Preferencias {
   escalaTexto: number;
@@ -18,6 +19,7 @@ export interface Preferencias {
   lecturaSimple: boolean;
   tema: Tema;
   sinDecoracion: boolean;
+  intensidad: Intensidad;
 }
 
 export const PREFERENCIAS_POR_DEFECTO: Preferencias = {
@@ -27,7 +29,26 @@ export const PREFERENCIAS_POR_DEFECTO: Preferencias = {
   lecturaSimple: false,
   tema: "claro",
   sinDecoracion: false,
+  intensidad: "equilibrada",
 };
+
+export const INTENSIDADES: { id: Intensidad; nombre: string; descripcion: string }[] = [
+  {
+    id: "calma",
+    nombre: "Calma",
+    descripcion: "Sin degradados, colores pastel muy suaves.",
+  },
+  {
+    id: "equilibrada",
+    nombre: "Equilibrada",
+    descripcion: "Diseño multicolor normal.",
+  },
+  {
+    id: "vibrante",
+    nombre: "Vibrante",
+    descripcion: "Colores y degradados más intensos.",
+  },
+];
 
 export const ESCALA_MIN = 0.9;
 export const ESCALA_MAX = 1.6;
@@ -52,6 +73,8 @@ function aplicar(prefs: Preferencias) {
   root.classList.toggle("reduce-motion", prefs.movimientoReducido);
   root.classList.toggle("reading-view", prefs.lecturaSimple);
   root.classList.toggle("no-decor", prefs.sinDecoracion);
+  root.classList.toggle("intensidad-calma", prefs.intensidad === "calma");
+  root.classList.toggle("intensidad-vibrante", prefs.intensidad === "vibrante");
 }
 
 export function ProveedorPreferencias({ children }: { children: ReactNode }) {
