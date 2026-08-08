@@ -21,6 +21,33 @@
 
 @theme inline {
   --font-sans: "Atkinson Hyperlegible", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-nd-azul: var(--nd-azul);
+  --color-nd-azul-soft: var(--nd-azul-soft);
+  --color-nd-azul-ink: var(--nd-azul-ink);
+  --color-nd-cielo: var(--nd-cielo);
+  --color-nd-cielo-soft: var(--nd-cielo-soft);
+  --color-nd-cielo-ink: var(--nd-cielo-ink);
+  --color-nd-turquesa: var(--nd-turquesa);
+  --color-nd-turquesa-soft: var(--nd-turquesa-soft);
+  --color-nd-turquesa-ink: var(--nd-turquesa-ink);
+  --color-nd-verde: var(--nd-verde);
+  --color-nd-verde-soft: var(--nd-verde-soft);
+  --color-nd-verde-ink: var(--nd-verde-ink);
+  --color-nd-amarillo: var(--nd-amarillo);
+  --color-nd-amarillo-soft: var(--nd-amarillo-soft);
+  --color-nd-amarillo-ink: var(--nd-amarillo-ink);
+  --color-nd-naranja: var(--nd-naranja);
+  --color-nd-naranja-soft: var(--nd-naranja-soft);
+  --color-nd-naranja-ink: var(--nd-naranja-ink);
+  --color-nd-coral: var(--nd-coral);
+  --color-nd-coral-soft: var(--nd-coral-soft);
+  --color-nd-coral-ink: var(--nd-coral-ink);
+  --color-nd-magenta: var(--nd-magenta);
+  --color-nd-magenta-soft: var(--nd-magenta-soft);
+  --color-nd-magenta-ink: var(--nd-magenta-ink);
+  --color-nd-morado: var(--nd-morado);
+  --color-nd-morado-soft: var(--nd-morado-soft);
+  --color-nd-morado-ink: var(--nd-morado-ink);
   --color-primary-soft: var(--primary-soft);
   --color-secondary-soft: var(--secondary-soft);
   --color-lavender: var(--lavender);
