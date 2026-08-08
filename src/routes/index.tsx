@@ -277,12 +277,12 @@ function Inicio() {
 
       <section aria-labelledby="recursos-titulo" className="pb-20 sm:pb-24">
         <Contenedor>
-          <h2 id="recursos-titulo" className="text-2xl font-bold tracking-[-0.02em] sm:text-3xl">
+          <h2 id="recursos-titulo" className="mt-4 text-3xl sm:text-4xl">
             Recursos destacados
           </h2>
           <ul className="mt-8 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-4">
             <li
-              className="elevar-suave rounded-none border border-border bg-card p-5 hover:border-foreground/15"
+              className="tarjeta-editorial elevar-suave p-5"
               data-card
             >
               <h3 className="font-semibold">{guiones.length} guiones sociales</h3>
@@ -294,7 +294,7 @@ function Inicio() {
               </Link>
             </li>
             <li
-              className="elevar-suave rounded-none border border-border bg-card p-5 hover:border-foreground/15"
+              className="tarjeta-editorial elevar-suave p-5"
               data-card
             >
               <h3 className="font-semibold">{ejercicios.length} ejercicios interactivos</h3>
@@ -306,7 +306,7 @@ function Inicio() {
               </Link>
             </li>
             <li
-              className="elevar-suave rounded-none border border-border bg-card p-5 hover:border-foreground/15"
+              className="tarjeta-editorial elevar-suave p-5"
               data-card
             >
               <h3 className="font-semibold">Límites y seguridad</h3>
@@ -321,7 +321,7 @@ function Inicio() {
               </Link>
             </li>
             <li
-              className="elevar-suave rounded-none border border-border bg-card p-5 hover:border-foreground/15"
+              className="tarjeta-editorial elevar-suave p-5"
               data-card
             >
               <h3 className="font-semibold">Mi plan de regulación</h3>
