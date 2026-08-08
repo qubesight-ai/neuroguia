@@ -4,7 +4,6 @@ import { Insignia } from "./ui/Insignia";
 import { BotonFavorito } from "./BotonFavorito";
 import { categoriaPorId } from "@/data/categorias";
 import { etiquetaAmbiguedad, type Situacion } from "@/data/situaciones";
-import { estiloFamilia } from "@/lib/paleta";
 import { cn } from "@/lib/utils";
 
 const tonoAmbiguedad = {
@@ -15,14 +14,12 @@ const tonoAmbiguedad = {
 
 export function TarjetaSituacion({ situacion }: { situacion: Situacion }) {
   const categoria = categoriaPorId(situacion.categoria);
-  const c = estiloFamilia(categoria?.color ?? "azul");
 
   return (
     <article
       className={cn(
-        "elevar-suave flex flex-col rounded-3xl border border-border bg-card p-5 shadow-soft",
-        "border-l-4",
-        c.bordeSuperior.replace("border-t-", "border-l-"),
+        "elevar-suave flex flex-col rounded-2xl border border-border bg-card p-5",
+        "hover:border-foreground/15",
       )}
       data-card
     >
@@ -34,7 +31,7 @@ export function TarjetaSituacion({ situacion }: { situacion: Situacion }) {
         </Insignia>
       </div>
 
-      <h3 className="mt-3 text-xl font-bold">
+      <h3 className="mt-3 text-lg font-semibold">
         <Link
           to="/situaciones/$id"
           params={{ id: situacion.id }}

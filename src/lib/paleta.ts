@@ -33,7 +33,7 @@ export interface EstiloFamilia {
 
 export const familias: Record<FamiliaColor, EstiloFamilia> = {
   azul: {
-    fondo: "bg-nd-azul-soft",
+    fondo: "bg-card",
     circulo: "bg-nd-azul-soft text-nd-azul-ink",
     texto: "text-nd-azul-ink",
     borde: "border-nd-azul/50",
@@ -42,7 +42,7 @@ export const familias: Record<FamiliaColor, EstiloFamilia> = {
     punto: "bg-nd-azul",
   },
   cielo: {
-    fondo: "bg-nd-cielo-soft",
+    fondo: "bg-card",
     circulo: "bg-nd-cielo-soft text-nd-cielo-ink",
     texto: "text-nd-cielo-ink",
     borde: "border-nd-cielo/50",
@@ -51,7 +51,7 @@ export const familias: Record<FamiliaColor, EstiloFamilia> = {
     punto: "bg-nd-cielo",
   },
   turquesa: {
-    fondo: "bg-nd-turquesa-soft",
+    fondo: "bg-card",
     circulo: "bg-nd-turquesa-soft text-nd-turquesa-ink",
     texto: "text-nd-turquesa-ink",
     borde: "border-nd-turquesa/50",
@@ -60,7 +60,7 @@ export const familias: Record<FamiliaColor, EstiloFamilia> = {
     punto: "bg-nd-turquesa",
   },
   verde: {
-    fondo: "bg-nd-verde-soft",
+    fondo: "bg-card",
     circulo: "bg-nd-verde-soft text-nd-verde-ink",
     texto: "text-nd-verde-ink",
     borde: "border-nd-verde/50",
@@ -69,7 +69,7 @@ export const familias: Record<FamiliaColor, EstiloFamilia> = {
     punto: "bg-nd-verde",
   },
   amarillo: {
-    fondo: "bg-nd-amarillo-soft",
+    fondo: "bg-card",
     circulo: "bg-nd-amarillo-soft text-nd-amarillo-ink",
     texto: "text-nd-amarillo-ink",
     borde: "border-nd-amarillo/60",
@@ -78,7 +78,7 @@ export const familias: Record<FamiliaColor, EstiloFamilia> = {
     punto: "bg-nd-amarillo",
   },
   naranja: {
-    fondo: "bg-nd-naranja-soft",
+    fondo: "bg-card",
     circulo: "bg-nd-naranja-soft text-nd-naranja-ink",
     texto: "text-nd-naranja-ink",
     borde: "border-nd-naranja/50",
@@ -87,7 +87,7 @@ export const familias: Record<FamiliaColor, EstiloFamilia> = {
     punto: "bg-nd-naranja",
   },
   coral: {
-    fondo: "bg-nd-coral-soft",
+    fondo: "bg-card",
     circulo: "bg-nd-coral-soft text-nd-coral-ink",
     texto: "text-nd-coral-ink",
     borde: "border-nd-coral/50",
@@ -96,7 +96,7 @@ export const familias: Record<FamiliaColor, EstiloFamilia> = {
     punto: "bg-nd-coral",
   },
   magenta: {
-    fondo: "bg-nd-magenta-soft",
+    fondo: "bg-card",
     circulo: "bg-nd-magenta-soft text-nd-magenta-ink",
     texto: "text-nd-magenta-ink",
     borde: "border-nd-magenta/50",
@@ -105,7 +105,7 @@ export const familias: Record<FamiliaColor, EstiloFamilia> = {
     punto: "bg-nd-magenta",
   },
   morado: {
-    fondo: "bg-nd-morado-soft",
+    fondo: "bg-card",
     circulo: "bg-nd-morado-soft text-nd-morado-ink",
     texto: "text-nd-morado-ink",
     borde: "border-nd-morado/50",

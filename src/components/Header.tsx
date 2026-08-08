@@ -23,8 +23,7 @@ export function Header() {
   const [panelAbierto, setPanelAbierto] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-card/85 backdrop-blur-md supports-[backdrop-filter]:bg-card/70">
-      <div className="linea-infinito h-1 w-full" data-decorative="true" />
+    <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-xl">
       <a href="#contenido" className="skip-link">
         Saltar al contenido principal
       </a>
@@ -86,12 +85,12 @@ export function Header() {
                 to={e.to}
                 onClick={() => setMenuAbierto(false)}
                 activeOptions={{ exact: Boolean("exact" in e && e.exact) }}
-                className="group relative block min-h-11 rounded-lg px-3 py-2.5 text-base font-semibold text-nd-azul-ink/85 no-underline transition-colors duration-200 hover:bg-nd-azul-soft hover:text-nd-azul-ink data-[status=active]:text-foreground"
+                className="group relative block min-h-11 rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground no-underline transition-colors duration-300 hover:text-foreground data-[status=active]:font-semibold data-[status=active]:text-foreground"
               >
                 {e.texto}
                 <span
                   aria-hidden="true"
-                  className="linea-infinito absolute inset-x-3 bottom-1 h-[3px] rounded-full opacity-0 transition-opacity duration-200 group-data-[status=active]:opacity-100"
+                  className="absolute inset-x-3 bottom-0.5 h-px rounded-full bg-foreground/70 opacity-0 transition-opacity duration-300 group-data-[status=active]:opacity-100"
                 />
               </Link>
             </li>

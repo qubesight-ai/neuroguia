@@ -12,23 +12,22 @@ export function TarjetaCategoria({ categoria, total }: { categoria: Categoria; t
       to="/situaciones"
       search={{ categoria: categoria.id, q: "", ambiguedad: "todas" }}
       className={cn(
-        "elevar-suave flex gap-4 rounded-3xl border border-border border-t-4 p-5 no-underline",
-        "shadow-soft hover:border-t-current",
+        "elevar-suave flex gap-4 rounded-2xl border border-border p-5 no-underline",
+        "hover:border-foreground/15",
         c.fondo,
-        c.bordeSuperior,
       )}
       data-card
     >
       <span
-        className={cn("grid h-12 w-12 shrink-0 place-items-center rounded-full", c.circulo)}
+        className={cn("grid h-10 w-10 shrink-0 place-items-center rounded-xl", c.circulo)}
         aria-hidden="true"
       >
-        <Icono className="h-6 w-6" strokeWidth={1.75} />
+        <Icono className="h-5 w-5" strokeWidth={1.5} />
       </span>
       <span className="min-w-0">
-        <span className="block text-lg font-bold text-foreground">{categoria.nombre}</span>
-        <span className="mt-1 block text-sm text-foreground/70">{categoria.descripcion}</span>
-        <span className={cn("mt-2 block text-sm font-bold", c.texto)}>
+        <span className="block font-semibold text-foreground">{categoria.nombre}</span>
+        <span className="mt-1 block text-sm text-muted-foreground">{categoria.descripcion}</span>
+        <span className="mt-2 block text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
           {total === 1 ? "1 situación" : `${total} situaciones`}
         </span>
       </span>
