@@ -13,7 +13,7 @@ export function SimboloInfinito({
   idGradiente?: string;
   ancho?: number;
 }) {
-  const id = idGradiente ?? "nd-infinito";
+  const id: string = idGradiente ?? "nd-infinito";
   return (
     <svg
       viewBox="0 0 64 32"
@@ -51,7 +51,7 @@ export function Logo({
   className,
   soloSimbolo = false,
   claro = false,
-  idGradiente,
+  idGradiente = "nd-infinito",
 }: {
   className?: string;
   soloSimbolo?: boolean;
