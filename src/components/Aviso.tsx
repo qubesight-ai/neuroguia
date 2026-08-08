@@ -7,22 +7,22 @@ type Tipo = "info" | "aviso" | "riesgo" | "apoyo";
 const config: Record<Tipo, { icono: typeof Info; clase: string; prefijo: string }> = {
   info: {
     icono: Info,
-    clase: "bg-primary-soft border-primary/40",
+    clase: "bg-nd-azul-soft border-nd-azul/50 text-foreground",
     prefijo: "Información",
   },
   aviso: {
     icono: AlertTriangle,
-    clase: "bg-warning-soft border-warning",
+    clase: "bg-nd-amarillo-soft border-nd-naranja/60 text-foreground",
     prefijo: "Advertencia",
   },
   riesgo: {
     icono: ShieldAlert,
-    clase: "bg-destructive-soft border-destructive",
+    clase: "bg-nd-coral-soft border-nd-coral text-foreground",
     prefijo: "Seguridad",
   },
   apoyo: {
     icono: LifeBuoy,
-    clase: "bg-secondary-soft border-secondary",
+    clase: "bg-nd-turquesa-soft border-nd-turquesa/60 text-foreground",
     prefijo: "Apoyo",
   },
 };
@@ -41,7 +41,7 @@ export function Aviso({
   const { icono: Icono, clase, prefijo } = config[tipo];
   return (
     <aside
-      className={cn("rounded-2xl border-2 p-5", clase, className)}
+      className={cn("rounded-3xl border-2 p-5 shadow-soft", clase, className)}
       aria-label={`${prefijo}: ${titulo}`}
     >
       <div className="flex items-start gap-3">
