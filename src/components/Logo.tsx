@@ -6,13 +6,14 @@ import { cn } from "@/lib/utils";
  */
 export function SimboloInfinito({
   className,
-  idGradiente = "nd-infinito",
+  idGradiente,
   ancho = 3.4,
 }: {
   className?: string;
   idGradiente?: string;
   ancho?: number;
 }) {
+  const id = idGradiente ?? "nd-infinito";
   return (
     <svg
       viewBox="0 0 64 32"
@@ -22,7 +23,7 @@ export function SimboloInfinito({
       className={cn("h-8 w-16", className)}
     >
       <defs>
-        <linearGradient id={idGradiente} x1="0" y1="0" x2="1" y2="0.35">
+        <linearGradient id={id} x1="0" y1="0" x2="1" y2="0.35">
           <stop offset="0%" stopColor="var(--nd-azul)" />
           <stop offset="16%" stopColor="var(--nd-cielo)" />
           <stop offset="32%" stopColor="var(--nd-turquesa)" />
@@ -37,7 +38,7 @@ export function SimboloInfinito({
       <path
         d="M32 16C26.5 5.4 20.8 2.4 14.2 4.2 7.2 6.1 3.4 10.6 3.4 16c0 5.4 3.8 9.9 10.8 11.8 6.6 1.8 12.3-1.2 17.8-11.8 5.5-10.6 11.2-13.6 17.8-11.8 7 1.9 10.8 6.4 10.8 11.8 0 5.4-3.8 9.9-10.8 11.8C43.2 29.6 37.5 26.6 32 16Z"
         fill="none"
-        stroke={`url(#${idGradiente})`}
+        stroke={`url(#${id})`}
         strokeWidth={ancho}
         strokeLinecap="round"
       />
