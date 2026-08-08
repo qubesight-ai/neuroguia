@@ -21,24 +21,25 @@ type Tamano = "sm" | "md" | "lg";
 
 const variantes: Record<Variante, string> = {
   primario:
-    "border border-transparent text-white shadow-soft bg-[image:var(--grad-principal)] bg-[length:180%_100%] bg-left hover:bg-right active:brightness-95",
+    "border border-transparent bg-nd-azul text-white hover:brightness-[1.06] active:scale-[0.985]",
   regulacion:
-    "border border-transparent text-white shadow-soft bg-[image:var(--grad-calma)] bg-[length:180%_100%] bg-left hover:bg-right active:brightness-95",
+    "border border-transparent bg-nd-turquesa text-white hover:brightness-[1.06] active:scale-[0.985]",
   aviso:
-    "border border-transparent text-nd-amarillo-ink shadow-soft bg-[image:var(--grad-aviso)] bg-[length:180%_100%] bg-left hover:bg-right active:brightness-95",
+    "border border-transparent bg-nd-amarillo text-nd-amarillo-ink hover:brightness-[1.04] active:scale-[0.985]",
   seguridad:
-    "border border-nd-coral bg-nd-coral text-white shadow-soft hover:brightness-95 active:brightness-90",
-  contorno: "bg-card text-foreground border-2 border-input hover:bg-muted active:bg-muted",
-  "contorno-multicolor": "borde-degradado text-foreground hover:brightness-[0.98]",
-  sutil: "bg-muted text-foreground border border-transparent hover:bg-nd-azul-soft",
+    "border border-transparent bg-nd-coral text-white hover:brightness-[1.06] active:scale-[0.985]",
+  contorno: "bg-card text-foreground border border-input hover:bg-muted active:bg-muted",
+  "contorno-multicolor":
+    "bg-card text-foreground border border-input hover:bg-muted active:bg-muted",
+  sutil: "bg-muted text-foreground border border-transparent hover:bg-muted/70",
   peligro:
     "bg-destructive text-destructive-foreground border border-destructive hover:bg-destructive/90",
 };
 
 const tamanos: Record<Tamano, string> = {
-  sm: "min-h-11 px-3 py-2 text-sm gap-2",
-  md: "min-h-12 px-5 py-2.5 text-base gap-2",
-  lg: "min-h-14 px-6 py-3 text-lg gap-2.5",
+  sm: "min-h-11 px-3.5 py-2 text-sm gap-2",
+  md: "min-h-11 px-5 py-2.5 text-[0.95rem] gap-2",
+  lg: "min-h-12 px-6 py-3 text-base gap-2.5",
 };
 
 export interface BotonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -52,8 +53,8 @@ export const Boton = forwardRef<HTMLButtonElement, BotonProps>(
       ref={ref}
       type={type}
       className={cn(
-        "inline-flex items-center justify-center rounded-full font-semibold",
-        "transition-[background-position,background-color,filter,box-shadow,transform] duration-250",
+        "inline-flex items-center justify-center rounded-xl font-semibold",
+        "transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
         "disabled:pointer-events-none disabled:opacity-55 disabled:shadow-none disabled:saturate-50",
         variantes[variante],
         tamanos[tamano],
