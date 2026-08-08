@@ -19,6 +19,11 @@ import {
   ShieldAlert,
   Waves,
   HeartHandshake,
+  Target,
+  Zap,
+  Rocket,
+  CalendarClock,
+  BatteryCharging,
 } from "lucide-react";
 
 export type CategoriaId =
