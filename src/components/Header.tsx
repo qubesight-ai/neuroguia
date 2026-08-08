@@ -22,6 +22,7 @@ const enlaces = [
   { to: "/relaciones", texto: t.nav.relaciones },
   { to: "/limites-y-seguridad", texto: t.nav.limites },
   { to: "/regulacion", texto: t.nav.regulacion },
+  { to: "/tdah-adhd", texto: t.nav.tdahAdhd },
   { to: "/glosario", texto: t.nav.glosario },
   { to: "/mi-espacio", texto: t.nav.miEspacio },
 ] as const;
