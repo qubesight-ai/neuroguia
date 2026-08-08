@@ -13,6 +13,9 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ComoFuncionaRouteImport } from './routes/como-funciona'
 import { Route as GlosarioRouteImport } from './routes/glosario'
 import { Route as GuionesRouteImport } from './routes/guiones'
+import { Route as LimitesYSeguridadRouteImport } from './routes/limites-y-seguridad'
+import { Route as RegulacionRouteImport } from './routes/regulacion'
+import { Route as RelacionesRouteImport } from './routes/relaciones'
 import { Route as SimuladorRouteImport } from './routes/simulador'
 import { Route as SituacionesIndexRouteImport } from './routes/situaciones.index'
 import { Route as SituacionesIdRouteImport } from './routes/situaciones.$id'
@@ -37,6 +40,21 @@ const GuionesRoute = GuionesRouteImport.update({
   path: '/guiones',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LimitesYSeguridadRoute = LimitesYSeguridadRouteImport.update({
+  id: '/limites-y-seguridad',
+  path: '/limites-y-seguridad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegulacionRoute = RegulacionRouteImport.update({
+  id: '/regulacion',
+  path: '/regulacion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RelacionesRoute = RelacionesRouteImport.update({
+  id: '/relaciones',
+  path: '/relaciones',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SimuladorRoute = SimuladorRouteImport.update({
   id: '/simulador',
   path: '/simulador',
@@ -58,6 +76,9 @@ export interface FileRoutesByFullPath {
   '/como-funciona': typeof ComoFuncionaRoute
   '/glosario': typeof GlosarioRoute
   '/guiones': typeof GuionesRoute
+  '/limites-y-seguridad': typeof LimitesYSeguridadRoute
+  '/regulacion': typeof RegulacionRoute
+  '/relaciones': typeof RelacionesRoute
   '/simulador': typeof SimuladorRoute
   '/situaciones/$id': typeof SituacionesIdRoute
   '/situaciones/': typeof SituacionesIndexRoute
@@ -67,6 +88,9 @@ export interface FileRoutesByTo {
   '/como-funciona': typeof ComoFuncionaRoute
   '/glosario': typeof GlosarioRoute
   '/guiones': typeof GuionesRoute
+  '/limites-y-seguridad': typeof LimitesYSeguridadRoute
+  '/regulacion': typeof RegulacionRoute
+  '/relaciones': typeof RelacionesRoute
   '/simulador': typeof SimuladorRoute
   '/situaciones/$id': typeof SituacionesIdRoute
   '/situaciones': typeof SituacionesIndexRoute
@@ -77,6 +101,9 @@ export interface FileRoutesById {
   '/como-funciona': typeof ComoFuncionaRoute
   '/glosario': typeof GlosarioRoute
   '/guiones': typeof GuionesRoute
+  '/limites-y-seguridad': typeof LimitesYSeguridadRoute
+  '/regulacion': typeof RegulacionRoute
+  '/relaciones': typeof RelacionesRoute
   '/simulador': typeof SimuladorRoute
   '/situaciones/$id': typeof SituacionesIdRoute
   '/situaciones/': typeof SituacionesIndexRoute
@@ -88,6 +115,9 @@ export interface FileRouteTypes {
     | '/como-funciona'
     | '/glosario'
     | '/guiones'
+    | '/limites-y-seguridad'
+    | '/regulacion'
+    | '/relaciones'
     | '/simulador'
     | '/situaciones/$id'
     | '/situaciones/'
@@ -97,6 +127,9 @@ export interface FileRouteTypes {
     | '/como-funciona'
     | '/glosario'
     | '/guiones'
+    | '/limites-y-seguridad'
+    | '/regulacion'
+    | '/relaciones'
     | '/simulador'
     | '/situaciones/$id'
     | '/situaciones'
@@ -106,6 +139,9 @@ export interface FileRouteTypes {
     | '/como-funciona'
     | '/glosario'
     | '/guiones'
+    | '/limites-y-seguridad'
+    | '/regulacion'
+    | '/relaciones'
     | '/simulador'
     | '/situaciones/$id'
     | '/situaciones/'
@@ -116,6 +152,9 @@ export interface RootRouteChildren {
   ComoFuncionaRoute: typeof ComoFuncionaRoute
   GlosarioRoute: typeof GlosarioRoute
   GuionesRoute: typeof GuionesRoute
+  LimitesYSeguridadRoute: typeof LimitesYSeguridadRoute
+  RegulacionRoute: typeof RegulacionRoute
+  RelacionesRoute: typeof RelacionesRoute
   SimuladorRoute: typeof SimuladorRoute
   SituacionesIdRoute: typeof SituacionesIdRoute
   SituacionesIndexRoute: typeof SituacionesIndexRoute
@@ -151,6 +190,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuionesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/limites-y-seguridad': {
+      id: '/limites-y-seguridad'
+      path: '/limites-y-seguridad'
+      fullPath: '/limites-y-seguridad'
+      preLoaderRoute: typeof LimitesYSeguridadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/regulacion': {
+      id: '/regulacion'
+      path: '/regulacion'
+      fullPath: '/regulacion'
+      preLoaderRoute: typeof RegulacionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/relaciones': {
+      id: '/relaciones'
+      path: '/relaciones'
+      fullPath: '/relaciones'
+      preLoaderRoute: typeof RelacionesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/simulador': {
       id: '/simulador'
       path: '/simulador'
@@ -180,6 +240,9 @@ const rootRouteChildren: RootRouteChildren = {
   ComoFuncionaRoute: ComoFuncionaRoute,
   GlosarioRoute: GlosarioRoute,
   GuionesRoute: GuionesRoute,
+  LimitesYSeguridadRoute: LimitesYSeguridadRoute,
+  RegulacionRoute: RegulacionRoute,
+  RelacionesRoute: RelacionesRoute,
   SimuladorRoute: SimuladorRoute,
   SituacionesIdRoute: SituacionesIdRoute,
   SituacionesIndexRoute: SituacionesIndexRoute,
