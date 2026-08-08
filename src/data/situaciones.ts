@@ -1,4 +1,5 @@
 import type { CategoriaId } from "./categorias";
+import { iniciarConversacionExtra } from "./situaciones-extra/iniciar-conversacion";
 
 export type Ambiguedad = "bajo" | "medio" | "alto";
 
@@ -38,7 +39,7 @@ export interface Situacion {
 export const RECORDATORIO =
   "Recuerda: no puedes conocer con certeza lo que alguien piensa sin preguntarle. Un solo comportamiento no permite conocer una intención.";
 
-export const situaciones: Situacion[] = [
+const situacionesBase: Situacion[] = [
   {
     id: "no-devuelve-saludo",
     titulo: "Alguien no devuelve un saludo",
@@ -1285,6 +1286,11 @@ export const situaciones: Situacion[] = [
       ],
     },
   },
+];
+
+export const situaciones: Situacion[] = [
+  ...situacionesBase,
+  ...iniciarConversacionExtra,
 ];
 
 export const situacionPorId = (id: string) => situaciones.find((s) => s.id === id);
