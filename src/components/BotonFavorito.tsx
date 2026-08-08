@@ -18,7 +18,7 @@ export function BotonFavorito({
 
   return (
     <Boton
-      variante={guardado ? "secundario" : "contorno"}
+      variante={guardado ? "regulacion" : "contorno"}
       tamano={tamano}
       onClick={() => alternar(id)}
       aria-pressed={guardado}
