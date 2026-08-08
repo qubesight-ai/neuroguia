@@ -1,7 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { BookOpen, MessageSquareQuote, PlayCircle, ArrowRight } from "lucide-react";
-import ilustracion from "@/assets/ilustracion-rutas.jpg";
+import { BookOpen, MessageSquareQuote, PlayCircle, ArrowRight, Sparkles } from "lucide-react";
+import { estiloFamilia } from "@/lib/paleta";
+import { cn } from "@/lib/utils";
+import { IlustracionInfinito, ManchasFondo } from "@/components/HeroInfinito";
 import { Contenedor } from "@/components/Seccion";
 import { Buscador } from "@/components/Buscador";
 import { TarjetaCategoria } from "@/components/TarjetaCategoria";
@@ -44,18 +46,21 @@ const accesos = [
     titulo: "Quiero entender una situación",
     texto: "Explicaciones literales, interpretaciones posibles y opciones para responder.",
     icono: BookOpen,
+    color: "azul",
   },
   {
     to: "/guiones",
     titulo: "Necesito una frase para responder",
     texto: "Guiones listos para copiar y adaptar a tu forma de hablar.",
     icono: MessageSquareQuote,
+    color: "turquesa",
   },
   {
     to: "/simulador",
     titulo: "Quiero practicar",
     texto: "Escenarios con varias respuestas válidas y sus posibles efectos.",
     icono: PlayCircle,
+    color: "magenta",
   },
 ] as const;
 
@@ -75,42 +80,40 @@ function Inicio() {
 
   return (
     <>
-      <section className="border-b border-border bg-card">
-        <Contenedor className="grid items-center gap-10 py-12 lg:grid-cols-2 lg:py-16">
+      <section className="relative overflow-hidden border-b border-border bg-card">
+        <ManchasFondo />
+        <Contenedor className="grid items-center gap-10 py-14 lg:grid-cols-2 lg:py-20">
           <div>
-            <p className="text-sm font-bold uppercase tracking-wide text-primary">
+            <p className="inline-flex items-center gap-2 rounded-full border border-nd-morado/30 bg-nd-morado-soft px-3 py-1 text-sm font-bold text-nd-morado-ink">
+              <Sparkles className="h-4 w-4" aria-hidden="true" />
               Guía social para personas neurodivergentes
             </p>
-            <h1 className="mt-3 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-              {t.lema}
+            <h1 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-[3.25rem]">
+              Comprender las <span className="texto-degradado">normas sociales</span> sin dejar de
+              ser <span className="texto-degradado-calido">tú</span>
             </h1>
-            <p className="mt-4 text-lg text-muted-foreground">{t.lemaSecundario}</p>
+            <p className="mt-4 max-w-xl text-lg text-muted-foreground">{t.lemaSecundario}</p>
 
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link
-                to="/situaciones"
-                className="inline-flex min-h-14 items-center gap-2 rounded-xl bg-primary px-6 py-3 text-lg font-semibold text-primary-foreground no-underline hover:bg-primary/90"
-              >
-                {t.acciones.explorar}
-                <ArrowRight className="h-5 w-5" aria-hidden="true" />
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link to="/situaciones" className="no-underline">
+                <Boton tamano="lg">
+                  {t.acciones.explorar}
+                  <ArrowRight className="h-5 w-5" aria-hidden="true" />
+                </Boton>
               </Link>
-              <Link
-                to="/como-funciona"
-                className="inline-flex min-h-14 items-center rounded-xl border border-input bg-card px-6 py-3 text-lg font-semibold text-foreground no-underline hover:bg-muted"
-              >
-                {t.acciones.comoFunciona}
+              <Link to="/como-funciona" className="no-underline">
+                <Boton variante="contorno-multicolor" tamano="lg">
+                  {t.acciones.comoFunciona}
+                </Boton>
               </Link>
             </div>
+
+            <p className="mt-6 text-sm text-muted-foreground">
+              Sin registro. Todo lo que guardes se queda en tu dispositivo.
+            </p>
           </div>
 
-          <img
-            src={ilustracion}
-            width={1280}
-            height={960}
-            data-decorative="true"
-            alt="Ilustración abstracta con líneas suaves que se ramifican en varias direcciones y conectan círculos de distintos colores, como distintas rutas posibles para interpretar una misma situación."
-            className="w-full rounded-3xl border border-border"
-          />
+          <IlustracionInfinito />
         </Contenedor>
       </section>
 
@@ -166,14 +169,24 @@ function Inicio() {
           <ul className="mt-8 grid list-none gap-4 p-0 md:grid-cols-3">
             {accesos.map((a) => {
               const Icono = a.icono;
+              const c = estiloFamilia(a.color);
               return (
                 <li key={a.to}>
                   <Link
                     to={a.to}
-                    className="card-soft flex h-full flex-col p-5 no-underline hover:bg-muted"
+                    className={cn(
+                      "elevar-suave flex h-full flex-col rounded-3xl border border-border border-t-4 p-5 no-underline shadow-soft",
+                      c.fondo,
+                      c.bordeSuperior,
+                    )}
                     data-card
                   >
-                    <Icono className="h-7 w-7 text-primary" aria-hidden="true" />
+                    <span
+                      className={cn("grid h-12 w-12 place-items-center rounded-full", c.circulo)}
+                      aria-hidden="true"
+                    >
+                      <Icono className="h-6 w-6" strokeWidth={1.75} />
+                    </span>
                     <span className="mt-3 text-lg font-bold text-foreground">{a.titulo}</span>
                     <span className="mt-1 text-muted-foreground">{a.texto}</span>
                   </Link>
@@ -256,7 +269,11 @@ function Inicio() {
             Recursos destacados
           </h2>
           <ul className="mt-6 grid list-none gap-4 p-0 md:grid-cols-2 lg:grid-cols-4">
-            <li className="card-soft p-5" data-card>
+            <li
+              className="elevar-suave rounded-3xl border border-border border-t-4 bg-card p-5 shadow-soft"
+              data-card
+              style={{ borderTopColor: "var(--nd-azul)" }}
+            >
               <h3 className="text-lg font-bold">{guiones.length} guiones sociales</h3>
               <p className="mt-1 text-muted-foreground">
                 Frases para pedir claridad, decir no, poner límites o pedir ayuda.
@@ -265,7 +282,11 @@ function Inicio() {
                 Ver guiones
               </Link>
             </li>
-            <li className="card-soft p-5" data-card>
+            <li
+              className="elevar-suave rounded-3xl border border-border border-t-4 bg-card p-5 shadow-soft"
+              data-card
+              style={{ borderTopColor: "var(--nd-turquesa)" }}
+            >
               <h3 className="text-lg font-bold">{ejercicios.length} ejercicios interactivos</h3>
               <p className="mt-1 text-muted-foreground">
                 Practica sin calificaciones de «correcto» o «incorrecto».
@@ -274,7 +295,11 @@ function Inicio() {
                 Abrir simulador
               </Link>
             </li>
-            <li className="card-soft p-5" data-card>
+            <li
+              className="elevar-suave rounded-3xl border border-border border-t-4 bg-card p-5 shadow-soft"
+              data-card
+              style={{ borderTopColor: "var(--nd-coral)" }}
+            >
               <h3 className="text-lg font-bold">Límites y seguridad</h3>
               <p className="mt-1 text-muted-foreground">
                 Reconocer presión, manipulación y relaciones poco saludables.
@@ -286,7 +311,11 @@ function Inicio() {
                 Leer la guía
               </Link>
             </li>
-            <li className="card-soft p-5" data-card>
+            <li
+              className="elevar-suave rounded-3xl border border-border border-t-4 bg-card p-5 shadow-soft"
+              data-card
+              style={{ borderTopColor: "var(--nd-verde)" }}
+            >
               <h3 className="text-lg font-bold">Mi plan de regulación</h3>
               <p className="mt-1 text-muted-foreground">
                 Un plan editable que se guarda solo en tu dispositivo.
