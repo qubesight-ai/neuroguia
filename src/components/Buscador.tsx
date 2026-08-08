@@ -13,7 +13,7 @@ export function Buscador({
   onCambio: (v: string) => void;
   etiqueta: string;
   marcador: string;
-  resultados?: number;
+  resultados?: number | undefined;
 }) {
   const id = useId();
 
