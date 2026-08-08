@@ -4,7 +4,6 @@ import { Insignia } from "./ui/Insignia";
 import { BotonFavorito } from "./BotonFavorito";
 import { categoriaPorId } from "@/data/categorias";
 import { etiquetaAmbiguedad, type Situacion } from "@/data/situaciones";
-import { estiloFamilia } from "@/lib/paleta";
 import { cn } from "@/lib/utils";
 
 const tonoAmbiguedad = {
@@ -15,7 +14,6 @@ const tonoAmbiguedad = {
 
 export function TarjetaSituacion({ situacion }: { situacion: Situacion }) {
   const categoria = categoriaPorId(situacion.categoria);
-  const c = estiloFamilia(categoria?.color ?? "azul");
 
   return (
     <article
