@@ -107,4 +107,53 @@ export const glosario: TerminoGlosario[] = [
     ejemplo:
       "Alguien te trata como su persona especial, pide secreto y luego solicita fotos privadas.",
   },
+  {
+    termino: "TDAH / ADHD",
+    definicion:
+      "Trastorno por déficit de atención con o sin hiperactividad. En inglés se conoce como ADHD. Puede incluir dificultad para mantener la atención, hiperactividad, impulsividad y regulación emocional.",
+    ejemplo:
+      "Una persona con TDAH puede olvidar un compromiso aunque le importe mucho, o interrumpir sin querer porque la idea llega con urgencia.",
+  },
+  {
+    termino: "ADD",
+    definicion:
+      "Presentación inatenta del TDAH, sin hiperactividad visible. Se caracteriza más por distracción, olvidos, dificultad para organizarse y para terminar tareas.",
+    ejemplo:
+      "Alguien con ADD puede parecer estar soñando despierto, perder objetos con frecuencia o tener muchos proyectos iniciados y pocos terminados.",
+  },
+  {
+    termino: "Hiperfoco",
+    definicion:
+      "Estado de atención muy intensa y sostenida en un tema o actividad de gran interés. Puede ser productivo, pero también dificulta las transiciones y el cuidado básico.",
+    ejemplo:
+      "Empiezas a investigar un tema a las ocho de la noche y, cuando lo notas, son las tres de la mañana y no cenaste.",
+  },
+  {
+    termino: "Rechazo a la frustración / RSD",
+    definicion:
+      "Reacción emocional muy intensa ante el rechazo, la crítica o el fracaso real o percibido. No es una exageración voluntaria; el sistema nervioso responde con fuerza.",
+    ejemplo:
+      "Una corrección menor en el trabajo te produce vergüenza, enfado o tristeza que tarda horas en bajar.",
+  },
+  {
+    termino: "Memoria prospectiva",
+    definicion:
+      "Capacidad de recordar hacer algo en el futuro. En TDAH/ADD puede fallar incluso cuando la intención es real y el compromiso es importante.",
+    ejemplo:
+      "Quedaste en llamar a alguien mañana y, aunque lo pensaste varias veces, no lo hiciste hasta que te recordaron.",
+  },
+  {
+    termino: "Parálisis por análisis",
+    definicion:
+      "Bloqueo ante demasiadas opciones o pasos. El cerebro no elige ninguna ruta y la tarea se retrasa.",
+    ejemplo:
+      "Tienes cinco tareas pendientes, no sabes por cuál empezar y terminas sin hacer ninguna.",
+  },
+  {
+    termino: "Impulsividad",
+    definicion:
+      "Tendencia a actuar o hablar antes de evaluar las consecuencias. Puede mostrarse como interrupciones, compras repentinas o respuestas rápidas.",
+    ejemplo:
+      "Dices un comentario en una reunión y solo después notas que no era el momento adecuado.",
+  },
 ];
