@@ -70,7 +70,7 @@ export function Logo({
           Neuro<span className={claro ? "text-white" : "texto-degradado"}>Guía</span>
         </span>
       )}
-      <span className="sr-only">NeuroGuía</span>
+      {soloSimbolo && <span className="sr-only">NeuroGuía</span>}
     </span>
   );
 }
