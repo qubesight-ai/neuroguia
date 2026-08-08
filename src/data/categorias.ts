@@ -39,7 +39,12 @@ export type CategoriaId =
   | "limites"
   | "seguridad"
   | "sobrecarga"
-  | "regulacion";
+  | "regulacion"
+  | "tdah-atencion"
+  | "tdah-hiperfoco"
+  | "tdah-impulsos"
+  | "tdah-organizacion"
+  | "tdah-regulacion";
 
 export interface Categoria {
   id: CategoriaId;
