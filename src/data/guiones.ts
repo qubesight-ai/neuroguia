@@ -275,4 +275,74 @@ export const guiones: Guion[] = [
       "Necesito ayuda con algo importante y me cuesta explicarlo hablando. ¿Puedo escribírtelo?",
     cuandoUsarlo: "Cuando el habla se te dificulta en momentos de estrés.",
   },
+  {
+    id: "g-tdah-atencion-1",
+    categoria: "tdah-atencion",
+    texto:
+      "Me distraje y perdí el hilo. ¿De qué están hablando ahora?",
+    cuandoUsarlo: "Cuando tu atención salta y necesitas reconectar con la conversación.",
+  },
+  {
+    id: "g-tdah-atencion-2",
+    categoria: "tdah-atencion",
+    texto:
+      "Escucho mejor cuando hay poco ruido de fondo. ¿Podemos movernos a un lugar más tranquilo?",
+    cuandoUsarlo: "Cuando el entorno dificulta tu atención sin que sea culpa de nadie.",
+  },
+  {
+    id: "g-tdah-hiperfoco-1",
+    categoria: "tdah-hiperfoco",
+    texto:
+      "Este tema me entusiasma y me puedo extender. Dime si quieres que resuma o cambiemos de tema.",
+    cuandoUsarlo: "Antes de entrar en un tema que te apasiona mucho.",
+  },
+  {
+    id: "g-tdah-hiperfoco-2",
+    categoria: "tdah-hiperfoco",
+    texto:
+      "Estoy en medio de algo y me cuesta parar. ¿Me das cinco minutos más y luego seguimos contigo?",
+    cuandoUsarlo: "Cuando necesitas salir del hiperfoco con una transición negociada.",
+  },
+  {
+    id: "g-tdah-impulsos-1",
+    categoria: "tdah-impulsos",
+    texto:
+      "Perdón, te interrumpí. ¿Qué ibas a decir?",
+    cuandoUsarlo: "Después de interrumpir sin querer.",
+  },
+  {
+    id: "g-tdah-impulsos-2",
+    categoria: "tdah-impulsos",
+    texto:
+      "A veces se me escapan las ideas antes de tiempo. ¿Me avisas si te corto?",
+    cuandoUsarlo: "Para prevenir interrupciones futuras con alguien de confianza.",
+  },
+  {
+    id: "g-tdah-organizacion-1",
+    categoria: "tdah-organizacion",
+    texto:
+      "Se me pasó. ¿Aún estás disponible o lo movemos? Y si puedes, envíame un recordatorio un día antes.",
+    cuandoUsarlo: "Cuando olvidas un plan y quieres reparar sin excusas largas.",
+  },
+  {
+    id: "g-tdah-organizacion-2",
+    categoria: "tdah-organizacion",
+    texto:
+      "Para cumplir bien necesito que me lo escribas con fecha, hora y lugar exactos.",
+    cuandoUsarlo: "Cuando las instrucciones verbales o vagas no te funcionan.",
+  },
+  {
+    id: "g-tdah-regulacion-1",
+    categoria: "tdah-regulacion",
+    texto:
+      "Necesito un minuto para procesar esto. Vuelvo enseguida.",
+    cuandoUsarlo: "Antes de responder bajo una emoción intensa.",
+  },
+  {
+    id: "g-tdah-regulacion-2",
+    categoria: "tdah-regulacion",
+    texto:
+      "La corrección me afectó más de lo que me gustaría. Dame un momento y luego te pregunto qué cambiar.",
+    cuandoUsarlo: "Cuando la sensibilidad al rechazo a la frustración se activa.",
+  },
 ];
