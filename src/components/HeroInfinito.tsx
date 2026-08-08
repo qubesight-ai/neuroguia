@@ -24,7 +24,7 @@ export function IlustracionInfinito() {
   return (
     <div className="relative mx-auto w-full max-w-xl" data-decorative="true">
       <SimboloInfinito
-        className="w-full drop-shadow-[0_18px_40px_oklch(0.55_0.12_290_/_22%)]"
+        className="h-auto w-full drop-shadow-[0_18px_40px_oklch(0.55_0.12_290_/_22%)]"
         idGradiente="nd-infinito-hero"
         ancho={2.6}
       />
