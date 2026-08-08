@@ -199,7 +199,7 @@
   --destructive-foreground: oklch(0.99 0.003 30);
   --destructive-soft: oklch(0.955 0.03 30);
   --border: oklch(0.912 0.012 252);
-  --input: oklch(0.9 0.014 252);
+  --input: oklch(0.905 0.012 252);
   --ring: oklch(0.552 0.126 267.5);
 
   --shadow-soft: 0 1px 1px oklch(0.29 0.041 262 / 3%);
