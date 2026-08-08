@@ -277,6 +277,7 @@ function Inicio() {
 
       <section aria-labelledby="recursos-titulo" className="pb-20 sm:pb-24">
         <Contenedor>
+          <p className="antetitulo border-b-2 border-foreground pb-2">Recursos</p>
           <h2 id="recursos-titulo" className="mt-4 text-3xl sm:text-4xl">
             Recursos destacados
           </h2>
