@@ -80,23 +80,23 @@ function Inicio() {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-border">
+      <section className="relative overflow-hidden border-b-[3px] border-foreground">
         <ManchasFondo />
-        <Contenedor className="grid items-center gap-12 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:py-28">
-          <div>
-            <p className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-[0.7rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
-              Guía social para personas neurodivergentes
-            </p>
-            <h1 className="mt-6 text-[clamp(2rem,6vw,3.5rem)] font-bold leading-[1.08] tracking-[-0.03em]">
-              Comprender las <span className="texto-degradado">normas sociales</span> sin dejar de
-              ser tú
-            </h1>
-            <p className="mt-5 max-w-xl text-base text-muted-foreground sm:text-lg">
-              {t.lemaSecundario}
-            </p>
+        <Contenedor className="py-10 sm:py-14">
+          <p className="antetitulo flex items-center gap-2 border-b border-border pb-3">
+            <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
+            Portada · Guía social para personas neurodivergentes
+          </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 grid gap-10 lg:grid-cols-[1.35fr_0.65fr]">
+            <div className="lg:border-r lg:border-border lg:pr-10">
+              <h1 className="titular text-[clamp(2.4rem,7vw,4.5rem)]">
+                Comprender las <em className="font-normal italic">normas sociales</em> sin dejar de
+                ser tú
+              </h1>
+              <p className="entradilla mt-6 max-w-2xl">{t.lemaSecundario}</p>
+
+              <div className="filete mt-8 flex flex-wrap gap-3 pt-8">
               <Link to="/situaciones" className="no-underline">
                 <Boton tamano="lg">
                   {t.acciones.explorar}
@@ -108,14 +108,17 @@ function Inicio() {
                   {t.acciones.comoFunciona}
                 </Boton>
               </Link>
+              </div>
+
+              <p className="mt-6 text-sm text-muted-foreground">
+                Sin registro. Todo lo que guardes se queda en tu dispositivo.
+              </p>
             </div>
 
-            <p className="mt-6 text-sm text-muted-foreground">
-              Sin registro. Todo lo que guardes se queda en tu dispositivo.
-            </p>
+            <aside className="flex flex-col gap-6">
+              <IlustracionInfinito />
+            </aside>
           </div>
-
-          <IlustracionInfinito />
         </Contenedor>
       </section>
 
