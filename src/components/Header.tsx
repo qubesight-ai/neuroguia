@@ -1,9 +1,17 @@
 import { useState } from "react";
-import { Link } from "@tanstack/react-router";
-import { ArrowRight, Menu, Settings2, X } from "lucide-react";
+import { Link, useRouterState } from "@tanstack/react-router";
+import { ArrowRight, Menu, Settings2 } from "lucide-react";
 import { Boton } from "./ui/Boton";
 import { Logo } from "./Logo";
 import { PanelAccesibilidad } from "./PanelAccesibilidad";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "./ui/sheet";
 import { t } from "@/i18n";
 
 const enlaces = [
@@ -21,6 +29,9 @@ const enlaces = [
 export function Header() {
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [panelAbierto, setPanelAbierto] = useState(false);
+  const rutaActual = useRouterState({ select: (s) => s.location.pathname });
+  const esActiva = (to: string, exact?: boolean) =>
+    exact ? rutaActual === to : rutaActual === to || rutaActual.startsWith(`${to}/`);
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-xl">
@@ -55,36 +66,72 @@ export function Header() {
             {panelAbierto && <PanelAccesibilidad onCerrar={() => setPanelAbierto(false)} />}
           </div>
 
-          <Boton
-            variante="contorno"
-            tamano="sm"
-            className="lg:hidden"
-            onClick={() => setMenuAbierto((v) => !v)}
-            aria-expanded={menuAbierto}
-            aria-controls="menu-principal"
-          >
-            {menuAbierto ? (
-              <X className="h-5 w-5" aria-hidden="true" />
-            ) : (
-              <Menu className="h-5 w-5" aria-hidden="true" />
-            )}
-            <span className="sr-only">Menú principal</span>
-          </Boton>
+          <Sheet open={menuAbierto} onOpenChange={setMenuAbierto}>
+            <SheetTrigger asChild>
+              <Boton variante="contorno" tamano="sm" className="lg:hidden">
+                <Menu className="h-5 w-5" aria-hidden="true" />
+                <span className="sr-only">Abrir menú principal</span>
+              </Boton>
+            </SheetTrigger>
+            <SheetContent
+              side="right"
+              className="flex w-[min(20rem,88vw)] flex-col gap-0 overflow-y-auto p-0 sm:max-w-sm"
+              aria-label="Navegación principal"
+            >
+              <SheetHeader className="border-b border-border px-5 py-4 text-left">
+                <SheetTitle>Navegación</SheetTitle>
+              </SheetHeader>
+              <nav aria-label="Navegación principal (móvil)" className="flex-1 px-3 py-3">
+                <ul className="flex list-none flex-col gap-1">
+                  {enlaces.map((e) => (
+                    <li key={e.to}>
+                      <SheetClose asChild>
+                        <Link
+                          to={e.to}
+                          activeOptions={{ exact: Boolean("exact" in e && e.exact) }}
+                          aria-current={
+                            esActiva(e.to, Boolean("exact" in e && e.exact)) ? "page" : undefined
+                          }
+                          className="flex min-h-11 items-center gap-3 rounded-xl border border-transparent px-3 py-2.5 text-[0.95rem] font-medium text-muted-foreground no-underline transition-colors hover:bg-muted hover:text-foreground data-[status=active]:border-input data-[status=active]:bg-muted data-[status=active]:font-semibold data-[status=active]:text-foreground"
+                        >
+                          <span
+                            aria-hidden="true"
+                            className="h-5 w-1 rounded-full bg-transparent transition-colors group-data-[status=active]:bg-foreground data-[status=active]:bg-foreground"
+                          />
+                          {e.texto}
+                        </Link>
+                      </SheetClose>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+              <div className="border-t border-border px-5 py-4">
+                <SheetClose asChild>
+                  <Link to="/situaciones" className="no-underline">
+                    <Boton tamano="sm" className="w-full">
+                      {t.acciones.explorar}
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Boton>
+                  </Link>
+                </SheetClose>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
 
       <nav
         id="menu-principal"
         aria-label="Navegación principal"
-        className={`${menuAbierto ? "block" : "hidden"} border-t border-border lg:block lg:border-t-0`}
+        className="hidden border-t border-border lg:block lg:border-t-0"
       >
-        <ul className="mx-auto flex max-w-7xl list-none flex-col gap-1 px-4 py-3 sm:px-6 lg:flex-row lg:flex-wrap lg:py-2">
+        <ul className="mx-auto flex max-w-7xl list-none flex-row flex-wrap gap-1 px-4 py-2 sm:px-6">
           {enlaces.map((e) => (
             <li key={e.to}>
               <Link
                 to={e.to}
-                onClick={() => setMenuAbierto(false)}
                 activeOptions={{ exact: Boolean("exact" in e && e.exact) }}
+                aria-current={esActiva(e.to, Boolean("exact" in e && e.exact)) ? "page" : undefined}
                 className="group relative block min-h-11 rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground no-underline transition-colors duration-300 hover:text-foreground data-[status=active]:font-semibold data-[status=active]:text-foreground"
               >
                 {e.texto}
@@ -95,14 +142,6 @@ export function Header() {
               </Link>
             </li>
           ))}
-          <li className="mt-2 md:hidden">
-            <Link to="/situaciones" className="no-underline" onClick={() => setMenuAbierto(false)}>
-              <Boton tamano="sm" className="w-full">
-                {t.acciones.explorar}
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Boton>
-            </Link>
-          </li>
         </ul>
       </nav>
     </header>
