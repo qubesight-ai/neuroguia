@@ -22,9 +22,12 @@ export function BarraProgreso({
         aria-valuemin={0}
         aria-valuemax={total}
         aria-label={`${etiqueta}: ${actual} de ${total}`}
-        className="mt-2 h-3 w-full overflow-hidden rounded-full bg-muted"
+        className="mt-2 h-3 w-full overflow-hidden rounded-full border border-border bg-muted"
       >
-        <div className="h-full rounded-full bg-secondary" style={{ width: `${porcentaje}%` }} />
+        <div
+          className="superficie-degradado h-full rounded-full transition-[width] duration-300"
+          style={{ width: `${porcentaje}%` }}
+        />
       </div>
     </div>
   );
