@@ -37,6 +37,11 @@ export const guionCategorias: GuionCategoria[] = [
   { id: "consentimiento", nombre: "Pedir consentimiento" },
   { id: "incomodidad", nombre: "Comunicar incomodidad" },
   { id: "ayuda", nombre: "Solicitar ayuda" },
+  { id: "tdah-atencion", nombre: "Atención y distracción" },
+  { id: "tdah-hiperfoco", nombre: "Hiperfoco y transiciones" },
+  { id: "tdah-impulsos", nombre: "Impulsos e interrupciones" },
+  { id: "tdah-organizacion", nombre: "Organización y compromisos" },
+  { id: "tdah-regulacion", nombre: "Regulación emocional y TDAH" },
 ];
 
 export interface Guion {
