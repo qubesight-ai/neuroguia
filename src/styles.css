@@ -401,3 +401,137 @@
     top: 0.75rem;
   }
 }
+
+/* ============================================================
+   Intensidad visual: calma / equilibrada / vibrante
+   ============================================================ */
+
+.intensidad-calma {
+  --nd-c: 0.5;
+}
+
+/* En modo calma no hay degradados: se usan colores pastel planos. */
+.intensidad-calma {
+  --grad-principal: linear-gradient(120deg, var(--nd-azul), var(--nd-azul));
+  --grad-calma: linear-gradient(120deg, var(--nd-turquesa), var(--nd-turquesa));
+  --grad-aviso: linear-gradient(120deg, var(--nd-naranja), var(--nd-naranja));
+  --grad-frio: linear-gradient(120deg, var(--nd-azul), var(--nd-azul));
+  --grad-calido: linear-gradient(120deg, var(--nd-naranja), var(--nd-naranja));
+  --grad-infinito: linear-gradient(120deg, var(--nd-azul), var(--nd-morado));
+}
+
+.intensidad-vibrante {
+  --nd-c: 1.28;
+}
+
+/* Alto contraste: el color nunca es el único indicador. */
+.hc {
+  --nd-c: 1.1;
+}
+
+@utility texto-degradado {
+  background-image: var(--grad-principal);
+  background-size: 220% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  padding-inline-end: 0.06em;
+  animation: nd-desplazar 22s ease-in-out infinite alternate;
+}
+
+@utility texto-degradado-calido {
+  background-image: var(--grad-calido);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  padding-inline-end: 0.06em;
+}
+
+@utility texto-degradado-frio {
+  background-image: var(--grad-frio);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  padding-inline-end: 0.06em;
+}
+
+/* El texto con degradado vuelve a color plano en alto contraste o lectura simple. */
+.hc .texto-degradado,
+.hc .texto-degradado-calido,
+.hc .texto-degradado-frio,
+.reading-view .texto-degradado,
+.reading-view .texto-degradado-calido,
+.reading-view .texto-degradado-frio {
+  background-image: none;
+  color: var(--foreground);
+  animation: none;
+}
+
+@utility linea-infinito {
+  background-image: var(--grad-infinito);
+}
+
+@utility superficie-degradado {
+  background-image: var(--grad-infinito);
+  background-size: 240% 100%;
+  animation: nd-desplazar 26s ease-in-out infinite alternate;
+}
+
+/* Borde con degradado sin sobrescribir componentes. */
+@utility borde-degradado {
+  position: relative;
+  border-color: transparent;
+  background-image: linear-gradient(var(--card), var(--card)), var(--grad-infinito);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-width: 2px;
+  border-style: solid;
+}
+
+@utility elevar-suave {
+  transition:
+    transform 250ms ease,
+    box-shadow 250ms ease,
+    border-color 250ms ease;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft-lg);
+  }
+}
+
+@utility aparecer {
+  animation: nd-aparecer 320ms ease-out both;
+}
+
+@keyframes nd-aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes nd-desplazar {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes nd-flotar {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -12px, 0);
+  }
+}
+
+@utility flotar-lento {
+  animation: nd-flotar 18s ease-in-out infinite alternate;
+}
