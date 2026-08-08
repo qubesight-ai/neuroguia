@@ -897,6 +897,394 @@ export const situaciones: Situacion[] = [
       ],
     },
   },
+  {
+    id: "tdah-perder-hilo",
+    titulo: "Perdiste el hilo de una conversación grupal",
+    resumen:
+      "El grupo habla de varios temas a la vez y tu atención salta a otra cosa. Cuando vuelves, no sabes de qué están hablando.",
+    contexto: "Reunión, clase o conversación por chat",
+    categoria: "tdah-atencion",
+    ambiguedad: "medio",
+    minutos: 5,
+    palabrasClave: ["distraerse", "perderse", "hilo", "atención", "grupo"],
+    queEstaPasando:
+      "Tu atención se movió hacia un estímulo interno o externo y, al volver, el tema ya cambió. Esto no significa que no te importe la conversación.",
+    porQueConfuso:
+      "En grupos los temas cambian rápido y sin aviso. Las personas con TDAH/ADD notamos más el salto porque el retorno cuesta más esfuerzo.",
+    podriaSignificar: [
+      "La conversación avanzó mientras tu atención estaba en otra parte.",
+      "Alguien cambió de tema sin señalarlo.",
+      "El ambiente tenía demasiados estímulos y tu cerebro priorizó uno de ellos.",
+    ],
+    otrasInterpretaciones: [
+      "Algunas personas usan cambios de tema como forma de conversar; no es descortesía.",
+      "Puedes pedir que te pongan al día sin que eso sea raro.",
+    ],
+    senales: [
+      "Dejaste de escuchar en un punto concreto y sabes cuál fue.",
+      "El grupo ríe o reacciona a algo que no escuchaste.",
+      "Alguien usa una palabra clave que no reconoces.",
+    ],
+    preguntasDirectas: [
+      "«Perdí el hilo. ¿De qué están hablando ahora?»",
+      "«¿Volvieron al tema anterior o empezaron otro?»",
+      "«Me distraje un segundo. ¿Me resumen en una frase?»",
+    ],
+    opciones: [
+      {
+        texto: "Pedir un resumen breve y sin disculparte.",
+        queComunica: "Que necesitas información, no que la conversación te aburrió.",
+        quePodriaOcurrir: "La mayoría de las personas responde con normalidad.",
+      },
+      {
+        texto: "Escuchar un poco más para reconstruir el tema.",
+        queComunica: "Nada explícito; es una estrategia personal.",
+        quePodriaOcurrir: "Puede funcionar si el tema es reconocible, pero no si cambian de nuevo.",
+      },
+      {
+        texto: "Anotar la palabra clave y buscarla después.",
+        queComunica: "Que prefieres no interrumpir.",
+        quePodriaOcurrir: "Te quedas con la duda, pero evitas cortar el ritmo del grupo.",
+      },
+      {
+        texto: "Retirarte de la conversación si ya te cuesta mucho.",
+        queComunica: "Que cuidas tu energía.",
+        quePodriaOcurrir: "Es válido; puedes retomar en otro momento o con una persona.",
+      },
+    ],
+    noObligado: [
+      "No estás obligado a fingir que entiendes.",
+      "No estás obligado a disculparte por cómo funciona tu atención.",
+      "No estás obligado a quedarte en una conversación que ya no puedes seguir.",
+    ],
+    cuandoLimite: [
+      "Si alguien se burla de que te distrajiste, puedes nombrarlo o alejarte.",
+      "Si te presionan para prestar atención de una forma específica, puedes decir que tu forma es distinta.",
+    ],
+    cuandoAyuda: [
+      "Si perder el hilo te ocurre con frecuencia y afecta tu trabajo o estudios.",
+      "Si sientes vergüenza intensa cada vez que pides aclaraciones.",
+    ],
+    dialogo: {
+      titulo: "Pedir el hilo de vuelta",
+      lineas: [
+        { quien: "Tú", texto: "Perdí el hilo cuando hablaron del presupuesto. ¿De qué siguen ahora?" },
+        { quien: "La otra persona", texto: "Ahora discutimos la fecha de entrega." },
+        { quien: "Tú", texto: "Gracias. Si me pierdo otra vez, me avisan." },
+      ],
+    },
+  },
+  {
+    id: "tdah-interrumpir",
+    titulo: "Interrumpiste sin querer",
+    resumen:
+      "Estás conversando y una idea surge con urgencia. La dices en voz alta antes de que la otra persona termine.",
+    contexto: "Conversación individual o grupal",
+    categoria: "tdah-impulsos",
+    ambiguedad: "medio",
+    minutos: 5,
+    palabrasClave: ["interrumpir", "impulso", "idea", "urgente", "hablar"],
+    queEstaPasando:
+      "Un pensamiento se activó con tanta intensidad que salió antes de que filtraras el turno. No siempre es falta de respeto; a veces es dificultad para retener la idea.",
+    porQueConfuso:
+      "Interrumpir se lee como descortesía, pero en el TDAH/ADD puede deberse a miedo a olvidar la idea, no a despreciar al otro.",
+    podriaSignificar: [
+      "La idea tenía mucha carga emocional o creativa para ti.",
+      "Te costó contener el impulso de hablar.",
+      "El ritmo de la conversación te llevó a hablar en un espacio que no era el tuyo.",
+    ],
+    otrasInterpretaciones: [
+      "Algunas personas interrumpen como señal de entusiasmo.",
+      "En ciertos contextos, interrumpir es normal; en otros, se considera grave.",
+    ],
+    senales: [
+      "La otra persona dejó de hablar y te miró.",
+      "Alguien dijo «déjame terminar».",
+      "Sientes que hablaste demasiado rápido.",
+    ],
+    preguntasDirectas: [
+      "«Perdón, te interrumpí. ¿Qué ibas a decir?»",
+      "«¿Me avisas si hablo antes de que termines? Me cuesta contener las ideas.»",
+      "«¿Puedo anotar esto antes de que se me olvide y seguimos contigo?»",
+    ],
+    opciones: [
+      {
+        texto: "Pedir disculpas brevemente y devolver el turno.",
+        queComunica: "Que reconoces la interrupción y respetas su turno.",
+        quePodriaOcurrir: "La mayoría lo agradece y la conversación continúa.",
+      },
+      {
+        texto: "Explicar que te cuesta retener ideas y pedir ayuda.",
+        queComunica: "Que no fue intencional y que buscas una solución conjunta.",
+        quePodriaOcurrir: "La otra persona puede ofrecerte espacios para anotar o avisarte.",
+      },
+      {
+        texto: "Anotar la idea y seguir escuchando.",
+        queComunica: "Que no exiges hablar en ese instante.",
+        quePodriaOcurrir: "Te libera de la urgencia de recordar.",
+      },
+      {
+        texto: "No decir nada y dejar que la idea se vaya.",
+        queComunica: "Que priorizas el turno del otro.",
+        quePodriaOcurrir: "Pierdes la idea, pero mantienes el ritmo social.",
+      },
+    ],
+    noObligado: [
+      "No estás obligado a justificar tu forma de procesar las ideas.",
+      "No estás obligado a reprimir todas tus intervenciones.",
+      "No estás obligado a aceptar que te traten con desprecio por interrumpir.",
+    ],
+    cuandoLimite: [
+      "Si alguien te grita o humilla por interrumpir.",
+      "Si te dicen que no te dejarán hablar hasta que aprendas a no hacerlo.",
+    ],
+    cuandoAyuda: [
+      "Si las interrupciones te generan conflictos recurrentes.",
+      "Si sientes que no puedes controlar el impulso y te afecta emocionalmente.",
+    ],
+    dialogo: {
+      titulo: "Reparar una interrupción",
+      lineas: [
+        { quien: "Tú", texto: "Perdón, te corté. ¿Qué ibas a decir?" },
+        { quien: "La otra persona", texto: "No pasa nada. Decía que…" },
+        { quien: "Tú", texto: "Gracias. A veces se me escapan las ideas antes de tiempo." },
+      ],
+    },
+  },
+  {
+    id: "tdah-hiperfoco-social",
+    titulo: "Te metiste tanto en un tema que olvidaste revisar si la otra persona sigue interesada",
+    resumen:
+      "Hablas de algo que te apasiona y de pronto notas que la otra persona responde con monosílabos o mira el reloj.",
+    contexto: "Conversación individual o grupal",
+    categoria: "tdah-hiperfoco",
+    ambiguedad: "medio",
+    minutos: 6,
+    palabrasClave: ["hiperfoco", "monopolizar", "pasión", "tema", "interés"],
+    queEstaPasando:
+      "Entraste en un estado de hiperfoco: el tema te absorbió y la señales sociales de la otra persona pasaron a segundo plano.",
+    porQueConfuso:
+      "El entusiasmo genuino se puede leer como monopolio de la conversación. La otra persona puede no saber cómo decir que quiere cambiar de tema.",
+    podriaSignificar: [
+      "La otra persona sigue interesada pero cansada.",
+      "La otra persona no entiende el tema y no sabe cómo decirlo.",
+      "Llevas más tiempo del que la situación permite.",
+    ],
+    otrasInterpretaciones: [
+      "Algunas personas disfrutan escuchar a alguien apasionado.",
+      "En otros contextos, hablar mucho de un tema se considera dominante.",
+    ],
+    senales: [
+      "La otra persona deja de hacer preguntas.",
+      "Sus respuestas son de una sola palabra.",
+      "Mira el teléfono, el reloj o a su alrededor.",
+      "Cambia de postura o da un paso atrás.",
+    ],
+    preguntasDirectas: [
+      "«Me estoy extendiendo mucho. ¿Quieres que siga o cambiamos de tema?»",
+      "«Este tema me apasiona. ¿Te interesa o prefiero resumir?»",
+      "«¿Te cuento la versión corta?»",
+    ],
+    opciones: [
+      {
+        texto: "Pausar y preguntar si quiere seguir escuchando.",
+        queComunica: "Que valoras su interés y no asumes que quiere seguir.",
+        quePodriaOcurrir: "Te da una respuesta honesta y evitas seguir solo.",
+      },
+      {
+        texto: "Resumir en una frase y ofrecer detalles si quiere.",
+        queComunica: "Que puedes ajustar la profundidad.",
+        quePodriaOcurrir: "La otra persona puede pedir más o agradecer el resumen.",
+      },
+      {
+        texto: "Cambiar de tema y preguntarle por algo suyo.",
+        queComunica: "Que la conversación es de dos direcciones.",
+        quePodriaOcurrir: "Recupera la reciprocidad.",
+      },
+      {
+        texto: "Seguir hablando del tema si la otra persona sigue participando.",
+        queComunica: "Que el interés es mutuo.",
+        quePodriaOcurrir: "Puede ser una conversación enriquecedora.",
+      },
+    ],
+    noObligado: [
+      "No estás obligado a cortar tu entusiasmo por completo.",
+      "No estás obligado a hablar de temas que no te interesen para compensar.",
+      "No estás obligado a interpretar cada señal como rechazo.",
+    ],
+    cuandoLimite: [
+      "Si alguien te interrumpe de forma grosera para obligarte a callar.",
+      "Si te culpan de «hablar demasiado» de forma recurrente sin querer entender.",
+    ],
+    cuandoAyuda: [
+      "Si el hiperfoco te impide mantener amistades o relaciones.",
+      "Si sientes vergüenza intensa después de notar que hablaste mucho.",
+    ],
+    dialogo: {
+      titulo: "Ajustar la profundidad del tema",
+      lineas: [
+        { quien: "Tú", texto: "Me doy cuenta de que estoy hablando mucho de esto. ¿Te interesa o resumo?" },
+        { quien: "La otra persona", texto: "La verdad es que no entiendo mucho del tema." },
+        { quien: "Tú", texto: "Vale. Cuéntame qué has hecho esta semana." },
+      ],
+    },
+  },
+  {
+    id: "tdah-olvidar-compromiso",
+    titulo: "Olvidaste un compromiso que habías prometido",
+    resumen:
+      "Te escriben preguntando dónde estás. Te das cuenta de que acordaste algo y no lo recordaste.",
+    contexto: "Amistades, familia, trabajo o estudio",
+    categoria: "tdah-organizacion",
+    ambiguedad: "bajo",
+    minutos: 5,
+    palabrasClave: ["olvidar", "compromiso", "recordar", "cita", "plan"],
+    queEstaPasando:
+      "La memoria prospectiva (recordar hacer cosas en el futuro) puede ser difícil con TDAH/ADD. El olvido no equivale a falta de importancia.",
+    porQueConfuso:
+      "Otras personas pueden interpretar el olvido como desinterés o irresponsabilidad. Explicir la diferencia ayuda a reparar y a prevenir.",
+    podriaSignificar: [
+      "El compromiso no quedó anclado en un recordatorio visible.",
+      "Hubo un cambio de contexto que borró la intención.",
+      "Dijiste que sí en el momento sin revisar tu disponibilidad real.",
+    ],
+    otrasInterpretaciones: [
+      "Algunas personas usan calendarios y alarmas como apoyo, no como señal de irresponsabilidad.",
+      "Pedir que te envíen recordatorios puede ser una solución práctica.",
+    ],
+    senales: [
+      "Te escriben o llaman preguntando si vas.",
+      "Ves el mensaje original y te das cuenta del error.",
+      "Sientes un golpe de adrenalina al recordar.",
+    ],
+    preguntasDirectas: [
+      "«Tienes razón, lo olvidé. ¿Aún puedo sumarme o lo movemos?»",
+      "«Me cuesta recordar sin recordatorio. ¿Puedes enviarme un mensaje antes la próxima vez?»",
+      "«¿A qué hora quedamos exactamente? Quiero ver si alcanzo.»",
+    ],
+    opciones: [
+      {
+        texto: "Reconocer el olvido sin excusas largas y proponer una solución.",
+        queComunica: "Responsabilidad y voluntad de reparar.",
+        quePodriaOcurrir: "La otra persona puede aceptar o estar molesta; ambas son válidas.",
+      },
+      {
+        texto: "Pedir un sistema de recordatorios conjunto.",
+        queComunica: "Que necesitas apoyos externos, no que no te importe.",
+        quePodriaOcurrir: "Mejora la coordinación futura.",
+      },
+      {
+        texto: "Revisar si dijiste sí sin querer y aclarar tu disponibilidad real.",
+        queComunica: "Honestidad sobre tus límites.",
+        quePodriaOcurrir: "Puede generar una conversación incómoda pero necesaria.",
+      },
+      {
+        texto: "No responder de inmediato si estás sobrecargado.",
+        queComunica: "Que necesitas calmarte antes de reparar.",
+        quePodriaOcurrir: "Es válido, pero avisa que vas a responder en cuanto puedas.",
+      },
+    ],
+    noObligado: [
+      "No estás obligado a inventar una excusa para proteger la imagen.",
+      "No estás obligado a aceptar que te traten como irresponsable.",
+      "No estás obligado a compensar con algo que no puedas cumplir.",
+    ],
+    cuandoLimite: [
+      "Si alguien usa tus olvidos para humillarte o controlarte.",
+      "Si te exigen recordar sin permitirte usar apoyos.",
+    ],
+    cuandoAyuda: [
+      "Si los olvidos son frecuentes y afectan trabajo, estudios o relaciones importantes.",
+      "Si sientes mucha culpa que te impide reparar.",
+    ],
+    dialogo: {
+      titulo: "Reparar un olvido",
+      lineas: [
+        { quien: "La otra persona", texto: "¿No venías hoy?" },
+        { quien: "Tú", texto: "Lo siento, se me pasó. ¿Aún estás por aquí o lo movemos?" },
+        { quien: "La otra persona", texto: "Ya me voy. Quedemos otro día." },
+        { quien: "Tú", texto: "Vale. Te pido que me mandes un recordatorio un día antes, si puedes." },
+      ],
+    },
+  },
+  {
+    id: "tdah-rechazo-frustracion",
+    titulo: "Reaccionaste con mucha intensidad ante una corrección pequeña",
+    resumen:
+      "Alguien te señaló un error o un cambio menor y sentiste una ola de frustración, vergüenza o enfado que te sorprendió a ti mismo.",
+    contexto: "Trabajo, estudio o familia",
+    categoria: "tdah-regulacion",
+    ambiguedad: "medio",
+    minutos: 6,
+    palabrasClave: ["frustración", "corrección", "rechazo", "emoción", "intensa"],
+    queEstaPasando:
+      "La sensibilidad al rechazo a la frustración (RSD) es común en TDAH/ADD. El cerebro interpreta la corrección como una amenaza emocional mayor de lo que es objetivamente.",
+    porQueConfuso:
+      "La reacción puede parecer desproporcionada para quien observa, pero para quien la siente es real y abrumadora. No es «exagerar».",
+    podriaSignificar: [
+      "La corrección tocó una zona de inseguridad previa.",
+      "Acumulaste estrés previo y esa fue la gota que derramó el vaso.",
+      "Tu sistema nervioso respondió antes de que pudieras pensar.",
+    ],
+    otrasInterpretaciones: [
+      "Algunas personas con TDAH/ADD tienen respuestas emocionales más rápidas e intensas.",
+      "Nombrar la reacción puede reducir su impacto.",
+    ],
+    senales: [
+      "Calor en el rostro, taquicardia o tensión muscular.",
+      "Ganas de defenderte fuertemente o de alejarte.",
+      "Pensamientos repetitivos sobre lo que dijeron.",
+    ],
+    preguntasDirectas: [
+      "«Necesito un minuto antes de responder. No es por ti.»",
+      "«¿Puedes decirme qué parte necesitas que cambie exactamente?»",
+      "«Me afectó más de lo que esperaba. Vuelvo enseguida.»",
+    ],
+    opciones: [
+      {
+        texto: "Pedir una pausa breve antes de seguir.",
+        queComunica: "Que no ignoras el mensaje, pero necesitas regulararte.",
+        quePodriaOcurrir: "Te da espacio para bajar la intensidad.",
+      },
+      {
+        texto: "Preguntar exactamente qué se espera.",
+        queComunica: "Que quieres entender la corrección concreta.",
+        quePodriaOcurrir: "Convierte la crítica vaga en una instrucción accionable.",
+      },
+      {
+        texto: "Nombrar que la corrección te afectó, sin culpar.",
+        queComunica: "Honestidad emocional.",
+        quePodriaOcurrir: "Puede generar comprensión o incomodidad; ambas son información.",
+      },
+      {
+        texto: "Alejarte del lugar hasta sentirte mejor.",
+        queComunica: "Que cuidas tu regulación.",
+        quePodriaOcurrir: "Evitas decir algo que luego lamentes.",
+      },
+    ],
+    noObligado: [
+      "No estás obligado a aceptar correcciones agresivas como si fueran neutras.",
+      "No estás obligado a explicar tu reacción en el momento exacto.",
+      "No estás obligado a suprimir la emoción para parecer profesional.",
+    ],
+    cuandoLimite: [
+      "Si la corrección incluye humillación, comparaciones o gritos.",
+      "Si alguien usa tu reacción emocional para descalificarte.",
+    ],
+    cuandoAyuda: [
+      "Si las respuestas intensas son frecuentes y te agotan.",
+      "Si evitas recibir feedback por miedo a tu propia reacción.",
+    ],
+    dialogo: {
+      titulo: "Regularse ante una corrección",
+      lineas: [
+        { quien: "La otra persona", texto: "Este dato está mal. Tienes que revisarlo." },
+        { quien: "Tú", texto: "Vale. Necesito un minuto para procesarlo y luego te pregunto qué corregir." },
+        { quien: "La otra persona", texto: "Está bien." },
+        { quien: "Tú", texto: "Gracias. Vuelvo enseguida." },
+      ],
+    },
+  },
 ];
 
 export const situacionPorId = (id: string) => situaciones.find((s) => s.id === id);

@@ -97,7 +97,11 @@ function Inicio() {
               <p className="entradilla mt-6 max-w-2xl">{t.lemaSecundario}</p>
 
               <div className="filete mt-8 flex flex-wrap gap-3 pt-8">
-              <Link to="/situaciones" className="no-underline">
+              <Link
+                to="/situaciones"
+                search={{ q: "", categoria: "todas", ambiguedad: "todas", contexto: "todos" }}
+                className="no-underline"
+              >
                 <Boton tamano="lg">
                   {t.acciones.explorar}
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -154,12 +158,13 @@ function Inicio() {
             {consulta && resultados.length === 0 && (
               <div className="mt-4">
                 <EstadoVacio titulo="Sin coincidencias exactas" descripcion={t.busqueda.sinResultados}>
-                  <Link
-                    to="/situaciones"
-                    className="inline-flex min-h-11 items-center rounded-xl bg-primary px-4 py-2 font-semibold text-primary-foreground no-underline"
-                  >
-                    Ver todas las situaciones
-                  </Link>
+              <Link
+                to="/situaciones"
+                search={{ q: "", categoria: "todas", ambiguedad: "todas", contexto: "todos" }}
+                className="inline-flex min-h-11 items-center rounded-xl bg-primary px-4 py-2 font-semibold text-primary-foreground no-underline"
+              >
+                Ver todas las situaciones
+              </Link>
                   <Link
                     to="/contacto"
                     className="inline-flex min-h-11 items-center rounded-xl border border-input px-4 py-2 font-semibold text-foreground no-underline"
@@ -249,6 +254,35 @@ function Inicio() {
         </Contenedor>
       </section>
 
+      <section aria-labelledby="tdah-titulo" className="border-y border-border bg-card py-16 sm:py-20">
+        <Contenedor className="grid gap-10 lg:grid-cols-[1.2fr_1fr]">
+          <div>
+            <p className="antetitulo border-b-2 border-foreground pb-2">TDAH / ADHD y ADD</p>
+            <h2 id="tdah-titulo" className="mt-4 text-3xl sm:text-4xl">
+              También para mentes que saltan, se enfocan con intensidad y sienten con fuerza
+            </h2>
+            <p className="capitular mt-4 text-muted-foreground">
+              Situaciones, guiones y estrategias pensadas para personas con TDAH, ADHD o ADD:
+              perder el hilo, interrumpir, entrar en hiperfoco, olvidar compromisos y regular
+              emociones intensas.
+            </p>
+            <div className="mt-6">
+              <Link to="/tdah-adhd" className="no-underline">
+                <Boton>Explorar sección TDAH / ADHD</Boton>
+              </Link>
+            </div>
+          </div>
+          <Aviso tipo="apoyo" titulo="Lo que encontrarás">
+            <ul className="m-0 list-disc space-y-1 pl-5">
+              <li>Situaciones sociales explicadas de forma literal.</li>
+              <li>Guiones para pedir aclaraciones, pausas o apoyos.</li>
+              <li>Estrategias de regulación emocional y organización.</li>
+              <li>Un ejercicio interactivo sobre cambios de plan.</li>
+            </ul>
+          </Aviso>
+        </Contenedor>
+      </section>
+
       <section aria-labelledby="previa-titulo" className="py-16 sm:py-20">
         <Contenedor>
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-4">
@@ -260,6 +294,7 @@ function Inicio() {
             </div>
             <Link
               to="/situaciones"
+              search={{ q: "", categoria: "todas", ambiguedad: "todas", contexto: "todos" }}
               className="shrink-0 border-b-2 border-foreground pb-0.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-foreground no-underline"
             >
               Ver todas

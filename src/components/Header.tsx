@@ -22,6 +22,7 @@ const enlaces = [
   { to: "/relaciones", texto: t.nav.relaciones },
   { to: "/limites-y-seguridad", texto: t.nav.limites },
   { to: "/regulacion", texto: t.nav.regulacion },
+  { to: "/tdah-adhd", texto: t.nav.tdahAdhd },
   { to: "/glosario", texto: t.nav.glosario },
   { to: "/mi-espacio", texto: t.nav.miEspacio },
 ] as const;
@@ -50,7 +51,11 @@ export function Header() {
         </Link>
 
         <div className="flex shrink-0 items-center gap-2">
-          <Link to="/situaciones" className="hidden no-underline md:inline-flex">
+          <Link
+            to="/situaciones"
+            search={{ q: "", categoria: "todas", ambiguedad: "todas", contexto: "todos" }}
+            className="hidden no-underline md:inline-flex"
+          >
             <Boton tamano="sm">
               {t.acciones.explorar}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -113,7 +118,11 @@ export function Header() {
               </nav>
               <div className="border-t border-border px-5 py-4">
                 <SheetClose asChild>
-                  <Link to="/situaciones" className="no-underline">
+                  <Link
+                    to="/situaciones"
+                    search={{ q: "", categoria: "todas", ambiguedad: "todas", contexto: "todos" }}
+                    className="no-underline"
+                  >
                     <Boton tamano="sm" className="w-full">
                       {t.acciones.explorar}
                       <ArrowRight className="h-4 w-4" aria-hidden="true" />

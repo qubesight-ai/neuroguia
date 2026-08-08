@@ -299,4 +299,52 @@ export const ejercicios: Ejercicio[] = [
       },
     ],
   },
+  {
+    id: "e-tdah-cambio-plan",
+    titulo: "Te avisan de un cambio de último momento",
+    contexto: "Plan con amistades",
+    escenario:
+      "Quedaste con un grupo para encontrarse en un parque. A media hora de la salida te escriben que ahora quedan en un centro comercial ruidoso y que «es igual, está cerca».",
+    pregunta: "¿Qué podrías responder?",
+    porQueVariasValidas:
+      "Los cambios de plan pueden ser difíciles para personas con TDAH/ADD porque afectan la preparación mental, la transición y la regulación sensorial. Puedes adaptarte, negociar o cuidarte; ninguna opción es inherentemente incorrecta.",
+    opciones: [
+      {
+        id: "a",
+        texto: "«El centro comercial me resulta difícil por el ruido. ¿Podemos quedar en otro lado o nos vemos otro día?»",
+        valoracion: "clara-respetuosa",
+        queComunica: "Una necesidad concreta y dos alternativas.",
+        ventajas: ["Da información útil.", "Ofrece opciones sin forzar."],
+        riesgos: ["El grupo puede mantener el nuevo plan."],
+        alternativas: ["Proponer un lugar específico que te funcione."],
+      },
+      {
+        id: "b",
+        texto: "«Déjenme unos minutos para reorganizarme y les confirmo.»",
+        valoracion: "puede-funcionar",
+        queComunica: "Que necesitas tiempo de transición.",
+        ventajas: ["Reduce la presión de responder de inmediato.", "Te permite evaluar si puedes ir."],
+        riesgos: ["El grupo puede interpretar la pausa como indecisión o falta de interés."],
+        alternativas: ["Explicar brevemente que los cambios de último momento te cuestan."],
+      },
+      {
+        id: "c",
+        texto: "Ir igual para no molestar y esperar a ver cómo te sientes allá.",
+        valoracion: "riesgo-limites",
+        queComunica: "Disponibilidad total, aunque no sea real.",
+        ventajas: ["Mantienes el plan social."],
+        riesgos: ["Puede generar sobrecarga, agotamiento o malestar que se extienda después."],
+        alternativas: ["Ir con una hora de salida clara y avisarla desde el inicio."],
+      },
+      {
+        id: "d",
+        texto: "«Prefiero quedarme con el plan original en el parque. Si alguien se anima, nos vemos ahí.»",
+        valoracion: "puede-funcionar",
+        queComunica: "Que respetas tu preparación sin obligar a nadie.",
+        ventajas: ["Mantienes tu plan y das libertad al grupo."],
+        riesgos: ["Puede quedar solo si nadie más prefiere el parque."],
+        alternativas: ["Proponer una tercera opción que funcione para todos."],
+      },
+    ],
+  },
 ];

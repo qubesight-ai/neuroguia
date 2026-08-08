@@ -21,6 +21,7 @@ import { Route as RegulacionRouteImport } from './routes/regulacion'
 import { Route as RelacionesRouteImport } from './routes/relaciones'
 import { Route as SimuladorRouteImport } from './routes/simulador'
 import { Route as SobreElProyectoRouteImport } from './routes/sobre-el-proyecto'
+import { Route as TdahAdhdRouteImport } from './routes/tdah-adhd'
 import { Route as SituacionesIndexRouteImport } from './routes/situaciones.index'
 import { Route as SituacionesIdRouteImport } from './routes/situaciones.$id'
 
@@ -84,6 +85,11 @@ const SobreElProyectoRoute = SobreElProyectoRouteImport.update({
   path: '/sobre-el-proyecto',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TdahAdhdRoute = TdahAdhdRouteImport.update({
+  id: '/tdah-adhd',
+  path: '/tdah-adhd',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SituacionesIndexRoute = SituacionesIndexRouteImport.update({
   id: '/situaciones/',
   path: '/situaciones/',
@@ -108,6 +114,7 @@ export interface FileRoutesByFullPath {
   '/relaciones': typeof RelacionesRoute
   '/simulador': typeof SimuladorRoute
   '/sobre-el-proyecto': typeof SobreElProyectoRoute
+  '/tdah-adhd': typeof TdahAdhdRoute
   '/situaciones/$id': typeof SituacionesIdRoute
   '/situaciones/': typeof SituacionesIndexRoute
 }
@@ -124,6 +131,7 @@ export interface FileRoutesByTo {
   '/relaciones': typeof RelacionesRoute
   '/simulador': typeof SimuladorRoute
   '/sobre-el-proyecto': typeof SobreElProyectoRoute
+  '/tdah-adhd': typeof TdahAdhdRoute
   '/situaciones/$id': typeof SituacionesIdRoute
   '/situaciones': typeof SituacionesIndexRoute
 }
@@ -141,6 +149,7 @@ export interface FileRoutesById {
   '/relaciones': typeof RelacionesRoute
   '/simulador': typeof SimuladorRoute
   '/sobre-el-proyecto': typeof SobreElProyectoRoute
+  '/tdah-adhd': typeof TdahAdhdRoute
   '/situaciones/$id': typeof SituacionesIdRoute
   '/situaciones/': typeof SituacionesIndexRoute
 }
@@ -159,6 +168,7 @@ export interface FileRouteTypes {
     | '/relaciones'
     | '/simulador'
     | '/sobre-el-proyecto'
+    | '/tdah-adhd'
     | '/situaciones/$id'
     | '/situaciones/'
   fileRoutesByTo: FileRoutesByTo
@@ -175,6 +185,7 @@ export interface FileRouteTypes {
     | '/relaciones'
     | '/simulador'
     | '/sobre-el-proyecto'
+    | '/tdah-adhd'
     | '/situaciones/$id'
     | '/situaciones'
   id:
@@ -191,6 +202,7 @@ export interface FileRouteTypes {
     | '/relaciones'
     | '/simulador'
     | '/sobre-el-proyecto'
+    | '/tdah-adhd'
     | '/situaciones/$id'
     | '/situaciones/'
   fileRoutesById: FileRoutesById
@@ -208,6 +220,7 @@ export interface RootRouteChildren {
   RelacionesRoute: typeof RelacionesRoute
   SimuladorRoute: typeof SimuladorRoute
   SobreElProyectoRoute: typeof SobreElProyectoRoute
+  TdahAdhdRoute: typeof TdahAdhdRoute
   SituacionesIdRoute: typeof SituacionesIdRoute
   SituacionesIndexRoute: typeof SituacionesIndexRoute
 }
@@ -298,6 +311,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SobreElProyectoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tdah-adhd': {
+      id: '/tdah-adhd'
+      path: '/tdah-adhd'
+      fullPath: '/tdah-adhd'
+      preLoaderRoute: typeof TdahAdhdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/situaciones/': {
       id: '/situaciones/'
       path: '/situaciones'
@@ -328,19 +348,10 @@ const rootRouteChildren: RootRouteChildren = {
   RelacionesRoute: RelacionesRoute,
   SimuladorRoute: SimuladorRoute,
   SobreElProyectoRoute: SobreElProyectoRoute,
+  TdahAdhdRoute: TdahAdhdRoute,
   SituacionesIdRoute: SituacionesIdRoute,
   SituacionesIndexRoute: SituacionesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

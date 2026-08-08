@@ -10,7 +10,7 @@ export function TarjetaCategoria({ categoria, total }: { categoria: Categoria; t
   return (
     <Link
       to="/situaciones"
-      search={{ categoria: categoria.id, q: "", ambiguedad: "todas" }}
+      search={{ categoria: categoria.id, q: "", ambiguedad: "todas", contexto: "todos" }}
       className={cn(
         "tarjeta-editorial elevar-suave flex gap-4 p-5 no-underline",
         c.fondo,

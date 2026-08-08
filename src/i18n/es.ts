@@ -17,6 +17,7 @@ export const es = {
     regulacion: "Regulación",
     glosario: "Glosario",
     miEspacio: "Mi espacio",
+    tdahAdhd: "TDAH / ADHD",
   },
   acciones: {
     explorar: "Explorar situaciones",
