@@ -216,11 +216,40 @@
 }
 
 .dark {
-  --background: oklch(0.208 0.03 261);
-  --foreground: oklch(0.955 0.008 250);
-  --card: oklch(0.258 0.032 261);
+  --background: oklch(0.21 0.032 264.7);
+  --foreground: oklch(0.984 0.003 247.9);
+  --card: oklch(0.312 0.044 260.6);
+
+  /* Multicolor con luminosidad algo más baja para reducir fatiga visual */
+  --nd-azul: oklch(0.6 calc(0.14 * var(--nd-c)) 262.3);
+  --nd-azul-soft: oklch(0.34 calc(0.055 * var(--nd-c)) 262.3);
+  --nd-azul-ink: oklch(0.86 calc(0.075 * var(--nd-c)) 262.3);
+  --nd-cielo: oklch(0.66 calc(0.115 * var(--nd-c)) 241.1);
+  --nd-cielo-soft: oklch(0.34 calc(0.05 * var(--nd-c)) 241.1);
+  --nd-cielo-ink: oklch(0.87 calc(0.07 * var(--nd-c)) 241.1);
+  --nd-turquesa: oklch(0.68 calc(0.1 * var(--nd-c)) 185);
+  --nd-turquesa-soft: oklch(0.34 calc(0.045 * var(--nd-c)) 185);
+  --nd-turquesa-ink: oklch(0.87 calc(0.065 * var(--nd-c)) 185);
+  --nd-verde: oklch(0.67 calc(0.115 * var(--nd-c)) 146.3);
+  --nd-verde-soft: oklch(0.34 calc(0.05 * var(--nd-c)) 146.3);
+  --nd-verde-ink: oklch(0.88 calc(0.07 * var(--nd-c)) 146.3);
+  --nd-amarillo: oklch(0.79 calc(0.125 * var(--nd-c)) 88.3);
+  --nd-amarillo-soft: oklch(0.35 calc(0.05 * var(--nd-c)) 88.3);
+  --nd-amarillo-ink: oklch(0.9 calc(0.08 * var(--nd-c)) 88.3);
+  --nd-naranja: oklch(0.7 calc(0.135 * var(--nd-c)) 55.9);
+  --nd-naranja-soft: oklch(0.35 calc(0.055 * var(--nd-c)) 55.9);
+  --nd-naranja-ink: oklch(0.88 calc(0.08 * var(--nd-c)) 55.9);
+  --nd-coral: oklch(0.66 calc(0.14 * var(--nd-c)) 27.2);
+  --nd-coral-soft: oklch(0.35 calc(0.055 * var(--nd-c)) 27.2);
+  --nd-coral-ink: oklch(0.88 calc(0.08 * var(--nd-c)) 27.2);
+  --nd-magenta: oklch(0.65 calc(0.15 * var(--nd-c)) 345.7);
+  --nd-magenta-soft: oklch(0.35 calc(0.06 * var(--nd-c)) 345.7);
+  --nd-magenta-ink: oklch(0.87 calc(0.085 * var(--nd-c)) 345.7);
+  --nd-morado: oklch(0.62 calc(0.15 * var(--nd-c)) 298.5);
+  --nd-morado-soft: oklch(0.35 calc(0.06 * var(--nd-c)) 298.5);
+  --nd-morado-ink: oklch(0.87 calc(0.085 * var(--nd-c)) 298.5);
   --card-foreground: oklch(0.955 0.008 250);
-  --popover: oklch(0.258 0.032 261);
+  --popover: oklch(0.312 0.044 260.6);
   --popover-foreground: oklch(0.955 0.008 250);
   --primary: oklch(0.72 0.1 267.5);
   --primary-foreground: oklch(0.19 0.03 261);
