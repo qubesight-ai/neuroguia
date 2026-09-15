@@ -339,9 +339,9 @@ function Inicio() {
         <Contenedor>
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-4">
             <div>
-              <p className="antetitulo">Lo último</p>
+              <p className="antetitulo">{t.inicio.ultimas.antetitulo}</p>
               <h2 id="previa-titulo" className="mt-2 text-3xl sm:text-4xl">
-                Situaciones para empezar
+                {t.inicio.ultimas.titulo}
               </h2>
             </div>
             <Link
@@ -349,7 +349,7 @@ function Inicio() {
               search={{ q: "", categoria: "todas", ambiguedad: "todas", contexto: "todos" }}
               className="shrink-0 border-b-2 border-foreground pb-0.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-foreground no-underline"
             >
-              Ver todas
+              {t.acciones.verTodas}
             </Link>
           </div>
           <ul className="mt-8 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3">
@@ -364,9 +364,11 @@ function Inicio() {
 
       <section aria-labelledby="recursos-titulo" className="pb-20 sm:pb-24">
         <Contenedor>
-          <p className="antetitulo border-b-2 border-foreground pb-2">Recursos</p>
+          <p className="antetitulo border-b-2 border-foreground pb-2">
+            {t.inicio.recursos.antetitulo}
+          </p>
           <h2 id="recursos-titulo" className="mt-4 text-3xl sm:text-4xl">
-            Recursos destacados
+            {t.inicio.recursos.titulo}
           </h2>
           <ul className="mt-8 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-4">
             <li
