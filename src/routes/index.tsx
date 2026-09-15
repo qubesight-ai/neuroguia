@@ -23,7 +23,7 @@ import { categorias } from "@/data/categorias";
 import { situaciones } from "@/data/situaciones";
 import { guiones } from "@/data/guiones";
 import { ejercicios } from "@/data/simulador";
-import { t } from "@/i18n";
+import { useT } from "@/i18n";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -49,30 +49,13 @@ export const Route = createFileRoute("/")({
 });
 
 const accesos = [
-  {
-    to: "/situaciones",
-    titulo: "Quiero entender una situación",
-    texto: "Explicaciones literales, interpretaciones posibles y opciones para responder.",
-    icono: BookOpen,
-    color: "azul",
-  },
-  {
-    to: "/guiones",
-    titulo: "Necesito una frase para responder",
-    texto: "Guiones listos para copiar y adaptar a tu forma de hablar.",
-    icono: MessageSquareQuote,
-    color: "turquesa",
-  },
-  {
-    to: "/simulador",
-    titulo: "Quiero practicar",
-    texto: "Escenarios con varias respuestas válidas y sus posibles efectos.",
-    icono: PlayCircle,
-    color: "magenta",
-  },
+  { to: "/situaciones", clave: "situaciones", icono: BookOpen, color: "azul" },
+  { to: "/guiones", clave: "guiones", icono: MessageSquareQuote, color: "turquesa" },
+  { to: "/simulador", clave: "simulador", icono: PlayCircle, color: "magenta" },
 ] as const;
 
 function Inicio() {
+  const t = useT();
   const [consulta, setConsulta] = useState("");
 
   const resultados = useMemo(() => {
