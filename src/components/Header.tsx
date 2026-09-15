@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { ArrowRight, Menu, Settings2 } from "lucide-react";
+import { ArrowRight, Languages, Menu, Settings2 } from "lucide-react";
 import { Boton } from "./ui/Boton";
 import { Logo } from "./Logo";
 import { PanelAccesibilidad } from "./PanelAccesibilidad";
@@ -12,24 +12,27 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
-import { t } from "@/i18n";
-
-const enlaces = [
-  { to: "/", texto: t.nav.inicio, exact: true },
-  { to: "/situaciones", texto: t.nav.situaciones },
-  { to: "/simulador", texto: t.nav.simulador },
-  { to: "/guiones", texto: t.nav.guiones },
-  { to: "/relaciones", texto: t.nav.relaciones },
-  { to: "/limites-y-seguridad", texto: t.nav.limites },
-  { to: "/regulacion", texto: t.nav.regulacion },
-  { to: "/tdah-adhd", texto: t.nav.tdahAdhd },
-  { to: "/glosario", texto: t.nav.glosario },
-  { to: "/mi-espacio", texto: t.nav.miEspacio },
-] as const;
+import { useT } from "@/i18n";
+import { usePreferencias } from "@/lib/preferencias";
 
 export function Header() {
+  const t = useT();
+  const { prefs, actualizar } = usePreferencias();
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [panelAbierto, setPanelAbierto] = useState(false);
+
+  const enlaces = [
+    { to: "/", texto: t.nav.inicio, exact: true },
+    { to: "/situaciones", texto: t.nav.situaciones },
+    { to: "/simulador", texto: t.nav.simulador },
+    { to: "/guiones", texto: t.nav.guiones },
+    { to: "/relaciones", texto: t.nav.relaciones },
+    { to: "/limites-y-seguridad", texto: t.nav.limites },
+    { to: "/regulacion", texto: t.nav.regulacion },
+    { to: "/tdah-adhd", texto: t.nav.tdahAdhd },
+    { to: "/glosario", texto: t.nav.glosario },
+    { to: "/mi-espacio", texto: t.nav.miEspacio },
+  ] as const;
   const rutaActual = useRouterState({ select: (s) => s.location.pathname });
   const esActiva = (to: string, exact?: boolean) =>
     exact ? rutaActual === to : rutaActual === to || rutaActual.startsWith(`${to}/`);
