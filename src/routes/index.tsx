@@ -76,14 +76,14 @@ function Inicio() {
         <Contenedor className="py-10 sm:py-14">
           <p className="antetitulo flex items-center gap-2 border-b border-border pb-3">
             <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
-            Portada · Guía social para personas neurodivergentes
+            {t.inicio.antetitulo}
           </p>
 
           <div className="mt-8 grid gap-10 lg:grid-cols-[1.35fr_0.65fr]">
             <div className="lg:border-r lg:border-border lg:pr-10">
               <h1 className="titular text-[clamp(2.4rem,7vw,4.5rem)]">
-                Comprender las <em className="font-normal italic">normas sociales</em> sin dejar de
-                ser tú
+                {t.inicio.titularA} <em className="font-normal italic">{t.inicio.titularB}</em>{" "}
+                {t.inicio.titularC}
               </h1>
               <p className="entradilla mt-6 max-w-2xl">{t.lemaSecundario}</p>
 
@@ -106,7 +106,7 @@ function Inicio() {
               </div>
 
               <p className="mt-6 text-sm text-muted-foreground">
-                Sin registro. Todo lo que guardes se queda en tu dispositivo.
+                {t.inicio.sinRegistro}
               </p>
             </div>
 
@@ -261,8 +261,12 @@ function Inicio() {
                     >
                       <Icono className="h-5 w-5" strokeWidth={1.5} />
                     </span>
-                    <span className="mt-4 font-semibold text-foreground">{a.titulo}</span>
-                    <span className="mt-1 text-sm text-muted-foreground">{a.texto}</span>
+                    <span className="mt-4 font-semibold text-foreground">
+                      {t.inicio.accesos[a.clave].titulo}
+                    </span>
+                    <span className="mt-1 text-sm text-muted-foreground">
+                      {t.inicio.accesos[a.clave].texto}
+                    </span>
                   </Link>
                 </li>
               );
