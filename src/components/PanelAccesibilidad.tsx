@@ -157,36 +157,36 @@ export function PanelAccesibilidad({ onCerrar }: { onCerrar: () => void }) {
         </div>
         <Interruptor
           id="pref-contraste"
-          etiqueta="Alto contraste"
-          descripcion="Refuerza bordes y color del texto."
+          etiqueta={t.accesibilidad.altoContraste}
+          descripcion={t.accesibilidad.altoContrasteDesc}
           activo={prefs.altoContraste}
           onChange={(v) => actualizar({ altoContraste: v })}
         />
         <Interruptor
           id="pref-movimiento"
-          etiqueta="Reducir animaciones"
-          descripcion="Elimina transiciones y movimiento."
+          etiqueta={t.accesibilidad.reducirAnimaciones}
+          descripcion={t.accesibilidad.reducirAnimacionesDesc}
           activo={prefs.movimientoReducido}
           onChange={(v) => actualizar({ movimientoReducido: v })}
         />
         <Interruptor
           id="pref-lectura"
-          etiqueta="Vista de lectura simplificada"
-          descripcion="Menos elementos y una columna estrecha."
+          etiqueta={t.accesibilidad.vistaLectura}
+          descripcion={t.accesibilidad.vistaLecturaDesc}
           activo={prefs.lecturaSimple}
           onChange={(v) => actualizar({ lecturaSimple: v })}
         />
         <Interruptor
           id="pref-tema"
-          etiqueta="Modo oscuro"
-          descripcion="Fondo oscuro y texto claro."
+          etiqueta={t.accesibilidad.modoOscuro}
+          descripcion={t.accesibilidad.modoOscuroDesc}
           activo={prefs.tema === "oscuro"}
           onChange={(v) => actualizar({ tema: v ? "oscuro" : "claro" })}
         />
         <Interruptor
           id="pref-decoracion"
-          etiqueta="Desactivar elementos decorativos"
-          descripcion="Oculta ilustraciones y fondos no informativos."
+          etiqueta={t.accesibilidad.sinDecoracion}
+          descripcion={t.accesibilidad.sinDecoracionDesc}
           activo={prefs.sinDecoracion}
           onChange={(v) => actualizar({ sinDecoracion: v })}
         />
@@ -194,11 +194,11 @@ export function PanelAccesibilidad({ onCerrar }: { onCerrar: () => void }) {
 
       <div className="mt-4 flex items-center justify-between gap-3">
         <p className="m-0 text-sm text-muted-foreground">
-          Tus preferencias se guardan solo en este dispositivo.
+          {t.accesibilidad.prefsGuardadas}
         </p>
         <Boton variante="sutil" tamano="sm" onClick={restablecer}>
           <RotateCcw className="h-4 w-4" aria-hidden="true" />
-          Restablecer
+          {t.acciones.restablecer}
         </Boton>
       </div>
     </div>
