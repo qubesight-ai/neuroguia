@@ -120,13 +120,15 @@ export function PanelAccesibilidad({ onCerrar }: { onCerrar: () => void }) {
           >
             {INTENSIDADES.map((op) => {
               const activa = prefs.intensidad === op.id;
+              const nombre = t.accesibilidad.intensidades[op.id].nombre;
+              const descripcion = t.accesibilidad.intensidades[op.id].descripcion;
               return (
                 <button
                   key={op.id}
                   type="button"
                   role="radio"
                   aria-checked={activa}
-                  title={op.descripcion}
+                  title={descripcion}
                   onClick={() => actualizar({ intensidad: op.id })}
                   className={cn(
                     "inline-flex min-h-11 items-center gap-2 rounded-full border-2 px-3 py-2 text-sm font-semibold transition-colors duration-200",
@@ -144,13 +146,13 @@ export function PanelAccesibilidad({ onCerrar }: { onCerrar: () => void }) {
                       op.id === "vibrante" && "superficie-degradado",
                     )}
                   />
-                  {op.nombre}
+                  {nombre}
                 </button>
               );
             })}
           </div>
           <p className="mt-2 text-sm text-muted-foreground">
-            {INTENSIDADES.find((op) => op.id === prefs.intensidad)?.descripcion}
+            {t.accesibilidad.intensidades[prefs.intensidad].descripcion}
           </p>
         </div>
         <Interruptor
