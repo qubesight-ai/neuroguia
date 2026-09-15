@@ -49,6 +49,7 @@ export const Route = createFileRoute("/situaciones/")({
 const contextos = Array.from(new Set(situaciones.map((s) => s.contexto))).sort();
 
 function Situaciones() {
+  const t = useT();
   const filtros = Route.useSearch();
   const navigate = Route.useNavigate();
 
