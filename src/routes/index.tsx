@@ -156,7 +156,7 @@ function Inicio() {
                 className="grid h-16 w-16 place-items-center rounded-full bg-[linear-gradient(135deg,oklch(0.62_0.17_250),oklch(0.7_0.14_200),oklch(0.72_0.13_150))] text-primary-foreground"
                 aria-hidden="true"
               >
-                <Infinity className="h-8 w-8" strokeWidth={2} />
+                <InfinityIcon className="h-8 w-8" strokeWidth={2} />
               </span>
               <span className="titular text-3xl sm:text-4xl">Autismo</span>
               <span className="text-muted-foreground">
