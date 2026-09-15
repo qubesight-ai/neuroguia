@@ -232,7 +232,20 @@ function Inicio() {
                 </EstadoVacio>
               </div>
             )}
+
+            <div className="mt-5 border-t border-border pt-5">
+              <p className="m-0 text-sm text-muted-foreground">{t.analizador.descripcion}</p>
+              <Link
+                to="/analizar"
+                search={{ q: consulta }}
+                className="mt-3 inline-flex min-h-12 items-center gap-2 bg-nd-azul px-6 py-3 text-[0.85rem] font-bold uppercase tracking-[0.1em] text-white no-underline"
+              >
+                <Sparkles className="h-5 w-5" aria-hidden="true" />
+                {t.analizador.boton}
+              </Link>
+            </div>
           </div>
+
 
           <ul className="mt-10 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3">
             {accesos.map((a) => {
