@@ -290,27 +290,20 @@ function Inicio() {
       <section aria-labelledby="identidad-titulo" className="border-y border-border bg-card py-16 sm:py-20">
         <Contenedor className="grid gap-10 lg:grid-cols-[1.2fr_1fr]">
           <div>
-            <p className="antetitulo border-b-2 border-foreground pb-2">Editorial</p>
+            <p className="antetitulo border-b-2 border-foreground pb-2">
+              {t.inicio.editorial.antetitulo}
+            </p>
             <h2 id="identidad-titulo" className="mt-4 text-3xl sm:text-4xl">
-              No tienes que cambiar quién eres
+              {t.inicio.editorial.titulo}
             </h2>
-            <p className="capitular mt-4 text-muted-foreground">
-              NeuroGuía no enseña a parecer neurotípico ni a ocultar rasgos autistas. Explica
-              información social que muchas veces se transmite de forma implícita, para que puedas
-              decidir con más datos.
-            </p>
-            <p className="mt-3 text-muted-foreground">
-              Las normas sociales cambian según la cultura, el contexto y las personas. Aquí
-              encontrarás herramientas, no reglas absolutas: puedes seguir una norma, adaptarla o
-              decidir no seguirla.
-            </p>
+            <p className="capitular mt-4 text-muted-foreground">{t.inicio.editorial.p1}</p>
+            <p className="mt-3 text-muted-foreground">{t.inicio.editorial.p2}</p>
           </div>
-          <Aviso tipo="apoyo" titulo="Lo que sí encontrarás aquí">
+          <Aviso tipo="apoyo" titulo={t.inicio.editorial.avisoTitulo}>
             <ul className="m-0 list-disc space-y-1 pl-5">
-              <li>Varias interpretaciones posibles, sin presentarlas como certezas.</li>
-              <li>Opciones de respuesta y lo que podría ocurrir con cada una.</li>
-              <li>Lo que no estás obligado a hacer.</li>
-              <li>Cuándo poner un límite y cuándo pedir ayuda.</li>
+              {t.inicio.editorial.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
           </Aviso>
         </Contenedor>
@@ -319,27 +312,24 @@ function Inicio() {
       <section aria-labelledby="tdah-titulo" className="border-y border-border bg-card py-16 sm:py-20">
         <Contenedor className="grid gap-10 lg:grid-cols-[1.2fr_1fr]">
           <div>
-            <p className="antetitulo border-b-2 border-foreground pb-2">TDAH / ADHD y ADD</p>
-            <h2 id="tdah-titulo" className="mt-4 text-3xl sm:text-4xl">
-              También para mentes que saltan, se enfocan con intensidad y sienten con fuerza
-            </h2>
-            <p className="capitular mt-4 text-muted-foreground">
-              Situaciones, guiones y estrategias pensadas para personas con TDAH, ADHD o ADD:
-              perder el hilo, interrumpir, entrar en hiperfoco, olvidar compromisos y regular
-              emociones intensas.
+            <p className="antetitulo border-b-2 border-foreground pb-2">
+              {t.inicio.tdahSeccion.antetitulo}
             </p>
+            <h2 id="tdah-titulo" className="mt-4 text-3xl sm:text-4xl">
+              {t.inicio.tdahSeccion.titulo}
+            </h2>
+            <p className="capitular mt-4 text-muted-foreground">{t.inicio.tdahSeccion.entradilla}</p>
             <div className="mt-6">
               <Link to="/tdah-adhd" className="no-underline">
-                <Boton>Explorar sección TDAH / ADHD</Boton>
+                <Boton>{t.inicio.tdahSeccion.cta}</Boton>
               </Link>
             </div>
           </div>
-          <Aviso tipo="apoyo" titulo="Lo que encontrarás">
+          <Aviso tipo="apoyo" titulo={t.inicio.tdahSeccion.avisoTitulo}>
             <ul className="m-0 list-disc space-y-1 pl-5">
-              <li>Situaciones sociales explicadas de forma literal.</li>
-              <li>Guiones para pedir aclaraciones, pausas o apoyos.</li>
-              <li>Estrategias de regulación emocional y organización.</li>
-              <li>Un ejercicio interactivo sobre cambios de plan.</li>
+              {t.inicio.tdahSeccion.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
           </Aviso>
         </Contenedor>
