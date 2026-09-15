@@ -23,7 +23,7 @@ import { categorias } from "@/data/categorias";
 import { situaciones } from "@/data/situaciones";
 import { guiones } from "@/data/guiones";
 import { ejercicios } from "@/data/simulador";
-import { t } from "@/i18n";
+import { useT } from "@/i18n";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -49,30 +49,13 @@ export const Route = createFileRoute("/")({
 });
 
 const accesos = [
-  {
-    to: "/situaciones",
-    titulo: "Quiero entender una situación",
-    texto: "Explicaciones literales, interpretaciones posibles y opciones para responder.",
-    icono: BookOpen,
-    color: "azul",
-  },
-  {
-    to: "/guiones",
-    titulo: "Necesito una frase para responder",
-    texto: "Guiones listos para copiar y adaptar a tu forma de hablar.",
-    icono: MessageSquareQuote,
-    color: "turquesa",
-  },
-  {
-    to: "/simulador",
-    titulo: "Quiero practicar",
-    texto: "Escenarios con varias respuestas válidas y sus posibles efectos.",
-    icono: PlayCircle,
-    color: "magenta",
-  },
+  { to: "/situaciones", clave: "situaciones", icono: BookOpen, color: "azul" },
+  { to: "/guiones", clave: "guiones", icono: MessageSquareQuote, color: "turquesa" },
+  { to: "/simulador", clave: "simulador", icono: PlayCircle, color: "magenta" },
 ] as const;
 
 function Inicio() {
+  const t = useT();
   const [consulta, setConsulta] = useState("");
 
   const resultados = useMemo(() => {
@@ -93,14 +76,14 @@ function Inicio() {
         <Contenedor className="py-10 sm:py-14">
           <p className="antetitulo flex items-center gap-2 border-b border-border pb-3">
             <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
-            Portada · Guía social para personas neurodivergentes
+            {t.inicio.antetitulo}
           </p>
 
           <div className="mt-8 grid gap-10 lg:grid-cols-[1.35fr_0.65fr]">
             <div className="lg:border-r lg:border-border lg:pr-10">
               <h1 className="titular text-[clamp(2.4rem,7vw,4.5rem)]">
-                Comprender las <em className="font-normal italic">normas sociales</em> sin dejar de
-                ser tú
+                {t.inicio.titularA} <em className="font-normal italic">{t.inicio.titularB}</em>{" "}
+                {t.inicio.titularC}
               </h1>
               <p className="entradilla mt-6 max-w-2xl">{t.lemaSecundario}</p>
 
@@ -123,7 +106,7 @@ function Inicio() {
               </div>
 
               <p className="mt-6 text-sm text-muted-foreground">
-                Sin registro. Todo lo que guardes se queda en tu dispositivo.
+                {t.inicio.sinRegistro}
               </p>
             </div>
 
@@ -136,14 +119,13 @@ function Inicio() {
 
       <section aria-labelledby="caminos-titulo" className="py-14 sm:py-18">
         <Contenedor>
-          <p className="antetitulo border-b-2 border-foreground pb-2">Elige tu camino</p>
-          <h2 id="caminos-titulo" className="mt-4 text-3xl sm:text-4xl">
-            ¿Qué quieres explorar hoy?
-          </h2>
-          <p className="mt-2 max-w-2xl text-muted-foreground">
-            Dos recorridos pensados para formas distintas de estar en el mundo. Puedes usar ambos:
-            ninguno excluye al otro.
+          <p className="antetitulo border-b-2 border-foreground pb-2">
+            {t.inicio.caminos.antetitulo}
           </p>
+          <h2 id="caminos-titulo" className="mt-4 text-3xl sm:text-4xl">
+            {t.inicio.caminos.titulo}
+          </h2>
+          <p className="mt-2 max-w-2xl text-muted-foreground">{t.inicio.caminos.intro}</p>
 
           <div className="mt-8 grid gap-5 md:grid-cols-2">
             <Link
@@ -158,13 +140,10 @@ function Inicio() {
               >
                 <InfinityIcon className="h-8 w-8" strokeWidth={2} />
               </span>
-              <span className="titular text-3xl sm:text-4xl">Autismo</span>
-              <span className="text-muted-foreground">
-                Situaciones sociales explicadas paso a paso, guiones para responder y señales
-                ambiguas traducidas a lenguaje claro.
-              </span>
+              <span className="titular text-3xl sm:text-4xl">{t.inicio.caminos.autismo.titulo}</span>
+              <span className="text-muted-foreground">{t.inicio.caminos.autismo.texto}</span>
               <span className="mt-auto inline-flex items-center gap-2 border-t-2 border-foreground pt-4 text-[0.78rem] font-bold uppercase tracking-[0.14em]">
-                Entrar al camino autista
+                {t.inicio.caminos.autismo.cta}
                 <ArrowRight
                   className="h-4 w-4 transition-transform group-hover:translate-x-1"
                   aria-hidden="true"
@@ -183,13 +162,10 @@ function Inicio() {
               >
                 <Zap className="h-8 w-8" strokeWidth={2} />
               </span>
-              <span className="titular text-3xl sm:text-4xl">TDAH / ADHD · ADD</span>
-              <span className="text-muted-foreground">
-                Atención, hiperfoco, impulsos, organización y emociones intensas: estrategias
-                realistas para mentes que no van en línea recta.
-              </span>
+              <span className="titular text-3xl sm:text-4xl">{t.inicio.caminos.tdah.titulo}</span>
+              <span className="text-muted-foreground">{t.inicio.caminos.tdah.texto}</span>
               <span className="mt-auto inline-flex items-center gap-2 border-t-2 border-foreground pt-4 text-[0.78rem] font-bold uppercase tracking-[0.14em]">
-                Entrar al camino TDAH
+                {t.inicio.caminos.tdah.cta}
                 <ArrowRight
                   className="h-4 w-4 transition-transform group-hover:translate-x-1"
                   aria-hidden="true"
@@ -199,9 +175,9 @@ function Inicio() {
           </div>
 
           <p className="mt-6 text-sm text-muted-foreground">
-            ¿Te identificas con ambos o no estás seguro?{" "}
+            {t.inicio.caminos.ambos}{" "}
             <Link to="/situaciones" search={{ q: "", categoria: "todas", ambiguedad: "todas", contexto: "todos" }} className="font-semibold underline underline-offset-2">
-              Explora todo junto
+              {t.inicio.caminos.exploraTodo}
             </Link>
             .
           </p>
@@ -211,7 +187,7 @@ function Inicio() {
       <section aria-labelledby="buscar-titulo" className="py-16 sm:py-20">
         <Contenedor>
           <h2 id="buscar-titulo" className="sr-only">
-            Buscar una situación
+            {t.inicio.buscarSr}
           </h2>
           <div className="card-soft mx-auto max-w-3xl p-6 sm:p-7" data-card>
             <Buscador
@@ -239,19 +215,19 @@ function Inicio() {
             )}
             {consulta && resultados.length === 0 && (
               <div className="mt-4">
-                <EstadoVacio titulo="Sin coincidencias exactas" descripcion={t.busqueda.sinResultados}>
+                <EstadoVacio titulo={t.busqueda.sinCoincidencias} descripcion={t.busqueda.sinResultados}>
               <Link
                 to="/situaciones"
                 search={{ q: "", categoria: "todas", ambiguedad: "todas", contexto: "todos" }}
                 className="inline-flex min-h-11 items-center rounded-xl bg-primary px-4 py-2 font-semibold text-primary-foreground no-underline"
               >
-                Ver todas las situaciones
+                {t.acciones.verTodas}
               </Link>
                   <Link
                     to="/contacto"
                     className="inline-flex min-h-11 items-center rounded-xl border border-input px-4 py-2 font-semibold text-foreground no-underline"
                   >
-                    Enviar una sugerencia
+                    {t.acciones.enviarSugerencia}
                   </Link>
                 </EstadoVacio>
               </div>
@@ -278,8 +254,12 @@ function Inicio() {
                     >
                       <Icono className="h-5 w-5" strokeWidth={1.5} />
                     </span>
-                    <span className="mt-4 font-semibold text-foreground">{a.titulo}</span>
-                    <span className="mt-1 text-sm text-muted-foreground">{a.texto}</span>
+                    <span className="mt-4 font-semibold text-foreground">
+                      {t.inicio.accesos[a.clave].titulo}
+                    </span>
+                    <span className="mt-1 text-sm text-muted-foreground">
+                      {t.inicio.accesos[a.clave].texto}
+                    </span>
                   </Link>
                 </li>
               );
@@ -290,13 +270,13 @@ function Inicio() {
 
       <section aria-labelledby="categorias-titulo" className="pb-16 sm:pb-20">
         <Contenedor>
-          <p className="antetitulo border-b-2 border-foreground pb-2">Secciones</p>
-          <h2 id="categorias-titulo" className="mt-4 text-3xl sm:text-4xl">
-            Categorías principales
-          </h2>
-          <p className="mt-2 text-muted-foreground">
-            Elige el tipo de situación que quieres comprender. Puedes leer solo lo que necesitas.
+          <p className="antetitulo border-b-2 border-foreground pb-2">
+            {t.inicio.secciones.antetitulo}
           </p>
+          <h2 id="categorias-titulo" className="mt-4 text-3xl sm:text-4xl">
+            {t.inicio.secciones.titulo}
+          </h2>
+          <p className="mt-2 text-muted-foreground">{t.inicio.secciones.intro}</p>
           <ul className="mt-8 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3">
             {categorias.map((c) => (
               <li key={c.id}>
@@ -310,27 +290,20 @@ function Inicio() {
       <section aria-labelledby="identidad-titulo" className="border-y border-border bg-card py-16 sm:py-20">
         <Contenedor className="grid gap-10 lg:grid-cols-[1.2fr_1fr]">
           <div>
-            <p className="antetitulo border-b-2 border-foreground pb-2">Editorial</p>
+            <p className="antetitulo border-b-2 border-foreground pb-2">
+              {t.inicio.editorial.antetitulo}
+            </p>
             <h2 id="identidad-titulo" className="mt-4 text-3xl sm:text-4xl">
-              No tienes que cambiar quién eres
+              {t.inicio.editorial.titulo}
             </h2>
-            <p className="capitular mt-4 text-muted-foreground">
-              NeuroGuía no enseña a parecer neurotípico ni a ocultar rasgos autistas. Explica
-              información social que muchas veces se transmite de forma implícita, para que puedas
-              decidir con más datos.
-            </p>
-            <p className="mt-3 text-muted-foreground">
-              Las normas sociales cambian según la cultura, el contexto y las personas. Aquí
-              encontrarás herramientas, no reglas absolutas: puedes seguir una norma, adaptarla o
-              decidir no seguirla.
-            </p>
+            <p className="capitular mt-4 text-muted-foreground">{t.inicio.editorial.p1}</p>
+            <p className="mt-3 text-muted-foreground">{t.inicio.editorial.p2}</p>
           </div>
-          <Aviso tipo="apoyo" titulo="Lo que sí encontrarás aquí">
+          <Aviso tipo="apoyo" titulo={t.inicio.editorial.avisoTitulo}>
             <ul className="m-0 list-disc space-y-1 pl-5">
-              <li>Varias interpretaciones posibles, sin presentarlas como certezas.</li>
-              <li>Opciones de respuesta y lo que podría ocurrir con cada una.</li>
-              <li>Lo que no estás obligado a hacer.</li>
-              <li>Cuándo poner un límite y cuándo pedir ayuda.</li>
+              {t.inicio.editorial.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
           </Aviso>
         </Contenedor>
@@ -339,27 +312,24 @@ function Inicio() {
       <section aria-labelledby="tdah-titulo" className="border-y border-border bg-card py-16 sm:py-20">
         <Contenedor className="grid gap-10 lg:grid-cols-[1.2fr_1fr]">
           <div>
-            <p className="antetitulo border-b-2 border-foreground pb-2">TDAH / ADHD y ADD</p>
-            <h2 id="tdah-titulo" className="mt-4 text-3xl sm:text-4xl">
-              También para mentes que saltan, se enfocan con intensidad y sienten con fuerza
-            </h2>
-            <p className="capitular mt-4 text-muted-foreground">
-              Situaciones, guiones y estrategias pensadas para personas con TDAH, ADHD o ADD:
-              perder el hilo, interrumpir, entrar en hiperfoco, olvidar compromisos y regular
-              emociones intensas.
+            <p className="antetitulo border-b-2 border-foreground pb-2">
+              {t.inicio.tdahSeccion.antetitulo}
             </p>
+            <h2 id="tdah-titulo" className="mt-4 text-3xl sm:text-4xl">
+              {t.inicio.tdahSeccion.titulo}
+            </h2>
+            <p className="capitular mt-4 text-muted-foreground">{t.inicio.tdahSeccion.entradilla}</p>
             <div className="mt-6">
               <Link to="/tdah-adhd" className="no-underline">
-                <Boton>Explorar sección TDAH / ADHD</Boton>
+                <Boton>{t.inicio.tdahSeccion.cta}</Boton>
               </Link>
             </div>
           </div>
-          <Aviso tipo="apoyo" titulo="Lo que encontrarás">
+          <Aviso tipo="apoyo" titulo={t.inicio.tdahSeccion.avisoTitulo}>
             <ul className="m-0 list-disc space-y-1 pl-5">
-              <li>Situaciones sociales explicadas de forma literal.</li>
-              <li>Guiones para pedir aclaraciones, pausas o apoyos.</li>
-              <li>Estrategias de regulación emocional y organización.</li>
-              <li>Un ejercicio interactivo sobre cambios de plan.</li>
+              {t.inicio.tdahSeccion.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
           </Aviso>
         </Contenedor>
@@ -369,9 +339,9 @@ function Inicio() {
         <Contenedor>
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-4">
             <div>
-              <p className="antetitulo">Lo último</p>
+              <p className="antetitulo">{t.inicio.ultimas.antetitulo}</p>
               <h2 id="previa-titulo" className="mt-2 text-3xl sm:text-4xl">
-                Situaciones para empezar
+                {t.inicio.ultimas.titulo}
               </h2>
             </div>
             <Link
@@ -379,7 +349,7 @@ function Inicio() {
               search={{ q: "", categoria: "todas", ambiguedad: "todas", contexto: "todos" }}
               className="shrink-0 border-b-2 border-foreground pb-0.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-foreground no-underline"
             >
-              Ver todas
+              {t.acciones.verTodas}
             </Link>
           </div>
           <ul className="mt-8 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3">
@@ -394,78 +364,74 @@ function Inicio() {
 
       <section aria-labelledby="recursos-titulo" className="pb-20 sm:pb-24">
         <Contenedor>
-          <p className="antetitulo border-b-2 border-foreground pb-2">Recursos</p>
+          <p className="antetitulo border-b-2 border-foreground pb-2">
+            {t.inicio.recursos.antetitulo}
+          </p>
           <h2 id="recursos-titulo" className="mt-4 text-3xl sm:text-4xl">
-            Recursos destacados
+            {t.inicio.recursos.titulo}
           </h2>
           <ul className="mt-8 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-4">
             <li
               className="tarjeta-editorial elevar-suave p-5"
               data-card
             >
-              <h3 className="font-semibold">{guiones.length} guiones sociales</h3>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Frases para pedir claridad, decir no, poner límites o pedir ayuda.
-              </p>
+              <h3 className="font-semibold">
+                {guiones.length} {t.inicio.recursos.guiones.titulo}
+              </h3>
+              <p className="mt-1 text-sm text-muted-foreground">{t.inicio.recursos.guiones.texto}</p>
               <Link to="/guiones" className="mt-4 inline-block text-sm font-semibold text-foreground">
-                Ver guiones
+                {t.inicio.recursos.guiones.enlace}
               </Link>
             </li>
             <li
               className="tarjeta-editorial elevar-suave p-5"
               data-card
             >
-              <h3 className="font-semibold">{ejercicios.length} ejercicios interactivos</h3>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Practica sin calificaciones de «correcto» o «incorrecto».
-              </p>
+              <h3 className="font-semibold">
+                {ejercicios.length} {t.inicio.recursos.simulador.titulo}
+              </h3>
+              <p className="mt-1 text-sm text-muted-foreground">{t.inicio.recursos.simulador.texto}</p>
               <Link to="/simulador" className="mt-4 inline-block text-sm font-semibold text-foreground">
-                Abrir simulador
+                {t.inicio.recursos.simulador.enlace}
               </Link>
             </li>
             <li
               className="tarjeta-editorial elevar-suave p-5"
               data-card
             >
-              <h3 className="font-semibold">Límites y seguridad</h3>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Reconocer presión, manipulación y relaciones poco saludables.
-              </p>
+              <h3 className="font-semibold">{t.inicio.recursos.seguridad.titulo}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{t.inicio.recursos.seguridad.texto}</p>
               <Link
                 to="/limites-y-seguridad"
                 className="mt-4 inline-block text-sm font-semibold text-foreground"
               >
-                Leer la guía
+                {t.inicio.recursos.seguridad.enlace}
               </Link>
             </li>
             <li
               className="tarjeta-editorial elevar-suave p-5"
               data-card
             >
-              <h3 className="font-semibold">Mi plan de regulación</h3>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Un plan editable que se guarda solo en tu dispositivo.
-              </p>
+              <h3 className="font-semibold">{t.inicio.recursos.plan.titulo}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{t.inicio.recursos.plan.texto}</p>
               <Link to="/regulacion" className="mt-4 inline-block text-sm font-semibold text-foreground">
-                Crear mi plan
+                {t.inicio.recursos.plan.enlace}
               </Link>
             </li>
           </ul>
 
           <div className="mt-8">
-            <Aviso tipo="riesgo" titulo="Si estás en peligro inmediato">
-              Comunícate con los servicios de emergencia de tu país o busca ayuda de una persona de
-              confianza. Este sitio ofrece información educativa y no sustituye atención
-              psicológica, médica ni legal.
+            <Aviso tipo="riesgo" titulo={t.inicio.recursos.peligroTitulo}>
+              {t.inicio.recursos.peligroTexto}
             </Aviso>
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/sobre-el-proyecto" className="no-underline">
-              <Boton variante="contorno">Sobre el proyecto</Boton>
+              <Boton variante="contorno">{t.inicio.recursos.sobre}</Boton>
             </Link>
             <Link to="/contacto" className="no-underline">
-              <Boton variante="sutil">Enviar una sugerencia</Boton>
+              <Boton variante="sutil">{t.inicio.recursos.sugerencia}</Boton>
             </Link>
           </div>
         </Contenedor>

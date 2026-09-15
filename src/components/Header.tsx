@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { ArrowRight, Menu, Settings2 } from "lucide-react";
+import { ArrowRight, Languages, Menu, Settings2 } from "lucide-react";
 import { Boton } from "./ui/Boton";
 import { Logo } from "./Logo";
 import { PanelAccesibilidad } from "./PanelAccesibilidad";
@@ -12,24 +12,27 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
-import { t } from "@/i18n";
-
-const enlaces = [
-  { to: "/", texto: t.nav.inicio, exact: true },
-  { to: "/situaciones", texto: t.nav.situaciones },
-  { to: "/simulador", texto: t.nav.simulador },
-  { to: "/guiones", texto: t.nav.guiones },
-  { to: "/relaciones", texto: t.nav.relaciones },
-  { to: "/limites-y-seguridad", texto: t.nav.limites },
-  { to: "/regulacion", texto: t.nav.regulacion },
-  { to: "/tdah-adhd", texto: t.nav.tdahAdhd },
-  { to: "/glosario", texto: t.nav.glosario },
-  { to: "/mi-espacio", texto: t.nav.miEspacio },
-] as const;
+import { useT } from "@/i18n";
+import { usePreferencias } from "@/lib/preferencias";
 
 export function Header() {
+  const t = useT();
+  const { prefs, actualizar } = usePreferencias();
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [panelAbierto, setPanelAbierto] = useState(false);
+
+  const enlaces = [
+    { to: "/", texto: t.nav.inicio, exact: true },
+    { to: "/situaciones", texto: t.nav.situaciones },
+    { to: "/simulador", texto: t.nav.simulador },
+    { to: "/guiones", texto: t.nav.guiones },
+    { to: "/relaciones", texto: t.nav.relaciones },
+    { to: "/limites-y-seguridad", texto: t.nav.limites },
+    { to: "/regulacion", texto: t.nav.regulacion },
+    { to: "/tdah-adhd", texto: t.nav.tdahAdhd },
+    { to: "/glosario", texto: t.nav.glosario },
+    { to: "/mi-espacio", texto: t.nav.miEspacio },
+  ] as const;
   const rutaActual = useRouterState({ select: (s) => s.location.pathname });
   const esActiva = (to: string, exact?: boolean) =>
     exact ? rutaActual === to : rutaActual === to || rutaActual.startsWith(`${to}/`);
@@ -37,12 +40,12 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b-[3px] border-foreground bg-background/90 backdrop-blur-xl">
       <a href="#contenido" className="skip-link">
-        Saltar al contenido principal
+        {t.cabecera.saltar}
       </a>
       <div className="hidden border-b border-border lg:block">
         <div className="antetitulo mx-auto flex max-w-7xl items-center justify-between px-4 py-1.5 sm:px-6">
-          <span>Edición digital · Sin registro · Datos en tu dispositivo</span>
-          <span>Guía social para personas neurodivergentes</span>
+          <span>{t.cabecera.edicionLinea}</span>
+          <span>{t.cabecera.tagline}</span>
         </div>
       </div>
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:px-6">
@@ -61,6 +64,17 @@ export function Header() {
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Boton>
           </Link>
+
+          <Boton
+            variante="contorno"
+            tamano="sm"
+            onClick={() => actualizar({ idioma: prefs.idioma === "es" ? "en" : "es" })}
+            aria-label={t.idioma.cambiar}
+            title={t.idioma.cambiar}
+          >
+            <Languages className="h-5 w-5" aria-hidden="true" />
+            <span aria-hidden="true">{prefs.idioma === "es" ? "EN" : "ES"}</span>
+          </Boton>
 
           <div className="relative">
             <Boton
@@ -81,18 +95,18 @@ export function Header() {
             <SheetTrigger asChild>
               <Boton variante="contorno" tamano="sm" className="lg:hidden">
                 <Menu className="h-5 w-5" aria-hidden="true" />
-                <span className="sr-only">Abrir menú principal</span>
+                <span className="sr-only">{t.cabecera.abrirMenu}</span>
               </Boton>
             </SheetTrigger>
             <SheetContent
               side="right"
               className="flex w-[min(20rem,88vw)] flex-col gap-0 overflow-y-auto p-0 sm:max-w-sm"
-              aria-label="Navegación principal"
+              aria-label={t.cabecera.navPrincipal}
             >
               <SheetHeader className="border-b border-border px-5 py-4 text-left">
-                <SheetTitle>Navegación</SheetTitle>
+                <SheetTitle>{t.cabecera.navegacion}</SheetTitle>
               </SheetHeader>
-              <nav aria-label="Navegación principal (móvil)" className="flex-1 px-3 py-3">
+              <nav aria-label={t.cabecera.navMovil} className="flex-1 px-3 py-3">
                 <ul className="flex list-none flex-col gap-1">
                   {enlaces.map((e) => (
                     <li key={e.to}>
@@ -137,7 +151,7 @@ export function Header() {
 
       <nav
         id="menu-principal"
-        aria-label="Navegación principal"
+        aria-label={t.cabecera.navPrincipal}
         className="hidden border-t border-foreground/80 lg:block"
       >
         <ul className="mx-auto flex max-w-7xl list-none flex-row flex-wrap items-center gap-x-1 px-4 py-1.5 sm:px-6">

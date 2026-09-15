@@ -9,6 +9,7 @@ import {
   usePreferencias,
 } from "@/lib/preferencias";
 import { cn } from "@/lib/utils";
+import { useT } from "@/i18n";
 
 function Interruptor({
   id,
@@ -41,6 +42,7 @@ function Interruptor({
 }
 
 export function PanelAccesibilidad({ onCerrar }: { onCerrar: () => void }) {
+  const t = useT();
   const { prefs, actualizar, restablecer } = usePreferencias();
   const contenedor = useRef<HTMLDivElement>(null);
 
@@ -60,24 +62,24 @@ export function PanelAccesibilidad({ onCerrar }: { onCerrar: () => void }) {
       ref={contenedor}
       role="dialog"
       aria-modal="false"
-      aria-label="Opciones de accesibilidad"
+      aria-label={t.accesibilidad.titulo}
       className="card-soft absolute right-0 z-50 mt-2 w-[min(22rem,calc(100vw-2rem))] p-5 shadow-soft-lg"
       data-card
     >
       <div className="flex items-center justify-between gap-4">
-        <h2 className="text-lg font-bold">Accesibilidad</h2>
-        <Boton variante="sutil" tamano="sm" onClick={onCerrar} aria-label="Cerrar opciones de accesibilidad">
+        <h2 className="text-lg font-bold">{t.accesibilidad.titulo}</h2>
+        <Boton variante="sutil" tamano="sm" onClick={onCerrar} aria-label={t.accesibilidad.cerrar}>
           <X className="h-5 w-5" aria-hidden="true" />
         </Boton>
       </div>
 
       <fieldset className="mt-4 border-b border-border pb-4">
-        <legend className="font-semibold">Tamaño del texto</legend>
+        <legend className="font-semibold">{t.accesibilidad.tamanoTexto}</legend>
         <div className="mt-2 flex items-center gap-3">
           <Boton
             variante="contorno"
             tamano="sm"
-            aria-label="Reducir el tamaño del texto"
+            aria-label={t.accesibilidad.reducirTexto}
             disabled={prefs.escalaTexto <= ESCALA_MIN}
             onClick={() =>
               actualizar({
@@ -93,7 +95,7 @@ export function PanelAccesibilidad({ onCerrar }: { onCerrar: () => void }) {
           <Boton
             variante="contorno"
             tamano="sm"
-            aria-label="Aumentar el tamaño del texto"
+            aria-label={t.accesibilidad.aumentarTexto}
             disabled={prefs.escalaTexto >= ESCALA_MAX}
             onClick={() =>
               actualizar({
@@ -107,26 +109,26 @@ export function PanelAccesibilidad({ onCerrar }: { onCerrar: () => void }) {
       </fieldset>
 
       <fieldset className="mt-2">
-        <legend className="sr-only">Preferencias de visualización</legend>
+        <legend className="sr-only">{t.accesibilidad.preferenciasVisualizacion}</legend>
         <div className="border-b border-border py-3">
-          <p className="font-semibold">Intensidad visual</p>
-          <p className="text-sm text-muted-foreground">
-            Ajusta cuánto color y cuántos degradados se muestran.
-          </p>
+          <p className="font-semibold">{t.accesibilidad.intensidadVisual}</p>
+          <p className="text-sm text-muted-foreground">{t.accesibilidad.intensidadDesc}</p>
           <div
             role="radiogroup"
-            aria-label="Intensidad visual"
+            aria-label={t.accesibilidad.intensidadVisual}
             className="mt-2 flex flex-wrap gap-2"
           >
             {INTENSIDADES.map((op) => {
               const activa = prefs.intensidad === op.id;
+              const nombre = t.accesibilidad.intensidades[op.id].nombre;
+              const descripcion = t.accesibilidad.intensidades[op.id].descripcion;
               return (
                 <button
                   key={op.id}
                   type="button"
                   role="radio"
                   aria-checked={activa}
-                  title={op.descripcion}
+                  title={descripcion}
                   onClick={() => actualizar({ intensidad: op.id })}
                   className={cn(
                     "inline-flex min-h-11 items-center gap-2 rounded-full border-2 px-3 py-2 text-sm font-semibold transition-colors duration-200",
@@ -144,47 +146,47 @@ export function PanelAccesibilidad({ onCerrar }: { onCerrar: () => void }) {
                       op.id === "vibrante" && "superficie-degradado",
                     )}
                   />
-                  {op.nombre}
+                  {nombre}
                 </button>
               );
             })}
           </div>
           <p className="mt-2 text-sm text-muted-foreground">
-            {INTENSIDADES.find((op) => op.id === prefs.intensidad)?.descripcion}
+            {t.accesibilidad.intensidades[prefs.intensidad].descripcion}
           </p>
         </div>
         <Interruptor
           id="pref-contraste"
-          etiqueta="Alto contraste"
-          descripcion="Refuerza bordes y color del texto."
+          etiqueta={t.accesibilidad.altoContraste}
+          descripcion={t.accesibilidad.altoContrasteDesc}
           activo={prefs.altoContraste}
           onChange={(v) => actualizar({ altoContraste: v })}
         />
         <Interruptor
           id="pref-movimiento"
-          etiqueta="Reducir animaciones"
-          descripcion="Elimina transiciones y movimiento."
+          etiqueta={t.accesibilidad.reducirAnimaciones}
+          descripcion={t.accesibilidad.reducirAnimacionesDesc}
           activo={prefs.movimientoReducido}
           onChange={(v) => actualizar({ movimientoReducido: v })}
         />
         <Interruptor
           id="pref-lectura"
-          etiqueta="Vista de lectura simplificada"
-          descripcion="Menos elementos y una columna estrecha."
+          etiqueta={t.accesibilidad.vistaLectura}
+          descripcion={t.accesibilidad.vistaLecturaDesc}
           activo={prefs.lecturaSimple}
           onChange={(v) => actualizar({ lecturaSimple: v })}
         />
         <Interruptor
           id="pref-tema"
-          etiqueta="Modo oscuro"
-          descripcion="Fondo oscuro y texto claro."
+          etiqueta={t.accesibilidad.modoOscuro}
+          descripcion={t.accesibilidad.modoOscuroDesc}
           activo={prefs.tema === "oscuro"}
           onChange={(v) => actualizar({ tema: v ? "oscuro" : "claro" })}
         />
         <Interruptor
           id="pref-decoracion"
-          etiqueta="Desactivar elementos decorativos"
-          descripcion="Oculta ilustraciones y fondos no informativos."
+          etiqueta={t.accesibilidad.sinDecoracion}
+          descripcion={t.accesibilidad.sinDecoracionDesc}
           activo={prefs.sinDecoracion}
           onChange={(v) => actualizar({ sinDecoracion: v })}
         />
@@ -192,11 +194,11 @@ export function PanelAccesibilidad({ onCerrar }: { onCerrar: () => void }) {
 
       <div className="mt-4 flex items-center justify-between gap-3">
         <p className="m-0 text-sm text-muted-foreground">
-          Tus preferencias se guardan solo en este dispositivo.
+          {t.accesibilidad.prefsGuardadas}
         </p>
         <Boton variante="sutil" tamano="sm" onClick={restablecer}>
           <RotateCcw className="h-4 w-4" aria-hidden="true" />
-          Restablecer
+          {t.acciones.restablecer}
         </Boton>
       </div>
     </div>

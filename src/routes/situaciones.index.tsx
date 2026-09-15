@@ -7,7 +7,7 @@ import { TarjetaSituacion } from "@/components/TarjetaSituacion";
 import { EstadoVacio } from "@/components/EstadoVacio";
 import { categorias } from "@/data/categorias";
 import { situaciones } from "@/data/situaciones";
-import { t } from "@/i18n";
+import { useT } from "@/i18n";
 
 interface Filtros {
   q: string;
@@ -49,6 +49,7 @@ export const Route = createFileRoute("/situaciones/")({
 const contextos = Array.from(new Set(situaciones.map((s) => s.contexto))).sort();
 
 function Situaciones() {
+  const t = useT();
   const filtros = Route.useSearch();
   const navigate = Route.useNavigate();
 
