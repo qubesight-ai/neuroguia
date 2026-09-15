@@ -29,7 +29,7 @@ import { useT } from "@/i18n";
 
 export const Route = createFileRoute("/analizar")({
   validateSearch: (search: Record<string, unknown>) => ({
-    q: typeof search.q === "string" ? search.q : "",
+    q: typeof search["q"] === "string" ? (search["q"] as string) : "",
   }),
   head: () => ({
     meta: [
@@ -143,7 +143,7 @@ function Analizar() {
 
   return (
     <Contenedor className="py-10">
-      <Migas items={[{ etiqueta: t.analizador.titulo }]} />
+      <Migas items={[{ texto: t.analizador.titulo }]} />
       <EncabezadoPagina titulo={t.analizador.titulo} descripcion={t.analizador.descripcion} />
 
       <form onSubmit={enviar} className="mt-8 max-w-3xl">
