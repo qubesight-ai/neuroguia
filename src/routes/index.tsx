@@ -126,6 +126,80 @@ function Inicio() {
         </Contenedor>
       </section>
 
+      <section aria-labelledby="caminos-titulo" className="py-14 sm:py-18">
+        <Contenedor>
+          <p className="antetitulo border-b-2 border-foreground pb-2">Elige tu camino</p>
+          <h2 id="caminos-titulo" className="mt-4 text-3xl sm:text-4xl">
+            ¿Qué quieres explorar hoy?
+          </h2>
+          <p className="mt-2 max-w-2xl text-muted-foreground">
+            Dos recorridos pensados para formas distintas de estar en el mundo. Puedes usar ambos:
+            ninguno excluye al otro.
+          </p>
+
+          <div className="mt-8 grid gap-5 md:grid-cols-2">
+            <Link
+              to="/situaciones"
+              search={{ q: "", categoria: "todas", ambiguedad: "todas", contexto: "todos" }}
+              className="group elevar-suave flex flex-col gap-5 rounded-none border-2 border-foreground p-7 no-underline sm:p-9"
+              data-card
+            >
+              <span
+                className="grid h-16 w-16 place-items-center rounded-full bg-[linear-gradient(135deg,oklch(0.62_0.17_250),oklch(0.7_0.14_200),oklch(0.72_0.13_150))] text-primary-foreground"
+                aria-hidden="true"
+              >
+                <Infinity className="h-8 w-8" strokeWidth={2} />
+              </span>
+              <span className="titular text-3xl sm:text-4xl">Autismo</span>
+              <span className="text-muted-foreground">
+                Situaciones sociales explicadas paso a paso, guiones para responder y señales
+                ambiguas traducidas a lenguaje claro.
+              </span>
+              <span className="mt-auto inline-flex items-center gap-2 border-t-2 border-foreground pt-4 text-[0.78rem] font-bold uppercase tracking-[0.14em]">
+                Entrar al camino autista
+                <ArrowRight
+                  className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
+              </span>
+            </Link>
+
+            <Link
+              to="/tdah-adhd"
+              className="group elevar-suave flex flex-col gap-5 rounded-none border-2 border-foreground p-7 no-underline sm:p-9"
+              data-card
+            >
+              <span
+                className="grid h-16 w-16 place-items-center rounded-full bg-[linear-gradient(135deg,oklch(0.78_0.17_90),oklch(0.72_0.19_55),oklch(0.65_0.22_30))] text-primary-foreground"
+                aria-hidden="true"
+              >
+                <Zap className="h-8 w-8" strokeWidth={2} />
+              </span>
+              <span className="titular text-3xl sm:text-4xl">TDAH / ADHD · ADD</span>
+              <span className="text-muted-foreground">
+                Atención, hiperfoco, impulsos, organización y emociones intensas: estrategias
+                realistas para mentes que no van en línea recta.
+              </span>
+              <span className="mt-auto inline-flex items-center gap-2 border-t-2 border-foreground pt-4 text-[0.78rem] font-bold uppercase tracking-[0.14em]">
+                Entrar al camino TDAH
+                <ArrowRight
+                  className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
+              </span>
+            </Link>
+          </div>
+
+          <p className="mt-6 text-sm text-muted-foreground">
+            ¿Te identificas con ambos o no estás seguro?{" "}
+            <Link to="/situaciones" search={{ q: "", categoria: "todas", ambiguedad: "todas", contexto: "todos" }} className="font-semibold underline underline-offset-2">
+              Explora todo junto
+            </Link>
+            .
+          </p>
+        </Contenedor>
+      </section>
+
       <section aria-labelledby="buscar-titulo" className="py-16 sm:py-20">
         <Contenedor>
           <h2 id="buscar-titulo" className="sr-only">
