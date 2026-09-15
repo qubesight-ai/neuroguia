@@ -62,24 +62,24 @@ export function PanelAccesibilidad({ onCerrar }: { onCerrar: () => void }) {
       ref={contenedor}
       role="dialog"
       aria-modal="false"
-      aria-label="Opciones de accesibilidad"
+      aria-label={t.accesibilidad.titulo}
       className="card-soft absolute right-0 z-50 mt-2 w-[min(22rem,calc(100vw-2rem))] p-5 shadow-soft-lg"
       data-card
     >
       <div className="flex items-center justify-between gap-4">
-        <h2 className="text-lg font-bold">Accesibilidad</h2>
-        <Boton variante="sutil" tamano="sm" onClick={onCerrar} aria-label="Cerrar opciones de accesibilidad">
+        <h2 className="text-lg font-bold">{t.accesibilidad.titulo}</h2>
+        <Boton variante="sutil" tamano="sm" onClick={onCerrar} aria-label={t.accesibilidad.cerrar}>
           <X className="h-5 w-5" aria-hidden="true" />
         </Boton>
       </div>
 
       <fieldset className="mt-4 border-b border-border pb-4">
-        <legend className="font-semibold">Tamaño del texto</legend>
+        <legend className="font-semibold">{t.accesibilidad.tamanoTexto}</legend>
         <div className="mt-2 flex items-center gap-3">
           <Boton
             variante="contorno"
             tamano="sm"
-            aria-label="Reducir el tamaño del texto"
+            aria-label={t.accesibilidad.reducirTexto}
             disabled={prefs.escalaTexto <= ESCALA_MIN}
             onClick={() =>
               actualizar({
@@ -95,7 +95,7 @@ export function PanelAccesibilidad({ onCerrar }: { onCerrar: () => void }) {
           <Boton
             variante="contorno"
             tamano="sm"
-            aria-label="Aumentar el tamaño del texto"
+            aria-label={t.accesibilidad.aumentarTexto}
             disabled={prefs.escalaTexto >= ESCALA_MAX}
             onClick={() =>
               actualizar({
@@ -109,15 +109,13 @@ export function PanelAccesibilidad({ onCerrar }: { onCerrar: () => void }) {
       </fieldset>
 
       <fieldset className="mt-2">
-        <legend className="sr-only">Preferencias de visualización</legend>
+        <legend className="sr-only">{t.accesibilidad.preferenciasVisualizacion}</legend>
         <div className="border-b border-border py-3">
-          <p className="font-semibold">Intensidad visual</p>
-          <p className="text-sm text-muted-foreground">
-            Ajusta cuánto color y cuántos degradados se muestran.
-          </p>
+          <p className="font-semibold">{t.accesibilidad.intensidadVisual}</p>
+          <p className="text-sm text-muted-foreground">{t.accesibilidad.intensidadDesc}</p>
           <div
             role="radiogroup"
-            aria-label="Intensidad visual"
+            aria-label={t.accesibilidad.intensidadVisual}
             className="mt-2 flex flex-wrap gap-2"
           >
             {INTENSIDADES.map((op) => {
