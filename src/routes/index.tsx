@@ -187,7 +187,7 @@ function Inicio() {
       <section aria-labelledby="buscar-titulo" className="py-16 sm:py-20">
         <Contenedor>
           <h2 id="buscar-titulo" className="sr-only">
-            Buscar una situación
+            {t.inicio.buscarSr}
           </h2>
           <div className="card-soft mx-auto max-w-3xl p-6 sm:p-7" data-card>
             <Buscador
@@ -215,19 +215,19 @@ function Inicio() {
             )}
             {consulta && resultados.length === 0 && (
               <div className="mt-4">
-                <EstadoVacio titulo="Sin coincidencias exactas" descripcion={t.busqueda.sinResultados}>
+                <EstadoVacio titulo={t.busqueda.sinCoincidencias} descripcion={t.busqueda.sinResultados}>
               <Link
                 to="/situaciones"
                 search={{ q: "", categoria: "todas", ambiguedad: "todas", contexto: "todos" }}
                 className="inline-flex min-h-11 items-center rounded-xl bg-primary px-4 py-2 font-semibold text-primary-foreground no-underline"
               >
-                Ver todas las situaciones
+                {t.acciones.verTodas}
               </Link>
                   <Link
                     to="/contacto"
                     className="inline-flex min-h-11 items-center rounded-xl border border-input px-4 py-2 font-semibold text-foreground no-underline"
                   >
-                    Enviar una sugerencia
+                    {t.acciones.enviarSugerencia}
                   </Link>
                 </EstadoVacio>
               </div>
@@ -270,13 +270,13 @@ function Inicio() {
 
       <section aria-labelledby="categorias-titulo" className="pb-16 sm:pb-20">
         <Contenedor>
-          <p className="antetitulo border-b-2 border-foreground pb-2">Secciones</p>
-          <h2 id="categorias-titulo" className="mt-4 text-3xl sm:text-4xl">
-            Categorías principales
-          </h2>
-          <p className="mt-2 text-muted-foreground">
-            Elige el tipo de situación que quieres comprender. Puedes leer solo lo que necesitas.
+          <p className="antetitulo border-b-2 border-foreground pb-2">
+            {t.inicio.secciones.antetitulo}
           </p>
+          <h2 id="categorias-titulo" className="mt-4 text-3xl sm:text-4xl">
+            {t.inicio.secciones.titulo}
+          </h2>
+          <p className="mt-2 text-muted-foreground">{t.inicio.secciones.intro}</p>
           <ul className="mt-8 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3">
             {categorias.map((c) => (
               <li key={c.id}>
