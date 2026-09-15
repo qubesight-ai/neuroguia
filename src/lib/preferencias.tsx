@@ -11,8 +11,10 @@ import { escribir, leer } from "./local-storage";
 
 export type Tema = "claro" | "oscuro";
 export type Intensidad = "calma" | "equilibrada" | "vibrante";
+export type Idioma = "es" | "en";
 
 export interface Preferencias {
+  idioma: Idioma;
   escalaTexto: number;
   altoContraste: boolean;
   movimientoReducido: boolean;
@@ -23,6 +25,7 @@ export interface Preferencias {
 }
 
 export const PREFERENCIAS_POR_DEFECTO: Preferencias = {
+  idioma: "es",
   escalaTexto: 1,
   altoContraste: false,
   movimientoReducido: false,
@@ -67,6 +70,7 @@ const CLAVE = "preferencias";
 function aplicar(prefs: Preferencias) {
   if (typeof document === "undefined") return;
   const root = document.documentElement;
+  root.lang = prefs.idioma;
   root.style.setProperty("--font-scale", String(prefs.escalaTexto));
   root.classList.toggle("dark", prefs.tema === "oscuro");
   root.classList.toggle("hc", prefs.altoContraste);
