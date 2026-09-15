@@ -1,6 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { BookOpen, MessageSquareQuote, PlayCircle, ArrowRight, Sparkles } from "lucide-react";
+import {
+  BookOpen,
+  MessageSquareQuote,
+  PlayCircle,
+  ArrowRight,
+  Sparkles,
+  Infinity as InfinityIcon,
+  Zap,
+} from "lucide-react";
 import { estiloFamilia } from "@/lib/paleta";
 import { cn } from "@/lib/utils";
 import { IlustracionInfinito, ManchasFondo } from "@/components/HeroInfinito";
