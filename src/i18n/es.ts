@@ -203,6 +203,6 @@ export const es = {
       "Hecho desde una perspectiva de respeto a la neurodiversidad. Nada sobre nosotros sin nosotros.",
     navPie: "Enlaces del pie de página",
   },
-} as const;
+};
 
 export type Diccionario = typeof es;
