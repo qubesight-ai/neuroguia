@@ -9,6 +9,7 @@ import {
   usePreferencias,
 } from "@/lib/preferencias";
 import { cn } from "@/lib/utils";
+import { useT } from "@/i18n";
 
 function Interruptor({
   id,
@@ -41,6 +42,7 @@ function Interruptor({
 }
 
 export function PanelAccesibilidad({ onCerrar }: { onCerrar: () => void }) {
+  const t = useT();
   const { prefs, actualizar, restablecer } = usePreferencias();
   const contenedor = useRef<HTMLDivElement>(null);
 
