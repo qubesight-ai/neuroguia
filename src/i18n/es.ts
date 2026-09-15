@@ -203,6 +203,37 @@ export const es = {
       "Hecho desde una perspectiva de respeto a la neurodiversidad. Nada sobre nosotros sin nosotros.",
     navPie: "Enlaces del pie de página",
   },
+  analizador: {
+    titulo: "Analizador de situaciones",
+    descripcion:
+      "Describe una situación social que quieras entender. Recibirás hechos, preguntas abiertas, interpretaciones posibles y opciones. No recibirás certezas sobre lo que piensa otra persona.",
+    etiquetaCampo: "Describe la situación",
+    marcador: "Por ejemplo: una persona con la que hablo dejó de responderme desde ayer y no sé si hice algo mal.",
+    boton: "Analizar mi situación",
+    analizando: "Analizando la situación...",
+    minimo: "Escribe un poco más (al menos 20 caracteres) para poder analizar la situación.",
+    errorGenerico: "No se pudo completar el análisis. Puedes intentarlo de nuevo en un momento.",
+    errorLimite: "Hay muchas peticiones en este momento. Espera un minuto y vuelve a intentarlo.",
+    errorCreditos: "El servicio de análisis no está disponible ahora mismo.",
+    resumen: "En resumen",
+    sabemos: "Lo que sabemos",
+    noSabemos: "Lo que todavía no sabemos",
+    interpretaciones: "Interpretaciones posibles",
+    posibilidad: "Posibilidad",
+    senales: "Señales que podrían darte más información",
+    opciones: "Opciones que tienes",
+    beneficio: "Posible beneficio",
+    inconveniente: "Posible inconveniente",
+    frase: "Una frase que podrías usar",
+    adaptar: "Adaptar esta frase",
+    adaptarAyuda: "Puedes editar la frase aquí antes de copiarla.",
+    recuerda: "Recuerda",
+    seguridad: "Seguridad",
+    relacionadas: "También podría ayudarte",
+    nuevo: "Analizar otra situación",
+    privacidad:
+      "Tu texto se procesa para generar el análisis y no se guarda en ningún servidor. Nada queda en un historial.",
+  },
 };
 
 export type Diccionario = typeof es;
