@@ -10,7 +10,15 @@ import { limitesExtra } from "./limites";
 import { mantenerConversacionExtra } from "./mantener-conversacion";
 import { parejaCitasExtra } from "./pareja-citas";
 import { redesSocialesExtra } from "./redes-sociales";
+import { regulacionExtra } from "./regulacion";
 import { reunionesExtra } from "./reuniones";
+import { seguridadExtra } from "./seguridad";
+import { sobrecargaExtra } from "./sobrecarga";
+import { tdahAtencionExtra } from "./tdah-atencion";
+import { tdahHiperfocoExtra } from "./tdah-hiperfoco";
+import { tdahImpulsosExtra } from "./tdah-impulsos";
+import { tdahOrganizacionExtra } from "./tdah-organizacion";
+import { tdahRegulacionExtra } from "./tdah-regulacion";
 import { terminarConversacionExtra } from "./terminar-conversacion";
 import { trabajoExtra } from "./trabajo";
 
@@ -29,7 +37,15 @@ export const situacionesExtra: Situacion[] = [
   ...mantenerConversacionExtra,
   ...parejaCitasExtra,
   ...redesSocialesExtra,
+  ...regulacionExtra,
   ...reunionesExtra,
+  ...seguridadExtra,
+  ...sobrecargaExtra,
+  ...tdahAtencionExtra,
+  ...tdahHiperfocoExtra,
+  ...tdahImpulsosExtra,
+  ...tdahOrganizacionExtra,
+  ...tdahRegulacionExtra,
   ...terminarConversacionExtra,
   ...trabajoExtra,
 ];
