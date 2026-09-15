@@ -375,69 +375,63 @@ function Inicio() {
               className="tarjeta-editorial elevar-suave p-5"
               data-card
             >
-              <h3 className="font-semibold">{guiones.length} guiones sociales</h3>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Frases para pedir claridad, decir no, poner límites o pedir ayuda.
-              </p>
+              <h3 className="font-semibold">
+                {guiones.length} {t.inicio.recursos.guiones.titulo}
+              </h3>
+              <p className="mt-1 text-sm text-muted-foreground">{t.inicio.recursos.guiones.texto}</p>
               <Link to="/guiones" className="mt-4 inline-block text-sm font-semibold text-foreground">
-                Ver guiones
+                {t.inicio.recursos.guiones.enlace}
               </Link>
             </li>
             <li
               className="tarjeta-editorial elevar-suave p-5"
               data-card
             >
-              <h3 className="font-semibold">{ejercicios.length} ejercicios interactivos</h3>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Practica sin calificaciones de «correcto» o «incorrecto».
-              </p>
+              <h3 className="font-semibold">
+                {ejercicios.length} {t.inicio.recursos.simulador.titulo}
+              </h3>
+              <p className="mt-1 text-sm text-muted-foreground">{t.inicio.recursos.simulador.texto}</p>
               <Link to="/simulador" className="mt-4 inline-block text-sm font-semibold text-foreground">
-                Abrir simulador
+                {t.inicio.recursos.simulador.enlace}
               </Link>
             </li>
             <li
               className="tarjeta-editorial elevar-suave p-5"
               data-card
             >
-              <h3 className="font-semibold">Límites y seguridad</h3>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Reconocer presión, manipulación y relaciones poco saludables.
-              </p>
+              <h3 className="font-semibold">{t.inicio.recursos.seguridad.titulo}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{t.inicio.recursos.seguridad.texto}</p>
               <Link
                 to="/limites-y-seguridad"
                 className="mt-4 inline-block text-sm font-semibold text-foreground"
               >
-                Leer la guía
+                {t.inicio.recursos.seguridad.enlace}
               </Link>
             </li>
             <li
               className="tarjeta-editorial elevar-suave p-5"
               data-card
             >
-              <h3 className="font-semibold">Mi plan de regulación</h3>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Un plan editable que se guarda solo en tu dispositivo.
-              </p>
+              <h3 className="font-semibold">{t.inicio.recursos.plan.titulo}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{t.inicio.recursos.plan.texto}</p>
               <Link to="/regulacion" className="mt-4 inline-block text-sm font-semibold text-foreground">
-                Crear mi plan
+                {t.inicio.recursos.plan.enlace}
               </Link>
             </li>
           </ul>
 
           <div className="mt-8">
-            <Aviso tipo="riesgo" titulo="Si estás en peligro inmediato">
-              Comunícate con los servicios de emergencia de tu país o busca ayuda de una persona de
-              confianza. Este sitio ofrece información educativa y no sustituye atención
-              psicológica, médica ni legal.
+            <Aviso tipo="riesgo" titulo={t.inicio.recursos.peligroTitulo}>
+              {t.inicio.recursos.peligroTexto}
             </Aviso>
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/sobre-el-proyecto" className="no-underline">
-              <Boton variante="contorno">Sobre el proyecto</Boton>
+              <Boton variante="contorno">{t.inicio.recursos.sobre}</Boton>
             </Link>
             <Link to="/contacto" className="no-underline">
-              <Boton variante="sutil">Enviar una sugerencia</Boton>
+              <Boton variante="sutil">{t.inicio.recursos.sugerencia}</Boton>
             </Link>
           </div>
         </Contenedor>
