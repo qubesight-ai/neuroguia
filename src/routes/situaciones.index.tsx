@@ -7,7 +7,7 @@ import { TarjetaSituacion } from "@/components/TarjetaSituacion";
 import { EstadoVacio } from "@/components/EstadoVacio";
 import { categorias } from "@/data/categorias";
 import { situaciones } from "@/data/situaciones";
-import { t } from "@/i18n";
+import { useT } from "@/i18n";
 
 interface Filtros {
   q: string;
