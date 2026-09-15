@@ -10,6 +10,7 @@ export const es = {
   nav: {
     inicio: "Inicio",
     situaciones: "Situaciones",
+    analizador: "Analizador",
     simulador: "Simulador",
     guiones: "Guiones",
     relaciones: "Relaciones",

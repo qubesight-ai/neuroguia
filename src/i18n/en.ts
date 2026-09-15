@@ -11,6 +11,7 @@ export const en: Diccionario = {
   nav: {
     inicio: "Home",
     situaciones: "Situations",
+    analizador: "Analyser",
     simulador: "Simulator",
     guiones: "Scripts",
     relaciones: "Relationships",

@@ -24,6 +24,7 @@ export function Header() {
   const enlaces = [
     { to: "/", texto: t.nav.inicio, exact: true },
     { to: "/situaciones", texto: t.nav.situaciones },
+    { to: "/analizar", texto: t.nav.analizador },
     { to: "/simulador", texto: t.nav.simulador },
     { to: "/guiones", texto: t.nav.guiones },
     { to: "/relaciones", texto: t.nav.relaciones },
